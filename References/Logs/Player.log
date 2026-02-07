@@ -1,0 +1,1273 @@
+2026-02-07T21:01:32.985 INFO ThunderRoad.GameManager.Awake                   : EnableAlphaToCoverage: False MSAA is disabled
+2026-02-07T21:01:32.986 INFO ThunderRoad.GameManager.Awake                   : Tonemapping: set defaults
+2026-02-07T21:01:32.992 INFO Unity: Disabling InputSystemUIInputModule on Android
+2026-02-07T21:01:33.312 INFO T.ThunderRoadSettings.GetAudioMixerGroup        : ThunderRoad settings loaded, game settings: BladeAndSorcery, build settings: Quest
+2026-02-07T21:01:33.313 WARN Unity: [Bhaptics] no player running, feature disabled.
+2026-02-07T21:01:33.322 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : GameManager init started in 0.58 sec
+2026-02-07T21:01:33.323 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Build: Quest
+2026-02-07T21:01:33.324 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Build Quality: Android
+2026-02-07T21:01:33.539 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Found XR Loader: Unity.XR.Oculus.OculusLoader
+2026-02-07T21:01:33.709 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : XR Active Loader : Oculus Loader - Unity.XR.Oculus.OculusLoader
+2026-02-07T21:01:33.710 INFO T.PlayerControl.<LoadXR>d__103.MoveNext         : Using XR input system
+2026-02-07T21:01:33.711 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Found Left controller Oculus Touch Controller - Left | Oculus | supportsImpulse: True
+2026-02-07T21:01:33.712 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Found Right controller Oculus Touch Controller - Right | Oculus | supportsImpulse: True
+2026-02-07T21:01:33.713 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : HeadDevice: Meta Quest 3
+2026-02-07T21:01:33.713 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Loader: Oculus | Controllers: OculusTouch
+2026-02-07T21:01:33.737 INFO ThunderRoad.InputXR.Update                      : System menu closed
+2026-02-07T21:01:33.739 INFO ThunderRoad.UpdateManager.Update                : User presence detected
+2026-02-07T21:01:33.791 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Platform [Android] Meta: Dynamic resolution scaling enabled
+2026-02-07T21:01:33.792 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Platform [Android] initialized
+2026-02-07T21:01:33.794 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Headset refresh rate: 72
+2026-02-07T21:01:33.795 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Create mods directory (android) and copy readme.txt
+2026-02-07T21:01:33.798 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Game version: 1.1.2.251210002
+Operating system: Android OS 14 / API-34 (UP1A.231005.007.A1/2434180088800610)
+Quality Level: Android
+
+2026-02-07T21:01:33.799 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : [system info]
+[deviceModel] :Oculus Quest
+[deviceType] :Handheld
+[graphicsDeviceName] :Adreno (TM) 740
+[graphicsDeviceType] :Vulkan
+[graphicsDeviceVendor] :Qualcomm
+[graphicsMemorySize] :8012
+[graphicsShaderLevel] :50
+[operatingSystem] :Android OS 14 / API-34 (UP1A.231005.007.A1/2434180088800610)
+[processorType] :ARM64
+[processorCount] :3
+[processorFrequency] :2361
+[systemMemorySize] :7756
+[IsMobilePlatform] :True
+[supportsMultisampleAutoResolve] :True
+[platformRequiresExplicitMsaaResolve] :False
+[RenderingThreadMode: MultiThreaded]
+[HiddenSurfaceRemoval: True]
+
+2026-02-07T21:01:33.812 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Load options...
+2026-02-07T21:01:33.846 INFO ThunderRoad.Options..ctor                       : OVRManager.suggestedCpuPerfLevel: Boost
+2026-02-07T21:01:33.847 INFO ThunderRoad.Options..ctor                       : OVRManager.suggestedGpuPerfLevel: Boost
+2026-02-07T21:01:33.848 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Creating new option file. Version: 9
+2026-02-07T21:01:33.910 INFO ThunderRoad.StoreOculus.EntitlementCallback     : [ThunderRoad.StoreOculus] Entitlement successful
+2026-02-07T21:01:33.921 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Load default json catalog...
+2026-02-07T21:01:33.923 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Loading default catalogs
+2026-02-07T21:01:33.924 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Loading default catalog in folder: bas
+2026-02-07T21:01:33.925 INFO ThunderRoad.Catalog.LoadDefaultCatalogs         : [Catalog][bas] Loading file: com.Warpfrog.BladeAndSorcery/bas.jsondb
+2026-02-07T21:01:39.959 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : [Catalog][bas]- Loaded file: com.Warpfrog.BladeAndSorcery/bas.jsondb
+2026-02-07T21:01:39.960 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Loaded catalog in folder: bas
+2026-02-07T21:01:39.960 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Finished loading default catalogs
+2026-02-07T21:01:39.961 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : ------------> Default json catalog loaded in 6.04 sec
+2026-02-07T21:01:39.973 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_ALL_ACHIEVEMENTS, Type: Simple, Target: 0
+2026-02-07T21:01:39.974 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_DRAINAGE_LEVER, Type: Simple, Target: 0
+2026-02-07T21:01:39.975 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_WATERFALL_LEVER, Type: Simple, Target: 0
+2026-02-07T21:01:39.976 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_CARL, Type: Simple, Target: 0
+2026-02-07T21:01:39.976 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_CUPBENDING, Type: Simple, Target: 0
+2026-02-07T21:01:39.977 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_BIRD_NEST, Type: Simple, Target: 0
+2026-02-07T21:01:39.978 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_WATCHTOWER_WELL, Type: Simple, Target: 0
+2026-02-07T21:01:39.978 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_EAT_POO, Type: Simple, Target: 0
+2026-02-07T21:01:39.979 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_FIND_POO, Type: Simple, Target: 0
+2026-02-07T21:01:39.979 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_CLIMBING_CHASM, Type: Simple, Target: 0
+2026-02-07T21:01:39.980 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_MARKET_WELL, Type: Simple, Target: 0
+2026-02-07T21:01:39.981 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_KILL_SHOPKEEPER, Type: Simple, Target: 0
+2026-02-07T21:01:39.981 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_CHANDELIER, Type: Simple, Target: 0
+2026-02-07T21:01:39.982 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_CITADEL_SKYCELL, Type: Simple, Target: 0
+2026-02-07T21:01:39.982 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_BARON_HAT, Type: Simple, Target: 0
+2026-02-07T21:01:39.983 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_FALCHION, Type: Simple, Target: 0
+2026-02-07T21:01:39.984 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_CITADEL_TUNNELS, Type: Simple, Target: 0
+2026-02-07T21:01:39.984 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_BAGUETTE_SWORD, Type: Simple, Target: 0
+2026-02-07T21:01:39.985 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_CHICKEN, Type: Simple, Target: 0
+2026-02-07T21:01:39.986 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_CITADEL_PEAK, Type: Simple, Target: 0
+2026-02-07T21:01:39.986 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_FIRST_CRYSTAL_MERGE, Type: Simple, Target: 0
+2026-02-07T21:01:39.987 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_COMPLETE_DALGARIAN, Type: Simple, Target: 0
+2026-02-07T21:01:39.987 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_COMPLETE_TUTORIAL, Type: Simple, Target: 0
+2026-02-07T21:01:39.988 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_NO_KILL_DUNGEON, Type: Simple, Target: 0
+2026-02-07T21:01:39.989 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_T3_DUNGEON_T0_EQUIPMENT, Type: Simple, Target: 0
+2026-02-07T21:01:39.989 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_COMPLETE_SURVIVAL_10, Type: Simple, Target: 0
+2026-02-07T21:01:39.990 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_KHEMENET_ENDING, Type: Simple, Target: 0
+2026-02-07T21:01:39.990 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_T3_ARMOR, Type: Simple, Target: 0
+2026-02-07T21:01:39.991 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_BUY_T4_WEAPON, Type: Simple, Target: 0
+2026-02-07T21:01:39.992 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_BUY_ALL_SKILLS_IN_TREE, Type: Simple, Target: 0
+2026-02-07T21:01:39.992 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_T3_CRYSTAL_MERGE, Type: Simple, Target: 0
+2026-02-07T21:01:39.993 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_COMPLETE_PERMADEATH, Type: Simple, Target: 0
+2026-02-07T21:01:39.993 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_COMPLETE_SURVIVAL_50, Type: Simple, Target: 0
+2026-02-07T21:01:39.994 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_SHOP_LORE, Type: Simple, Target: 0
+2026-02-07T21:01:39.994 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_BUY_ALL_SKILLS, Type: Simple, Target: 0
+2026-02-07T21:01:39.995 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_BUY_ALL_T4_WEAPONS, Type: Simple, Target: 0
+2026-02-07T21:01:39.995 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement: ACH_ANNIHILATION_ENDING, Type: Simple, Target: 0
+2026-02-07T21:01:39.996 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : process command line args: /system/bin/app_process64
+2026-02-07T21:01:39.997 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Force load default folder: bas
+2026-02-07T21:01:40.012 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : ------------> Addressables InitializeAsync..
+2026-02-07T21:01:40.041 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : ------------> Addressables InitializeAsync completed in 0.03 sec
+2026-02-07T21:01:40.061 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Load addressable assets...
+2026-02-07T21:01:40.084 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Load default assets...
+2026-02-07T21:01:40.199 INFO DelegateList`1.Invoke                           : Successfully loaded content catalog at path /sdcard/Android/obb/com.Warpfrog.BladeAndSorcery/catalog_bas.json
+2026-02-07T21:01:40.200 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Successfully loaded default assets
+2026-02-07T21:01:40.201 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : ------------> Content catalog loaded in 0.12 sec
+2026-02-07T21:01:40.202 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Refresh catalog...
+2026-02-07T21:01:40.235 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Game data refreshed in 0.02 sec
+2026-02-07T21:01:40.264 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Text refreshed 11 entries in 0.03 sec
+2026-02-07T21:01:40.283 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Wave refreshed 108 entries in 0.02 sec
+2026-02-07T21:01:40.310 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Creature refreshed 6 entries in 0.03 sec
+2026-02-07T21:01:40.327 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] CreatureTable refreshed 78 entries in 0.02 sec
+2026-02-07T21:01:40.345 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] LootTable refreshed 202 entries in 0.02 sec
+2026-02-07T21:01:40.362 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Container refreshed 74 entries in 0.02 sec
+2026-02-07T21:01:40.863 INFO ThunderRoad.TimeManager.CheckRefreshRateChange  : Refresh Timestep | Headset refresh rate: 72
+2026-02-07T21:01:41.575 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Item refreshed 491 entries in 1.21 sec
+2026-02-07T21:01:41.583 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Brain refreshed 13 entries in 0.01 sec
+2026-02-07T21:01:41.604 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Effect refreshed 280 entries in 0.02 sec
+2026-02-07T21:01:41.654 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Material refreshed 18 entries in 0.05 sec
+2026-02-07T21:01:41.705 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Interactable refreshed 68 entries in 0.05 sec
+2026-02-07T21:01:41.728 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Damager refreshed 40 entries in 0.02 sec
+2026-02-07T21:01:41.751 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] HandPose refreshed 50 entries in 0.02 sec
+2026-02-07T21:01:41.769 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Expression refreshed 5 entries in 0.02 sec
+2026-02-07T21:01:41.933 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Level refreshed 16 entries in 0.16 sec
+2026-02-07T21:01:41.995 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Menu refreshed 4 entries in 0.06 sec
+2026-02-07T21:01:42.009 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] ColliderGroup refreshed 19 entries in 0.01 sec
+2026-02-07T21:01:42.024 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] DamageModifier refreshed 22 entries in 0.01 sec
+2026-02-07T21:01:42.041 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Skill refreshed 96 entries in 0.02 sec
+2026-02-07T21:01:42.054 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] BehaviorTree refreshed 28 entries in 0.01 sec
+2026-02-07T21:01:42.069 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EffectGroup refreshed 22 entries in 0.01 sec
+2026-02-07T21:01:42.083 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Liquid refreshed 1 entries in 0.01 sec
+2026-02-07T21:01:42.098 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] MusicGroup refreshed 34 entries in 0.01 sec
+2026-02-07T21:01:42.113 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Music refreshed 8 entries in 0.01 sec
+2026-02-07T21:01:42.127 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Animation refreshed 30 entries in 0.01 sec
+2026-02-07T21:01:42.141 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Voice refreshed 18 entries in 0.01 sec
+2026-02-07T21:01:42.155 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaConnectionType refreshed 7 entries in 0.01 sec
+2026-02-07T21:01:43.366 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Area refreshed 103 entries in 1.21 sec
+2026-02-07T21:01:43.388 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaTable refreshed 25 entries in 0.02 sec
+2026-02-07T21:01:43.431 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaCollection refreshed 19 entries in 0.04 sec
+2026-02-07T21:01:43.457 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Shop refreshed 1 entries in 0.03 sec
+2026-02-07T21:01:43.485 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Custom refreshed 0 entries in 0.03 sec
+2026-02-07T21:01:43.522 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Keyboard refreshed 2 entries in 0.04 sec
+2026-02-07T21:01:43.548 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] GameMode refreshed 2 entries in 0.02 sec
+2026-02-07T21:01:43.562 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Status refreshed 8 entries in 0.01 sec
+2026-02-07T21:01:43.576 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Stance refreshed 3 entries in 0.01 sec
+2026-02-07T21:01:43.590 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EntityModule refreshed 0 entries in 0.01 sec
+2026-02-07T21:01:43.603 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] SkillTree refreshed 6 entries in 0.01 sec
+2026-02-07T21:01:43.617 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EnemyConfig refreshed 9 entries in 0.01 sec
+2026-02-07T21:01:43.631 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] LootConfig refreshed 7 entries in 0.01 sec
+2026-02-07T21:01:43.632 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Refreshed 651 entries in 3.43 sec
+2026-02-07T21:01:43.687 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Set monitor resolution...
+2026-02-07T21:01:43.689 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Load menu prefab...
+2026-02-07T21:01:43.850 INFO ThunderRoad.GameManager.<Init>d__80.MoveNext    : Apply options
+2026-02-07T21:01:43.955 INFO ThunderRoad.Options.Apply                       : Refresh Timestep | Headset refresh rate: 72
+2026-02-07T21:01:43.960 WARN T.LocalizationManager.OnLanguageChanged         : [Localization Manager] Text Data - Duplicated text group: Default
+2026-02-07T21:01:43.963 WARN T.LocalizationManager.OnLanguageChanged         : [Localization Manager] Text Data - Duplicated text group: Default
+2026-02-07T21:01:44.242 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : ------------> Master level loaded in 0.28 sec
+2026-02-07T21:01:44.322 INFO ThunderRoad.UIList.Init                         : displayFrequenciesAvailable 72
+2026-02-07T21:01:44.323 INFO ThunderRoad.UIList.Init                         : displayFrequenciesAvailable 80
+2026-02-07T21:01:44.324 INFO ThunderRoad.UIList.Init                         : displayFrequenciesAvailable 90
+2026-02-07T21:01:44.325 INFO ThunderRoad.UIList.Init                         : displayFrequenciesAvailable 120
+2026-02-07T21:01:44.340 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Achievements Manager] Initializing achievements...
+2026-02-07T21:01:44.416 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Achievements Manager] Loaded 37 achievements
+2026-02-07T21:01:44.422 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Current level  unloaded in: 0.00 sec
+2026-02-07T21:01:44.427 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Load Addressable Assets...
+2026-02-07T21:01:44.464 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Game data Addressable Assets loaded in 0.03 sec
+2026-02-07T21:01:44.478 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Text loaded addressable assets for 11 entries in 0.01 sec
+2026-02-07T21:01:44.496 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Wave loaded addressable assets for 108 entries in 0.02 sec
+2026-02-07T21:01:44.648 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][AnnihilationEnding] Success:True | Unlocked: False
+2026-02-07T21:01:44.673 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CitadelPeak] Success:True | Unlocked: False
+2026-02-07T21:01:44.687 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][BirdNest] Success:True | Unlocked: False
+2026-02-07T21:01:44.688 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][BuyAllSkills] Success:True | Unlocked: False
+2026-02-07T21:01:44.701 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][BuyAllSkillsInTree] Success:True | Unlocked: False
+2026-02-07T21:01:44.715 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][BuyAllTier4Weapons] Success:True | Unlocked: False
+2026-02-07T21:01:44.716 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][BuyT4Weapon] Success:True | Unlocked: False
+2026-02-07T21:01:44.717 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CitadelSkyCell] Success:True | Unlocked: False
+2026-02-07T21:01:44.743 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CitadelTunnels] Success:True | Unlocked: False
+2026-02-07T21:01:44.744 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][ClimbingChasm] Success:True | Unlocked: False
+2026-02-07T21:01:44.785 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CompleteDalgarian] Success:True | Unlocked: False
+2026-02-07T21:01:44.785 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CompleteSurvivalWaves10] Success:True | Unlocked: False
+2026-02-07T21:01:44.798 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CollectAllShopLore] Success:True | Unlocked: False
+2026-02-07T21:01:44.812 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CompleteSurvivalWaves50] Success:True | Unlocked: False
+2026-02-07T21:01:44.840 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CompleteAllAchievements] Success:True | Unlocked: False
+2026-02-07T21:01:44.856 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement ACH_COMPLETE_TUTORIAL unlocked: True
+2026-02-07T21:01:44.857 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][CompleteTutorial] Success:True | Unlocked: True
+2026-02-07T21:01:44.858 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][DrainageLever] Success:True | Unlocked: False
+2026-02-07T21:01:44.868 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][FindBaronHat] Success:True | Unlocked: False
+2026-02-07T21:01:44.882 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][FindBaguetteSword] Success:True | Unlocked: False
+2026-02-07T21:01:44.909 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][EatPoo] Success:True | Unlocked: False
+2026-02-07T21:01:44.910 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][FindCupbending] Success:True | Unlocked: False
+2026-02-07T21:01:44.923 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][FindCarl] Success:True | Unlocked: False
+2026-02-07T21:01:44.951 INFO Oculus.Platform.Request`1.HandleMessage         : [Oculus] Achievement ACH_CHICKEN unlocked: True
+2026-02-07T21:01:44.952 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][FindChicken] Success:True | Unlocked: True
+2026-02-07T21:01:44.953 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][FindFalchion] Success:True | Unlocked: False
+2026-02-07T21:01:44.953 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][FindPoo] Success:True | Unlocked: False
+2026-02-07T21:01:44.954 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][FullTier3Apparel] Success:True | Unlocked: False
+2026-02-07T21:01:44.955 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Creature loaded addressable assets for 6 entries in 0.46 sec
+2026-02-07T21:01:44.965 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] CreatureTable loaded addressable assets for 78 entries in 0.01 sec
+2026-02-07T21:01:44.979 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][KillShopKeeper] Success:True | Unlocked: False
+2026-02-07T21:01:44.981 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] LootTable loaded addressable assets for 202 entries in 0.02 sec
+2026-02-07T21:01:44.992 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][MarketWell] Success:True | Unlocked: False
+2026-02-07T21:01:44.995 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Container loaded addressable assets for 74 entries in 0.01 sec
+2026-02-07T21:01:45.580 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][KhemenetEnding] Success:True | Unlocked: False
+2026-02-07T21:01:45.581 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][MergeCrystalsFirst] Success:True | Unlocked: False
+2026-02-07T21:01:45.584 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][MergeCrystalsT3] Success:True | Unlocked: False
+2026-02-07T21:01:45.585 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][NoKillDungeon] Success:True | Unlocked: False
+2026-02-07T21:01:45.586 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][OutpostWatchtowerWell] Success:True | Unlocked: False
+2026-02-07T21:01:45.586 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][PermadeathCompletion] Success:True | Unlocked: False
+2026-02-07T21:01:45.587 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][SanctuaryChandelier] Success:True | Unlocked: False
+2026-02-07T21:01:45.588 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][T3DungeonT0Equipment] Success:True | Unlocked: False
+2026-02-07T21:01:45.631 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : [CompleteAllAchievements] TryUnlockCompletion.
+2026-02-07T21:01:45.632 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Failed to unlock completion achievement. Outputting missing achievements.
+2026-02-07T21:01:45.632 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'AnnihilationEnding' (Unlock logic type: GameCompletionAchievement)
+2026-02-07T21:01:45.633 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'BirdNest' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.633 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'BuyAllSkills' (Unlock logic type: BuyAllSkillsAchievement)
+2026-02-07T21:01:45.634 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'BuyAllSkillsInTree' (Unlock logic type: CompleteSkillTreeAchievement)
+2026-02-07T21:01:45.635 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'BuyAllTier4Weapons' (Unlock logic type: BuyAllT4Weapons)
+2026-02-07T21:01:45.636 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'BuyT4Weapon' (Unlock logic type: BuyT4WeaponAchievement)
+2026-02-07T21:01:45.636 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'CitadelPeak' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.637 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'CitadelSkyCell' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.637 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'CitadelTunnels' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.638 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'ClimbingChasm' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.639 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'CollectAllShopLore' (Unlock logic type: CollectShopkeeperLore)
+2026-02-07T21:01:45.639 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'CompleteAllAchievements' (Unlock logic type: CompleteAllAchievements)
+2026-02-07T21:01:45.640 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'CompleteDalgarian' (Unlock logic type: CompleteDalgarianAchievement)
+2026-02-07T21:01:45.640 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'CompleteSurvivalWaves10' (Unlock logic type: SurvivalWaveAchievement)
+2026-02-07T21:01:45.641 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'CompleteSurvivalWaves50' (Unlock logic type: SurvivalWaveAchievement)
+2026-02-07T21:01:45.641 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'DrainageLever' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.642 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'EatPoo' (Unlock logic type: EatPooAchievement)
+2026-02-07T21:01:45.643 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'FindBaguetteSword' (Unlock logic type: FindBaguetteSword)
+2026-02-07T21:01:45.643 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'FindBaronHat' (Unlock logic type: FindBaronHatAchievement)
+2026-02-07T21:01:45.644 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'FindCarl' (Unlock logic type: FindCarlAchievement)
+2026-02-07T21:01:45.644 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'FindCupbending' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.645 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'FindFalchion' (Unlock logic type: FindFalchionAchievement)
+2026-02-07T21:01:45.646 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'FindPoo' (Unlock logic type: FindPooAchievement)
+2026-02-07T21:01:45.646 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'FullTier3Apparel' (Unlock logic type: FullT3Apparel)
+2026-02-07T21:01:45.647 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'KhemenetEnding' (Unlock logic type: GameCompletionAchievement)
+2026-02-07T21:01:45.648 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'KillShopKeeper' (Unlock logic type: KillShopKeeperAchievement)
+2026-02-07T21:01:45.648 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'MarketWell' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.649 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'MergeCrystalsFirst' (Unlock logic type: MergeCrystalAchievement)
+2026-02-07T21:01:45.650 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'MergeCrystalsT3' (Unlock logic type: MergeCrystalT3Achievement)
+2026-02-07T21:01:45.650 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'NoKillDungeon' (Unlock logic type: NoKillDungeonAchievement)
+2026-02-07T21:01:45.655 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'OutpostWatchtowerWell' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.656 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'PermadeathCompletion' (Unlock logic type: GameCompletionAchievement)
+2026-02-07T21:01:45.656 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'SanctuaryChandelier' (Unlock logic type: DarkMessiahAchievement)
+2026-02-07T21:01:45.657 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'T3DungeonT0Equipment' (Unlock logic type: T3DungeonT0EquipmentAchievement)
+2026-02-07T21:01:45.657 INFO T.A.A.<LoadAchievementsCoroutine>d__10.MoveNext : Missing 'WaterfallLever' (Unlock logic type: AchievementTool activated (zone or event linker))
+2026-02-07T21:01:45.673 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Item loaded addressable assets for 491 entries in 0.68 sec
+2026-02-07T21:01:45.687 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Brain loaded addressable assets for 13 entries in 0.01 sec
+2026-02-07T21:01:46.837 INFO T.S.<.MoveNext                                  : [Achievements Manager][Oculus][WaterfallLever] Success:True | Unlocked: False
+2026-02-07T21:01:49.504 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Effect loaded addressable assets for 280 entries in 3.82 sec
+2026-02-07T21:01:49.519 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Material loaded addressable assets for 18 entries in 0.01 sec
+2026-02-07T21:01:49.532 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Interactable loaded addressable assets for 68 entries in 0.01 sec
+2026-02-07T21:01:49.546 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Damager loaded addressable assets for 40 entries in 0.01 sec
+2026-02-07T21:01:49.560 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] HandPose loaded addressable assets for 50 entries in 0.01 sec
+2026-02-07T21:01:49.575 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Expression loaded addressable assets for 5 entries in 0.01 sec
+2026-02-07T21:01:49.589 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Level loaded addressable assets for 16 entries in 0.01 sec
+2026-02-07T21:01:49.603 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Menu loaded addressable assets for 4 entries in 0.01 sec
+2026-02-07T21:01:49.617 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] ColliderGroup loaded addressable assets for 19 entries in 0.01 sec
+2026-02-07T21:01:49.631 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] DamageModifier loaded addressable assets for 22 entries in 0.01 sec
+2026-02-07T21:01:49.646 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Skill loaded addressable assets for 96 entries in 0.01 sec
+2026-02-07T21:01:49.659 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] BehaviorTree loaded addressable assets for 28 entries in 0.01 sec
+2026-02-07T21:01:49.673 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EffectGroup loaded addressable assets for 22 entries in 0.01 sec
+2026-02-07T21:01:49.687 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Liquid loaded addressable assets for 1 entries in 0.01 sec
+2026-02-07T21:01:49.701 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] MusicGroup loaded addressable assets for 34 entries in 0.01 sec
+2026-02-07T21:01:49.715 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Music loaded addressable assets for 8 entries in 0.01 sec
+2026-02-07T21:01:50.044 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Animation loaded addressable assets for 30 entries in 0.33 sec
+2026-02-07T21:01:51.522 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Voice loaded addressable assets for 18 entries in 1.48 sec
+2026-02-07T21:01:51.535 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaConnectionType loaded addressable assets for 7 entries in 0.01 sec
+2026-02-07T21:01:51.549 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Area loaded addressable assets for 103 entries in 0.01 sec
+2026-02-07T21:01:51.563 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaTable loaded addressable assets for 25 entries in 0.01 sec
+2026-02-07T21:01:51.576 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaCollection loaded addressable assets for 19 entries in 0.01 sec
+2026-02-07T21:01:51.591 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Shop loaded addressable assets for 1 entries in 0.01 sec
+2026-02-07T21:01:51.605 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Custom loaded addressable assets for 0 entries in 0.01 sec
+2026-02-07T21:01:51.753 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Keyboard loaded addressable assets for 2 entries in 0.15 sec
+2026-02-07T21:01:51.766 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] GameMode loaded addressable assets for 2 entries in 0.01 sec
+2026-02-07T21:01:51.781 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Status loaded addressable assets for 8 entries in 0.01 sec
+2026-02-07T21:01:52.035 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Stance loaded addressable assets for 3 entries in 0.25 sec
+2026-02-07T21:01:52.057 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EntityModule loaded addressable assets for 0 entries in 0.02 sec
+2026-02-07T21:01:52.075 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] SkillTree loaded addressable assets for 6 entries in 0.02 sec
+2026-02-07T21:01:52.092 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EnemyConfig loaded addressable assets for 9 entries in 0.02 sec
+2026-02-07T21:01:52.109 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] LootConfig loaded addressable assets for 7 entries in 0.02 sec
+2026-02-07T21:01:52.109 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Loaded Addressable Assets for 830 entries in 7.68 sec
+2026-02-07T21:01:52.110 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Loaded LoadAddressableAssetsCoroutine in: 7.68 sec
+2026-02-07T21:01:52.125 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Load level MainMenu
+Modules:
+
+2026-02-07T21:01:52.709 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Tonemapping: set defaults
+2026-02-07T21:01:52.764 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [MusicManager] Music MusicMainMenu loaded !
+2026-02-07T21:01:53.914 INFO UnityEngine.Events.InvokableCall`1.Invoke       : [MusicManager] Start transition from type :  to type : MainMenuIntro
+2026-02-07T21:01:53.933 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Level MainMenu OnLevelLoadCoroutine in: 1.22 sec
+2026-02-07T21:01:53.934 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Level MainMenu loaded in: 1.81 sec
+2026-02-07T21:01:53.935 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Total time to load MainMenu: 9.51 sec
+2026-02-07T21:01:53.949 INFO ThunderRoad.PlayerFoot.Awake                    : SetDefaultPosition
+2026-02-07T21:01:53.951 INFO ThunderRoad.PlayerFoot.Awake                    : SetDefaultPosition
+2026-02-07T21:01:53.956 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : ------------> Game loaded in 21.21 sec
+2026-02-07T21:01:56.045 INFO T.ModManager.<LoadCoroutine>d__19.MoveNext      : [ModManager] Loaded mod folder EnemyImbuePresets
+2026-02-07T21:01:56.048 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][Assembly] Loading Metadata Assemblies
+2026-02-07T21:01:56.052 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][Assembly] Loaded 0 of Metadata Assemblies
+2026-02-07T21:01:56.060 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][Assembly] Loading Mod Assemblies
+2026-02-07T21:01:56.061 INFO ThunderRoad.ModManager.LoadAssembly             : [ModManager][Assembly][EnemyImbuePresets] Loading Assembly: EnemyImbuePresets/EnemyImbuePresets.dll
+2026-02-07T21:01:56.065 INFO ThunderRoad.ModManager.LoadAssembly             : [ModManager][Assembly][EnemyImbuePresets] Loaded Assembly: EnemyImbuePresets/EnemyImbuePresets.dll
+2026-02-07T21:01:56.071 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][Assembly] Loaded Mod Assemblies
+2026-02-07T21:01:56.072 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][Addressable] Loading Mod Addressables
+2026-02-07T21:01:56.090 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][Addressable] Loaded Mod Addressables
+2026-02-07T21:01:56.091 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][Catalog] Loading Mod Catalogs
+2026-02-07T21:01:56.104 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][Catalog] Loaded Mod Catalogs
+2026-02-07T21:01:56.105 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][AddressableAsset] Loading Mod Addressable Assets
+2026-02-07T21:01:56.119 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][AddressableAsset] Loaded Mod Addressable Assets
+2026-02-07T21:01:56.119 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][ModOption] Loading Mod Options
+2026-02-07T21:01:56.130 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][ModOption][EnemyImbuePresets] Loaded 104 ModOptions
+2026-02-07T21:01:56.135 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][ModOption] Loaded Mod Options
+2026-02-07T21:01:56.136 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][ThunderScript] Loading Mod ThunderScripts
+2026-02-07T21:01:56.141 INFO ThunderRoad.ThunderScript.Enable                : [EIP] Enemy Imbue Presets v0.4.0 enabled.
+2026-02-07T21:01:56.175 INFO ThunderRoad.ThunderScript.Enable                : [EIP] Enemy imbue manager initialized.
+2026-02-07T21:01:56.187 INFO EnemyImbuePresets.Core.EIPModule.ScriptEnable   : [EIP] Preset batch wrote faction collapsible values: profile=LoreFriendly, imbue=LoreAccurate, chance=LowIntensity, strength=FaintCharge, valuesChanged=True, uiSynced=True, force=True
+2026-02-07T21:01:56.188 INFO ThunderRoad.ThunderScript.Enable                : [EIP] Event hooks subscribed.
+2026-02-07T21:01:56.189 INFO T.M.<LoadModThunderScripts>d__27.MoveNext       : [ModManager][ThunderScript][EnemyImbuePresets] Loaded ThunderScript: EnemyImbuePresets.Core.EIPModule on mod: Enemy Imbue Presets in assembly: EnemyImbuePresets, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+2026-02-07T21:01:56.195 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [ModManager][ThunderScript] Loaded Mod ThunderScripts
+2026-02-07T21:01:56.196 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Refresh catalog...
+2026-02-07T21:01:56.215 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Game data refreshed in 0.01 sec
+2026-02-07T21:01:56.229 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Text refreshed 11 entries in 0.01 sec
+2026-02-07T21:01:56.248 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Wave refreshed 108 entries in 0.02 sec
+2026-02-07T21:01:56.271 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Creature refreshed 6 entries in 0.02 sec
+2026-02-07T21:01:56.285 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] CreatureTable refreshed 78 entries in 0.01 sec
+2026-02-07T21:01:56.300 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] LootTable refreshed 202 entries in 0.01 sec
+2026-02-07T21:01:56.314 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Container refreshed 74 entries in 0.01 sec
+2026-02-07T21:01:56.396 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Item refreshed 491 entries in 0.08 sec
+2026-02-07T21:01:56.410 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Brain refreshed 13 entries in 0.01 sec
+2026-02-07T21:01:56.425 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Effect refreshed 280 entries in 0.01 sec
+2026-02-07T21:01:56.438 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Material refreshed 18 entries in 0.01 sec
+2026-02-07T21:01:56.465 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Interactable refreshed 68 entries in 0.03 sec
+2026-02-07T21:01:56.479 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Damager refreshed 40 entries in 0.01 sec
+2026-02-07T21:01:56.493 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] HandPose refreshed 50 entries in 0.01 sec
+2026-02-07T21:01:56.507 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Expression refreshed 5 entries in 0.01 sec
+2026-02-07T21:01:56.618 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Level refreshed 16 entries in 0.11 sec
+2026-02-07T21:01:56.674 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Menu refreshed 4 entries in 0.05 sec
+2026-02-07T21:01:56.687 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] ColliderGroup refreshed 19 entries in 0.01 sec
+2026-02-07T21:01:56.702 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] DamageModifier refreshed 22 entries in 0.01 sec
+2026-02-07T21:01:56.716 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Skill refreshed 96 entries in 0.01 sec
+2026-02-07T21:01:56.729 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] BehaviorTree refreshed 28 entries in 0.01 sec
+2026-02-07T21:01:56.743 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EffectGroup refreshed 22 entries in 0.01 sec
+2026-02-07T21:01:56.757 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Liquid refreshed 1 entries in 0.01 sec
+2026-02-07T21:01:56.770 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] MusicGroup refreshed 34 entries in 0.01 sec
+2026-02-07T21:01:56.785 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Music refreshed 8 entries in 0.01 sec
+2026-02-07T21:01:56.799 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Animation refreshed 30 entries in 0.01 sec
+2026-02-07T21:01:56.813 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Voice refreshed 18 entries in 0.01 sec
+2026-02-07T21:01:56.826 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaConnectionType refreshed 7 entries in 0.01 sec
+2026-02-07T21:01:56.937 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Area refreshed 103 entries in 0.11 sec
+2026-02-07T21:01:56.952 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaTable refreshed 25 entries in 0.01 sec
+2026-02-07T21:01:56.965 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] AreaCollection refreshed 19 entries in 0.01 sec
+2026-02-07T21:01:56.979 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Shop refreshed 1 entries in 0.01 sec
+2026-02-07T21:01:56.993 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Custom refreshed 0 entries in 0.01 sec
+2026-02-07T21:01:57.021 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Keyboard refreshed 2 entries in 0.03 sec
+2026-02-07T21:01:57.048 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] GameMode refreshed 2 entries in 0.03 sec
+2026-02-07T21:01:57.062 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Status refreshed 8 entries in 0.01 sec
+2026-02-07T21:01:57.076 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Stance refreshed 3 entries in 0.01 sec
+2026-02-07T21:01:57.090 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EntityModule refreshed 0 entries in 0.01 sec
+2026-02-07T21:01:57.104 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] SkillTree refreshed 6 entries in 0.01 sec
+2026-02-07T21:01:57.119 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] EnemyConfig refreshed 9 entries in 0.01 sec
+2026-02-07T21:01:57.132 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] LootConfig refreshed 7 entries in 0.01 sec
+2026-02-07T21:01:57.133 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Catalog] Refreshed 651 entries in 0.94 sec
+2026-02-07T21:01:57.133 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Options] Applying mod options
+2026-02-07T21:01:57.150 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [Options] Applied mod options
+2026-02-07T21:01:57.151 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : [ModManager] Reloading localization after mods loaded
+2026-02-07T21:01:57.154 WARN T.LocalizationManager.OnLanguageChanged         : [Localization Manager] Text Data - Duplicated text group: Default
+2026-02-07T21:01:57.157 WARN T.LocalizationManager.OnLanguageChanged         : [Localization Manager] Text Data - Duplicated text group: Default
+2026-02-07T21:01:57.163 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [SaveGame] Load player characters
+2026-02-07T21:01:57.175 INFO T.P.<LoadCharacterSaves>d__33.MoveNext          : Create new player save 36907b6b-6ca3-41c9-9252-933fac5a8cb3 on GameMode: Sandbox
+2026-02-07T21:01:57.176 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [SaveGame] Created new save on game mode: Sandbox - 36907b6b-6ca3-41c9-9252-933fac5a8cb3
+2026-02-07T21:01:57.177 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [SaveGame] Loaded player 36907b6b-6ca3-41c9-9252-933fac5a8cb3
+2026-02-07T21:01:58.108 ERROR ThunderRoad.UIText.Refresh                      : [Localization Manager] Cannot get localized text for a null or empty group Id.
+2026-02-07T21:01:59.958 INFO ThunderRoad.CharacterSelection.SpawnNewCharacter: Create new player save 4486d6a3-6b29-468a-acd3-7a10e3d97dcb on GameMode: Sandbox
+2026-02-07T21:02:00.681 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Saved player data 4486d6a3-6b29-468a-acd3-7a10e3d97dcb to file. Playtime: 00:00:00.6981190
+2026-02-07T21:02:01.015 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Saved player data 4486d6a3-6b29-468a-acd3-7a10e3d97dcb to file. Playtime: 00:00:01.0463310
+2026-02-07T21:02:01.655 INFO ThunderRoad.CharacterSelection.Play             : [ThunderRoad.SandboxSaveData] InitialiseSaveData for Sandbox
+2026-02-07T21:02:02.046 INFO ThunderRoad.EventManager.InvokeLevelUnload      : [EIP] Level unload detected, cleared tracked states.
+2026-02-07T21:02:02.047 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Current level mainmenu unloaded in: 0.39 sec
+2026-02-07T21:02:02.048 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [GameModeManager] Loading game mode: Sandbox
+2026-02-07T21:02:02.053 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [GameModeManager] Loaded game mode: Sandbox
+2026-02-07T21:02:02.054 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Loaded LoadAddressableAssetsCoroutine in: 0.00 sec
+2026-02-07T21:02:02.080 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brains...
+2026-02-07T21:02:02.082 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... Chicken
+2026-02-07T21:02:02.088 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... ChickenStatic
+2026-02-07T21:02:02.093 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanDummy
+2026-02-07T21:02:02.105 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain Chicken
+2026-02-07T21:02:02.106 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanEasy
+2026-02-07T21:02:02.107 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain ChickenStatic
+2026-02-07T21:02:02.115 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanHard
+2026-02-07T21:02:02.128 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanHardHeavy
+2026-02-07T21:02:02.146 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanMedium
+2026-02-07T21:02:02.167 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanMediumHeavy
+2026-02-07T21:02:02.190 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanShortSightTutorial
+2026-02-07T21:02:02.217 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanStatic
+2026-02-07T21:02:02.241 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... HumanVIP
+2026-02-07T21:02:02.258 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanDummy
+2026-02-07T21:02:02.273 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... Player
+2026-02-07T21:02:02.282 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Pooling Brain... ShopkeeperBrain
+2026-02-07T21:02:02.328 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Brain pooling Tasks setup in 0 seconds.
+2026-02-07T21:02:02.329 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : BrainData pool task generation finished in: 0.27 sec
+2026-02-07T21:02:02.343 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling items... DynamicProjectile
+2026-02-07T21:02:02.345 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling items... Meteor
+2026-02-07T21:02:02.346 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling items... Arrow
+2026-02-07T21:02:02.349 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling items... ArrowOld
+2026-02-07T21:02:02.351 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling items... ArrowPiercing
+2026-02-07T21:02:02.354 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling items... ThrowablesDagger
+2026-02-07T21:02:02.355 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling items... ThrowablesRock
+2026-02-07T21:02:02.356 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling items... ThrowablesRaktaThrowingStar
+2026-02-07T21:02:02.388 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanShortSightTutorial
+2026-02-07T21:02:02.414 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : ItemData pool generation finished in: 0.08 sec
+2026-02-07T21:02:02.447 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling creature prefab - Bas.Creature.HumanFemale x 20
+2026-02-07T21:02:02.450 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Pooling creature prefab - Bas.Creature.HumanMale x 20
+2026-02-07T21:02:02.556 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanStatic
+2026-02-07T21:02:02.693 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanVIP
+2026-02-07T21:02:02.704 WARN T.B.<>c__DisplayClass31_0.<GeneratePools>b__0   : BrainData Player with hash id '-1743160731' specifies no tree to load, skipping loading behaviour tree.
+2026-02-07T21:02:02.706 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain Player
+2026-02-07T21:02:02.749 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain ShopkeeperBrain
+2026-02-07T21:02:02.859 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanHard
+2026-02-07T21:02:02.865 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanHardHeavy
+2026-02-07T21:02:02.868 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanEasy
+2026-02-07T21:02:02.885 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanMedium
+2026-02-07T21:02:02.885 INFO System.Threading.ExecutionContext.RunInternal   : Finished pooling Brain HumanMediumHeavy
+2026-02-07T21:02:03.726 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : CreatureData pool generation finished in: 1.31 sec
+2026-02-07T21:02:03.828 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : VoiceData gameobjects created: 2370
+2026-02-07T21:02:03.831 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : VoiceData pool generation finished in: 0.10 sec
+2026-02-07T21:02:03.962 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleAudio gameobjects created: 1340
+2026-02-07T21:02:03.963 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleAudio pool generation finished in: 0.13 sec
+2026-02-07T21:02:04.014 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleVfx pool generation finished in: 0.05 sec
+2026-02-07T21:02:04.061 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleDecal pool generation finished in: 0.05 sec
+2026-02-07T21:02:04.205 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleParticle pool generation finished in: 0.14 sec
+2026-02-07T21:02:04.234 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleShader pool generation finished in: 0.03 sec
+2026-02-07T21:02:04.292 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleReveal pool generation finished in: 0.06 sec
+2026-02-07T21:02:04.395 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleMesh pool generation finished in: 0.10 sec
+2026-02-07T21:02:04.419 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : EffectModuleLight pool generation finished in: 0.02 sec
+2026-02-07T21:02:04.450 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Complete pool generation finished in: 2.40 sec
+2026-02-07T21:02:04.465 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Load level Home using mode Sandbox
+Modules:
+Module: LevelModuleCleaner
+Module: LevelModuleMusic
+
+2026-02-07T21:02:06.123 INFO T.PlayablePlatformBinder.BindDependingOnPlatform: Tower_Anim_Android
+2026-02-07T21:02:06.124 INFO T.PlayablePlatformBinder.BindDependingOnPlatform: Tower_Anim_PC
+2026-02-07T21:02:06.124 INFO T.PlayablePlatformBinder.BindDependingOnPlatform: Tower_Anim_Activation
+2026-02-07T21:02:06.167 WARN Unity: BakeLODGroup - Can't apply lightmap to a targetMeshRenderer because it's null on /MESHES/_EXTERIOR/TORN ROCKY COAST/PROPS/Boats/DistantBoat_Broken_01_Animated/Mesh
+2026-02-07T21:02:06.193 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Tonemapping: set defaults
+2026-02-07T21:02:06.286 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Refreshing Item Spawner with category: Unknown
+2026-02-07T21:02:07.409 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [MusicManager] Music MusicDalgarian loaded !
+2026-02-07T21:02:07.755 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Spawning player at: /Level/StartHome. default
+2026-02-07T21:02:07.761 INFO ThunderRoad.PlayerFoot.Awake                    : SetDefaultPosition
+2026-02-07T21:02:07.762 INFO ThunderRoad.PlayerFoot.Awake                    : SetDefaultPosition
+2026-02-07T21:02:07.819 INFO ThunderRoad.Creature.Load                       : Loaded player skills:
+ - BoostJump
+ - StaticDisarm
+ - CombatFocus
+ - Telespin
+ - Telethrow
+ - Arcwire
+ - InfernoStaff
+ - GravityHammer
+ - Ignition
+ - MassReduction
+2026-02-07T21:02:07.820 WARN ThunderRoad.Brain.Load                          : BrainData: [ Player ] pool is empty.
+2026-02-07T21:02:07.825 INFO T.PlayerSpawner.<SpawnCoroutine>d__20.MoveNext  : Player take possession of : HumanMale_Android(Clone)
+2026-02-07T21:02:07.831 INFO ThunderRoad.Player.SetCreature                  : SetCreature
+2026-02-07T21:02:07.832 INFO ThunderRoad.Player.SetCreature                  : SetCreature
+2026-02-07T21:02:07.833 INFO ThunderRoad.EventManager.InvokePossession       : Subscribing to SandboxDefault
+2026-02-07T21:02:09.055 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Level Home OnLevelLoadCoroutine in: 2.86 sec
+2026-02-07T21:02:09.056 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Level Home loaded in: 4.59 sec
+2026-02-07T21:02:09.057 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Total time to load Home: 7.40 sec
+2026-02-07T21:02:09.066 INFO ThunderRoad.Container.LoadFromContainerId       : Spawning persistent items from container HomePersistenceContainer. Max items: 30
+[1] AxeLongOldLumber
+[2] Stool2
+[3] WoodLog7
+
+2026-02-07T21:02:09.093 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Refreshing Item Spawner with category: Daggers
+2026-02-07T21:02:17.041 INFO T.ThunderScriptManager.ThunderScriptLoop        : [EIP] Configuration changed, refreshed tracked assignments.
+2026-02-07T21:02:45.296 INFO ThunderRoad.EventManager.InvokeLevelUnload      : ContainerSaver - Saving...
+2026-02-07T21:02:45.299 INFO ThunderRoad.EventManager.InvokeLevelUnload      : Save current item position WoodLog7(Clone) to container HomePersistence
+2026-02-07T21:02:45.300 INFO ThunderRoad.EventManager.InvokeLevelUnload      : Save current item position Stool_Wood(Clone) to container HomePersistence
+2026-02-07T21:02:45.301 INFO ThunderRoad.EventManager.InvokeLevelUnload      : Save current item position wpn_AL00_oldlumberaxe(Clone) to container HomePersistence
+2026-02-07T21:02:45.302 INFO ThunderRoad.Extensions.AsSynchronous            : Update player inventory for save...
+2026-02-07T21:02:45.304 INFO ThunderRoad.Extensions.AsSynchronous            : Save item wpn_DA02_common(Clone) in holster HipsLeft
+2026-02-07T21:02:45.305 INFO ThunderRoad.Extensions.AsSynchronous            : Save item wpn_AS02_small(Clone) in holster BackRight
+2026-02-07T21:02:45.308 INFO ThunderRoad.Extensions.AsSynchronous            : Saved player data 4486d6a3-6b29-468a-acd3-7a10e3d97dcb to file. Playtime: 00:00:44.6971080
+2026-02-07T21:02:45.337 INFO ThunderRoad.Creature.Despawn                    : Player release possession of : HumanMale_Android(Clone)
+2026-02-07T21:02:45.340 INFO ThunderRoad.Player.ReleaseCreature              : ReleaseCreature
+2026-02-07T21:02:45.341 INFO ThunderRoad.Player.ReleaseCreature              : ReleaseCreature
+2026-02-07T21:02:45.343 INFO ThunderRoad.EventManager.InvokeUnpossession     : Unsubscribing from SandboxDefault
+2026-02-07T21:02:45.626 INFO Unity: Item spawner - OnDisable
+2026-02-07T21:02:45.967 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Saved player data 4486d6a3-6b29-468a-acd3-7a10e3d97dcb to file. Playtime: 00:00:45.0586200
+2026-02-07T21:02:45.968 INFO ThunderRoad.EventManager.InvokeLevelUnload      : [EIP] Level unload detected, cleared tracked states.
+2026-02-07T21:02:45.969 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Current level home unloaded in: 0.67 sec
+2026-02-07T21:02:45.981 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Loaded LoadAddressableAssetsCoroutine in: 0.00 sec
+2026-02-07T21:02:46.023 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Load level Arena using mode Survival
+Modules:
+Module: LevelModuleCleaner
+Module: LevelModuleSurvival
+Module: LevelModuleMusic
+Module: LevelModuleResetSpawners
+
+2026-02-07T21:02:46.047 INFO T.ThunderScriptManager.ThunderScriptLoop        : [EIP] Configuration changed, refreshed tracked assignments.
+2026-02-07T21:02:46.494 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Tonemapping: set defaults
+2026-02-07T21:02:46.589 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Refreshing Item Spawner with category: Unknown
+2026-02-07T21:02:46.914 INFO T.LevelModuleSurvival.DisableSandboxItems       : Item spawner - OnDisable
+2026-02-07T21:02:47.063 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [MusicManager] Music MusicArena loaded !
+2026-02-07T21:02:47.195 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Spawning player at: /LevelDefinition/Start. default
+2026-02-07T21:02:47.202 INFO ThunderRoad.PlayerFoot.Awake                    : SetDefaultPosition
+2026-02-07T21:02:47.204 INFO ThunderRoad.PlayerFoot.Awake                    : SetDefaultPosition
+2026-02-07T21:02:47.253 INFO ThunderRoad.Creature.Load                       : Loaded player skills:
+ - BoostJump
+ - StaticDisarm
+ - CombatFocus
+ - Telespin
+ - Telethrow
+ - Arcwire
+ - InfernoStaff
+ - GravityHammer
+ - Ignition
+ - MassReduction
+2026-02-07T21:02:47.255 WARN ThunderRoad.Brain.Load                          : BrainData: [ Player ] pool is empty.
+2026-02-07T21:02:47.260 INFO T.PlayerSpawner.<SpawnCoroutine>d__20.MoveNext  : Player take possession of : HumanMale_Android(Clone)
+2026-02-07T21:02:47.268 INFO ThunderRoad.Player.SetCreature                  : SetCreature
+2026-02-07T21:02:47.269 INFO ThunderRoad.Player.SetCreature                  : SetCreature
+2026-02-07T21:02:47.270 INFO ThunderRoad.EventManager.InvokePossession       : Subscribing to SandboxDefault
+2026-02-07T21:02:48.482 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Level Arena OnLevelLoadCoroutine in: 1.99 sec
+2026-02-07T21:02:48.484 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Level Arena loaded in: 2.46 sec
+2026-02-07T21:02:48.484 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Total time to load Arena: 3.19 sec
+2026-02-07T21:03:09.610 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: NextWave
+2026-02-07T21:03:10.616 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Fight
+2026-02-07T21:03:10.617 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Get ready for the next wave...
+2026-02-07T21:03:12.130 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Wave: 1
+2026-02-07T21:03:12.131 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Fight!
+2026-02-07T21:03:12.182 INFO T.M.<.MoveNext                                  : [MusicManager] Start transition from type :  to type : ArenaStartFight
+2026-02-07T21:03:12.216 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=49.5 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:03:13.961 WARN E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Spell not found: None (No Imbue). Use Fire, Lightning, Gravity, or another valid SpellCastCharge id.
+2026-02-07T21:03:14.205 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=98.4 result=SKIP
+2026-02-07T21:03:14.669 INFO ThunderRoad.DisplayMessage.Update               : Stop message: Wave: 1
+2026-02-07T21:03:16.234 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=33.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:32.288 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=66.5 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:03:33.437 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=98.1 result=SKIP
+2026-02-07T21:03:34.320 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=15.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:35.471 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=6.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:35.472 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=10.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:37.541 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=9.1 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:37.542 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=44.2 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:39.596 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=54.0 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:03:39.597 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=77.2 result=SKIP
+2026-02-07T21:03:40.342 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=3.9 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:41.653 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=88.2 result=SKIP
+2026-02-07T21:03:43.678 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=25.3 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:43.679 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=90.2 result=SKIP
+2026-02-07T21:03:44.367 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=82.2 result=SKIP
+2026-02-07T21:03:45.761 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=79.5 result=SKIP
+2026-02-07T21:03:45.762 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=64.8 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:03:47.822 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=15.6 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:47.823 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=49.7 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:03:49.890 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=28.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:49.891 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=32.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:50.384 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=67.0 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:03:51.916 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=19.9 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:51.918 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=90.3 result=SKIP
+2026-02-07T21:03:53.957 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=64.9 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:03:53.958 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=0.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:53.959 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=18.1 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:54.410 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=67.5 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:03:56.008 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=20.3 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:56.009 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=24.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:56.010 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=68.4 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:03:56.428 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=21.9 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:58.069 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=84.0 result=SKIP
+2026-02-07T21:03:58.070 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=39.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:03:58.071 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=45.5 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:03:58.071 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=19.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:00.123 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=83.6 result=SKIP
+2026-02-07T21:04:02.208 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=36.6 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:04.263 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=4.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:04.470 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=9.6 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:06.315 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=57.0 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:04:08.377 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=37.9 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:10.403 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=12.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:10.404 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=13.9 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:10.494 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=92.5 result=SKIP
+2026-02-07T21:04:12.459 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=41.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:12.460 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=35.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:14.505 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=85.5 result=SKIP
+2026-02-07T21:04:14.506 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=21.3 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:14.507 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=43.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:14.508 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=6.2 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:16.556 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=87.9 result=SKIP
+2026-02-07T21:04:16.557 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=73.5 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:04:16.558 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=24.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:18.600 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=9.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:18.602 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=39.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:18.602 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=99.6 result=SKIP
+2026-02-07T21:04:20.681 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=6.1 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:22.751 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=23.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:24.806 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=24.3 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:26.864 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=30.3 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:28.930 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=84.2 result=SKIP
+2026-02-07T21:04:31.002 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=96.0 result=SKIP
+2026-02-07T21:04:31.003 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=45.3 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:04:33.055 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=14.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:33.056 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=94.8 result=SKIP
+2026-02-07T21:04:35.097 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=79.6 result=SKIP
+2026-02-07T21:04:35.098 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=2.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:35.099 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=14.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:37.154 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=94.6 result=SKIP
+2026-02-07T21:04:37.155 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=44.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:37.156 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=12.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:38.583 INFO UnityEngine.Events.UnityEvent.Invoke            : [MusicManager] Start transition from type : ArenaStartFight to type : 
+2026-02-07T21:04:39.222 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=34.2 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:41.279 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=61.9 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:04:43.297 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=71.8 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:04:45.352 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=44.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:47.394 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=1.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:48.898 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: NextWave
+2026-02-07T21:04:49.463 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=13.1 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:49.908 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Fight
+2026-02-07T21:04:49.909 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Get ready for the next wave...
+2026-02-07T21:04:51.422 INFO ThunderRoad.DisplayMessage.Update               : Stop message: Fight!
+2026-02-07T21:04:51.423 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Wave: 2
+2026-02-07T21:04:51.424 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Fight!
+2026-02-07T21:04:51.473 INFO T.M.<.MoveNext                                  : [MusicManager] Start transition from type :  to type : ArenaStartFight
+2026-02-07T21:04:51.500 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=16.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:53.498 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=41.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:04:53.945 INFO ThunderRoad.DisplayMessage.Update               : Stop message: Wave: 2
+2026-02-07T21:04:55.512 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=70.2 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:01.545 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=48.5 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:01.803 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=1.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:03.875 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=65.6 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:05.921 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=12.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:05.923 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=51.8 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:07.586 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=3.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:07.970 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=64.3 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:09.089 WARN R.M.Dismemberment.CompleteRenderer              : No MaterialInstance component found on HumanMale_Vfx_Android
+2026-02-07T21:05:09.601 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=96.2 result=SKIP
+2026-02-07T21:05:10.025 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=73.2 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:12.070 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=2.6 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:13.658 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=43.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:14.135 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=5.9 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:15.660 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=20.3 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:16.175 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=60.3 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:16.176 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=35.2 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:18.231 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=83.9 result=SKIP
+2026-02-07T21:05:18.232 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=1.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:20.265 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=93.2 result=SKIP
+2026-02-07T21:05:22.333 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=73.5 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:24.385 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=46.4 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:25.727 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=32.2 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:26.429 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=90.8 result=SKIP
+2026-02-07T21:05:26.430 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=86.8 result=SKIP
+2026-02-07T21:05:27.740 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=79.9 result=SKIP
+2026-02-07T21:05:28.507 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=61.6 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:28.509 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=67.9 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:30.564 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=33.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:30.565 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=71.8 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:31.796 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=87.1 result=SKIP
+2026-02-07T21:05:32.612 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=93.6 result=SKIP
+2026-02-07T21:05:32.613 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=4.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:34.657 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=51.5 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:34.658 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=70.6 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:36.710 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=33.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:36.711 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=24.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:38.767 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=4.1 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:38.768 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=5.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:40.862 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=56.0 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:40.863 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=64.0 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:42.579 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=70.2 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:42.916 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=81.8 result=SKIP
+2026-02-07T21:05:44.968 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=82.7 result=SKIP
+2026-02-07T21:05:46.241 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ArrowOld with Fire at 50% (bucket=Arrow).
+2026-02-07T21:05:47.003 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=20.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:49.043 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=63.9 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:50.631 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=40.6 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:51.122 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=10.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:53.166 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=14.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:55.211 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=90.1 result=SKIP
+2026-02-07T21:05:57.274 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=45.3 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:05:58.648 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=29.2 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:05:59.319 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=69.8 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:05:59.320 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=30.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:01.375 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=90.9 result=SKIP
+2026-02-07T21:06:01.376 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=96.8 result=SKIP
+2026-02-07T21:06:03.428 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=15.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:04.668 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=28.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:05.468 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=90.2 result=SKIP
+2026-02-07T21:06:07.514 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=3.8 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:09.564 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=27.3 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:11.621 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=35.3 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:13.654 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=49.9 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:06:15.718 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=28.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:15.719 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=26.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:17.774 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=20.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:17.776 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=1.0 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:19.803 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=25.4 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:19.804 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=99.6 result=SKIP
+2026-02-07T21:06:19.805 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=95.4 result=SKIP
+2026-02-07T21:06:21.845 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=97.6 result=SKIP
+2026-02-07T21:06:21.847 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=53.6 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:06:21.847 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=31.2 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:23.902 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=25.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:25.966 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=22.9 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:26.716 INFO UnityEngine.Events.UnityEvent.Invoke            : [MusicManager] Start transition from type : ArenaStartFight to type : 
+2026-02-07T21:06:28.020 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=19.5 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:28.021 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=83.2 result=SKIP
+2026-02-07T21:06:30.044 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=56.9 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:06:30.045 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=4 Bandits] factionProfile=Outlaws slot=3 roll=65.6 result=APPLY chance=10.0% spell=Fire strength=50%
+2026-02-07T21:06:32.085 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=9.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:34.115 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=2 roll=47.6 result=APPLY chance=20.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:06:36.158 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=none roll=96.7 result=SKIP
+2026-02-07T21:06:36.552 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: NextWave
+2026-02-07T21:06:37.560 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Fight
+2026-02-07T21:06:37.561 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Get ready for the next wave...
+2026-02-07T21:06:38.200 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=4 Bandits] factionProfile=Outlaws slot=1 roll=29.7 result=APPLY chance=45.0% spell=None (No Imbue) strength=75%
+2026-02-07T21:06:39.077 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Wave: 3
+2026-02-07T21:06:39.078 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Fight!
+2026-02-07T21:06:39.124 INFO T.M.<.MoveNext                                  : [MusicManager] Start transition from type :  to type : ArenaStartFight
+2026-02-07T21:06:39.154 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=20.5 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:06:40.797 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:06:41.149 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=21.4 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:06:41.605 INFO ThunderRoad.DisplayMessage.Update               : Stop message: Wave: 3
+2026-02-07T21:06:42.339 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:06:42.845 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Gravity at 60% (bucket=Axe).
+2026-02-07T21:06:43.157 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=28.4 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:06:43.873 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:06:44.405 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Gravity at 60% (bucket=Axe).
+2026-02-07T21:06:45.428 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:06:45.938 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Gravity at 60% (bucket=Axe).
+2026-02-07T21:06:46.443 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=54.6 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:06:46.957 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:06:47.202 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=89.6 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:06:47.471 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Gravity at 60% (bucket=Axe).
+2026-02-07T21:06:48.508 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=6.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:06:48.510 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=42.4 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:06:49.010 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Gravity at 60% (bucket=Axe).
+2026-02-07T21:06:49.216 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=74.6 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:06:50.571 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=60.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:06:50.577 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:06:50.581 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:06:50.582 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Gravity at 60% (bucket=Axe).
+2026-02-07T21:06:51.231 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=76.5 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:06:52.119 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:06:52.120 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:06:52.652 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=20.5 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:06:53.690 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:06:53.691 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:06:54.720 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=56.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:06:55.234 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:06:55.235 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:06:56.765 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=32.6 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:06:56.766 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:06:56.767 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:06:58.307 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:06:58.308 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:06:58.821 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=69.2 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:06:59.860 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:06:59.861 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:00.874 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=9.1 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:01.255 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=16.4 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:01.397 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:01.398 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:02.955 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=2.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:02.956 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:02.957 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:03.218 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:04.506 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:04.508 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:04.758 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:05.018 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=0.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:05.278 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=23.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:06.315 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:07.092 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=57.7 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:07.094 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=5.9 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:07.859 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:09.139 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=85.0 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:09.140 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=44.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:09.397 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:10.928 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:11.186 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=79.3 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:11.188 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=83.8 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:12.466 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:12.738 WARN R.M.Dismemberment.CompleteRenderer              : No MaterialInstance component found on HumanFemale_Vfx_Android
+2026-02-07T21:07:13.234 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=54.1 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:13.235 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=57.4 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:13.332 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=46.5 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:13.996 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:15.288 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=37.5 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:15.291 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:15.294 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:15.539 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:16.814 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:16.816 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:17.066 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:17.355 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=70.5 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:18.384 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:18.385 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:19.421 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=85.4 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:19.947 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:19.948 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:21.394 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=none roll=93.8 result=SKIP
+2026-02-07T21:07:21.479 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=56.6 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:21.480 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=23.1 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:21.481 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:21.482 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:23.033 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:23.035 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:23.549 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=63.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:24.574 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:24.575 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:25.588 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=50.8 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:26.093 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:26.094 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:27.634 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=80.5 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:27.636 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:27.636 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:29.436 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=45.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:29.719 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=48.7 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:29.720 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=46.6 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:30.999 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:31.461 WARN R.M.Dismemberment.CompleteRenderer              : No MaterialInstance component found on HumanFemale_Vfx_Android
+2026-02-07T21:07:31.481 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=71.4 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:31.786 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=none roll=97.4 result=SKIP
+2026-02-07T21:07:31.787 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=48.7 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:31.788 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=75.7 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:32.552 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:33.320 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Fire at 70% (bucket=Sword).
+2026-02-07T21:07:33.840 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=72.5 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:34.105 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:34.869 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Fire at 70% (bucket=Sword).
+2026-02-07T21:07:35.496 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=73.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:35.896 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=46.8 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:35.897 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=14.6 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:36.412 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:36.416 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:36.417 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Fire at 70% (bucket=Sword).
+2026-02-07T21:07:37.223 WARN R.M.Dismemberment.CompleteRenderer              : No MaterialInstance component found on HumanMale_Vfx_Android(Clone)
+2026-02-07T21:07:37.525 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=26.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:37.952 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=79.5 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:37.953 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=36.5 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:37.955 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=68.8 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:37.955 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:37.956 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:39.468 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:39.469 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:39.473 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:07:39.477 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:39.980 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=25.2 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:39.981 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=75.4 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:39.982 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=67.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:40.996 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:40.997 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:40.998 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:07:40.999 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:41.550 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=79.6 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:42.036 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=4.3 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:42.037 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=31.4 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:42.038 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=78.9 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:42.039 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=none roll=94.4 result=SKIP
+2026-02-07T21:07:42.551 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:42.552 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:42.553 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:07:42.554 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:07:44.076 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=75.3 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:44.077 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=72.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:44.078 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:44.079 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:45.614 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:45.615 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:46.119 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=10.9 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:46.121 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=38.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:47.151 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:47.152 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:48.175 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=62.8 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:48.176 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=68.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:48.698 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:48.700 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:50.231 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=74.2 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:50.232 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=3.2 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:50.233 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:50.234 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:51.760 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Fire at 70% (bucket=Shield).
+2026-02-07T21:07:51.761 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Fire at 70% (bucket=Mace).
+2026-02-07T21:07:52.287 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=45.5 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:52.288 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=57.2 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:54.329 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=25.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:54.330 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=77.2 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:56.371 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=74.2 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:56.372 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=22.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:56.373 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=36.1 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:07:57.565 INFO UnityEngine.Events.UnityEvent.Invoke            : [MusicManager] Start transition from type : ArenaStartFight to type : 
+2026-02-07T21:07:58.425 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=55.0 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:07:58.427 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=77.4 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:07:58.428 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=84.5 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:08:00.470 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=73.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:00.471 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=89.3 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:08:00.472 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=44.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:02.488 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=32.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:04.504 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=59.2 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:06.532 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=36.2 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:06.592 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: NextWave
+2026-02-07T21:08:07.601 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Fight
+2026-02-07T21:08:07.602 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Get ready for the next wave...
+2026-02-07T21:08:08.574 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=14.1 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:09.116 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Wave: 4
+2026-02-07T21:08:09.117 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Fight!
+2026-02-07T21:08:09.160 INFO T.M.<.MoveNext                                  : [MusicManager] Start transition from type :  to type : ArenaStartFight
+2026-02-07T21:08:09.183 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=25.2 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:10.353 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:11.188 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=85.7 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:08:11.635 INFO ThunderRoad.DisplayMessage.Update               : Stop message: Wave: 4
+2026-02-07T21:08:11.904 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:13.199 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=88.0 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:08:13.451 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:14.986 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:16.776 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=25.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:17.240 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=28.4 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:18.308 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:08:18.312 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:08:19.857 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:08:19.859 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:08:20.892 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=21.1 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:21.264 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=0.2 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:21.409 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:08:21.410 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:08:22.928 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:08:22.929 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:08:23.278 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=46.4 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:24.191 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ArrowOld with Gravity at 60% (bucket=Arrow).
+2026-02-07T21:08:24.452 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:08:24.454 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:08:24.954 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=81.5 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:08:25.218 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Fire at 70% (bucket=Axe).
+2026-02-07T21:08:25.994 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:08:25.995 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:08:26.768 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Fire at 70% (bucket=Axe).
+2026-02-07T21:08:27.021 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=19.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:27.022 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=none roll=99.2 result=SKIP
+2026-02-07T21:08:27.299 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=35.0 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:28.302 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Fire at 70% (bucket=Axe).
+2026-02-07T21:08:28.569 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:29.066 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=39.5 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:29.068 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=54.7 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:29.842 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Fire at 70% (bucket=Axe).
+2026-02-07T21:08:30.091 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:31.118 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=59.6 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:31.119 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=11.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:31.380 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortHatchet with Fire at 70% (bucket=Axe).
+2026-02-07T21:08:31.631 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:33.162 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=31.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:33.163 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:33.346 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=24.9 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:34.430 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ArrowOld with Gravity at 60% (bucket=Arrow).
+2026-02-07T21:08:34.678 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:35.194 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=31.0 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:36.249 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:37.274 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=63.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:37.540 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ArrowOld with Gravity at 60% (bucket=Arrow).
+2026-02-07T21:08:37.789 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:39.326 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=48.4 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:39.327 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:40.859 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:41.386 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=32.2 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:42.425 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:43.467 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=none roll=99.0 result=SKIP
+2026-02-07T21:08:43.990 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:44.537 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Detected factions: 11
+2026-02-07T21:08:44.538 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction -1 -> Any Enemy
+2026-02-07T21:08:44.538 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 0 -> None
+2026-02-07T21:08:44.539 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 1 -> Ignore
+2026-02-07T21:08:44.540 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 2 -> Player
+2026-02-07T21:08:44.541 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 3 -> MixedEnemies
+2026-02-07T21:08:44.542 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 4 -> Bandits
+2026-02-07T21:08:44.542 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 5 -> Cult
+2026-02-07T21:08:44.543 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 6 -> Mercenary
+2026-02-07T21:08:44.544 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 7 -> Gladiator
+2026-02-07T21:08:44.544 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 8 -> Soldier
+2026-02-07T21:08:44.545 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 9 -> Rogue
+2026-02-07T21:08:44.546 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 01 Combat -> faction 3 (MixedEnemies) enabled=True
+2026-02-07T21:08:44.547 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=None (No Imbue) chance=25.0% strength=65%
+2026-02-07T21:08:44.547 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Fire chance=10.0% strength=50%
+2026-02-07T21:08:44.548 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Lightning chance=5.0% strength=40%
+2026-02-07T21:08:44.548 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 02 Outlaws -> faction 4 (Bandits) enabled=True
+2026-02-07T21:08:44.549 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=None (No Imbue) chance=45.0% strength=75%
+2026-02-07T21:08:44.550 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=None (No Imbue) chance=20.0% strength=60%
+2026-02-07T21:08:44.550 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Fire chance=10.0% strength=50%
+2026-02-07T21:08:44.551 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 03 Wildfolk -> faction 5 (Cult) enabled=True
+2026-02-07T21:08:44.552 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Lightning chance=30.0% strength=70%
+2026-02-07T21:08:44.553 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Fire chance=25.0% strength=60%
+2026-02-07T21:08:44.553 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=None (No Imbue) chance=15.0% strength=45%
+2026-02-07T21:08:44.554 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 04 Eraden -> faction 6 (Mercenary) enabled=True
+2026-02-07T21:08:44.555 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Fire chance=35.0% strength=80%
+2026-02-07T21:08:44.555 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=None (No Imbue) chance=30.0% strength=65%
+2026-02-07T21:08:44.556 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Lightning chance=20.0% strength=55%
+2026-02-07T21:08:44.557 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 05 Eye -> faction 7 (Gladiator) enabled=True
+2026-02-07T21:08:44.557 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Gravity chance=40.0% strength=60%
+2026-02-07T21:08:44.558 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Fire chance=35.0% strength=70%
+2026-02-07T21:08:44.559 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=None (No Imbue) chance=15.0% strength=60%
+2026-02-07T21:08:44.559 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 06 Rakta -> faction 8 (Soldier) enabled=True
+2026-02-07T21:08:44.560 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Lightning chance=30.0% strength=80%
+2026-02-07T21:08:44.561 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Lightning chance=25.0% strength=65%
+2026-02-07T21:08:44.562 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Fire chance=15.0% strength=55%
+2026-02-07T21:08:44.562 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 07 Special -> faction 9 (Rogue) enabled=True
+2026-02-07T21:08:44.563 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Gravity chance=45.0% strength=40%
+2026-02-07T21:08:44.563 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Lightning chance=30.0% strength=70%
+2026-02-07T21:08:44.564 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=None (No Imbue) chance=20.0% strength=60%
+2026-02-07T21:08:44.565 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 08 Fallback -> faction -1 (Any Enemy) enabled=True
+2026-02-07T21:08:44.565 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Fire chance=20.0% strength=60%
+2026-02-07T21:08:44.566 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Fire chance=15.0% strength=50%
+2026-02-07T21:08:44.567 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Lightning chance=10.0% strength=40%
+2026-02-07T21:08:45.263 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ArrowOld with Gravity at 60% (bucket=Arrow).
+2026-02-07T21:08:45.523 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=54.2 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:45.524 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:47.066 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:47.594 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=60.7 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:47.850 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:48.621 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:49.439 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=86.6 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:08:49.664 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=37.9 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:49.665 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=85.9 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:08:49.669 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ArrowOld with Gravity at 60% (bucket=Arrow).
+2026-02-07T21:08:50.179 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:51.722 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=52.6 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:51.723 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=67.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:51.724 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:53.251 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:53.753 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=27.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:54.779 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:55.819 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=41.1 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:56.333 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:57.862 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=53.0 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:08:57.864 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:59.389 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordLongReverend with Gravity at 60% (bucket=Sword).
+2026-02-07T21:08:59.469 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=2.4 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:59.912 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=1.2 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:08:59.913 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=63.1 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:00.419 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:00.423 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:01.487 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=2.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:01.981 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=9.9 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:01.983 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=70.2 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:01.984 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=19.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:01.984 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:01.985 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:03.546 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:03.548 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:04.059 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=60.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:05.081 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:05.082 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:05.492 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=47.4 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:06.104 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=86.8 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:09:06.106 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=52.0 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:06.608 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:06.610 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:06.873 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Fire at 70% (bucket=Sword).
+2026-02-07T21:09:08.170 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=42.1 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:08.171 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=45.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:08.428 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Fire at 70% (bucket=Sword).
+2026-02-07T21:09:09.515 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=14.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:09.958 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Fire at 70% (bucket=Sword).
+2026-02-07T21:09:10.219 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=68.1 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:10.220 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=none roll=94.1 result=SKIP
+2026-02-07T21:09:10.484 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:11.505 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortAntique with Fire at 70% (bucket=Sword).
+2026-02-07T21:09:12.031 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:12.284 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=none roll=97.1 result=SKIP
+2026-02-07T21:09:12.285 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=1.9 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:13.523 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=27.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:13.580 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:14.347 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=24.3 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:15.124 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:16.413 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=69.1 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:16.666 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:18.220 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:18.467 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=27.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:18.468 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=29.9 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:19.556 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=0.6 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:19.741 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:20.512 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=21.7 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:20.513 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=76.2 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:09:21.038 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:21.299 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:22.585 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=21.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:22.586 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:22.836 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:24.121 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:24.392 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:24.644 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=76.8 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:09:25.666 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:25.915 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:26.682 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=2.0 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:26.683 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=52.0 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:27.188 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:27.452 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:28.720 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=59.7 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:28.721 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=81.9 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:09:28.722 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item ShieldTribal with Gravity at 60% (bucket=Shield).
+2026-02-07T21:09:28.984 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortNailclub with Gravity at 60% (bucket=Mace).
+2026-02-07T21:09:30.763 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=32.0 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:30.764 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=59.4 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:30.765 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=none roll=98.8 result=SKIP
+2026-02-07T21:09:32.802 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=9.5 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:34.875 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=79.5 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:09:36.929 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=1 roll=1.8 result=APPLY chance=40.0% spell=Gravity strength=60%
+2026-02-07T21:09:38.985 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=48.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:38.986 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=67.9 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:39.585 INFO UnityEngine.Events.UnityEvent.Invoke            : [MusicManager] Start transition from type : ArenaStartFight to type : 
+2026-02-07T21:09:41.045 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=51.5 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:41.046 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanMale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=74.0 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:43.100 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=76.6 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:09:45.115 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=3 roll=77.9 result=APPLY chance=15.0% spell=None (No Imbue) strength=60%
+2026-02-07T21:09:47.184 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=55.3 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:48.619 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: NextWave
+2026-02-07T21:09:49.254 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=7 Gladiator] factionProfile=Eye slot=2 roll=43.5 result=APPLY chance=35.0% spell=Fire strength=70%
+2026-02-07T21:09:49.628 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Fight
+2026-02-07T21:09:49.629 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Get ready for the next wave...
+2026-02-07T21:09:51.142 INFO ThunderRoad.DisplayMessage.Update               : Stop message: Fight!
+2026-02-07T21:09:51.143 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Show message: Wave: 5
+2026-02-07T21:09:51.144 INFO T.L.<StartSurvivalRound>d__40.MoveNext          : Stop message: Fight!
+2026-02-07T21:09:51.190 INFO T.M.<.MoveNext                                  : [MusicManager] Start transition from type :  to type : ArenaStartFight
+2026-02-07T21:09:51.216 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=8 Soldier] factionProfile=Rakta slot=3 roll=64.7 result=APPLY chance=15.0% spell=Fire strength=55%
+2026-02-07T21:09:52.850 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item BucklerMetal with Fire at 55% (bucket=Shield).
+2026-02-07T21:09:52.853 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortCommon with Fire at 55% (bucket=Sword).
+2026-02-07T21:09:53.217 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=none roll=87.1 result=SKIP
+2026-02-07T21:09:53.667 INFO ThunderRoad.DisplayMessage.Update               : Stop message: Wave: 5
+2026-02-07T21:09:54.391 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item BucklerMetal with Fire at 55% (bucket=Shield).
+2026-02-07T21:09:54.392 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortCommon with Fire at 55% (bucket=Sword).
+2026-02-07T21:09:55.244 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=2 roll=46.4 result=APPLY chance=25.0% spell=Lightning strength=65%
+2026-02-07T21:09:55.931 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item BucklerMetal with Fire at 55% (bucket=Shield).
+2026-02-07T21:09:55.932 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortCommon with Fire at 55% (bucket=Sword).
+2026-02-07T21:09:56.972 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:09:57.472 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item BucklerMetal with Fire at 55% (bucket=Shield).
+2026-02-07T21:09:57.473 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortCommon with Fire at 55% (bucket=Sword).
+2026-02-07T21:09:58.513 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:09:59.040 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item BucklerMetal with Fire at 55% (bucket=Shield).
+2026-02-07T21:09:59.041 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortCommon with Fire at 55% (bucket=Sword).
+2026-02-07T21:10:00.065 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:10:00.581 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item BucklerMetal with Fire at 55% (bucket=Shield).
+2026-02-07T21:10:00.583 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item SwordShortCommon with Fire at 55% (bucket=Sword).
+2026-02-07T21:10:01.608 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:10:02.121 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item BucklerMetal with Fire at 55% (bucket=Shield).
+2026-02-07T21:10:03.161 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:10:03.679 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item BucklerMetal with Fire at 55% (bucket=Shield).
+2026-02-07T21:10:04.720 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:10:06.264 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:10:07.821 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:10:09.364 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Lightning at 65% (bucket=Axe).
+2026-02-07T21:10:11.284 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=8 Soldier] factionProfile=Rakta slot=none roll=92.7 result=SKIP
+2026-02-07T21:10:11.384 INFO ThunderRoad.EventManager.InvokeCreatureDespawn  : [EIP] Creature despawned, removed tracking: HumanMale [faction=8 Soldier]
+2026-02-07T21:10:11.945 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=none roll=82.5 result=SKIP
+2026-02-07T21:10:13.301 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanMale [faction=8 Soldier] factionProfile=Rakta slot=3 roll=55.1 result=APPLY chance=15.0% spell=Fire strength=55%
+2026-02-07T21:10:13.987 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=none roll=93.2 result=SKIP
+2026-02-07T21:10:14.238 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Fire at 55% (bucket=Axe).
+2026-02-07T21:10:15.792 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Fire at 55% (bucket=Axe).
+2026-02-07T21:10:16.056 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=2 roll=37.3 result=APPLY chance=25.0% spell=Lightning strength=65%
+2026-02-07T21:10:17.326 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item AxeShortCommon with Fire at 55% (bucket=Axe).
+2026-02-07T21:10:17.327 INFO ThunderRoad.EventManager.InvokeCreatureSpawn    : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=3 roll=64.5 result=APPLY chance=15.0% spell=Fire strength=55%
+2026-02-07T21:10:18.093 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=2 roll=42.9 result=APPLY chance=25.0% spell=Lightning strength=65%
+2026-02-07T21:10:18.359 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:19.894 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:20.148 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=none roll=86.3 result=SKIP
+2026-02-07T21:10:21.443 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:22.224 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=3 roll=66.6 result=APPLY chance=15.0% spell=Fire strength=55%
+2026-02-07T21:10:22.255 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Detected factions: 11
+2026-02-07T21:10:22.256 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction -1 -> Any Enemy
+2026-02-07T21:10:22.257 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 0 -> None
+2026-02-07T21:10:22.258 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 1 -> Ignore
+2026-02-07T21:10:22.258 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 2 -> Player
+2026-02-07T21:10:22.259 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 3 -> MixedEnemies
+2026-02-07T21:10:22.260 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 4 -> Bandits
+2026-02-07T21:10:22.261 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 5 -> Cult
+2026-02-07T21:10:22.261 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 6 -> Mercenary
+2026-02-07T21:10:22.262 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 7 -> Gladiator
+2026-02-07T21:10:22.263 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 8 -> Soldier
+2026-02-07T21:10:22.263 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Faction 9 -> Rogue
+2026-02-07T21:10:22.264 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 01 Combat -> faction 3 (MixedEnemies) enabled=True
+2026-02-07T21:10:22.265 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=None (No Imbue) chance=25.0% strength=65%
+2026-02-07T21:10:22.265 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Fire chance=10.0% strength=50%
+2026-02-07T21:10:22.266 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Lightning chance=5.0% strength=40%
+2026-02-07T21:10:22.266 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 02 Outlaws -> faction 4 (Bandits) enabled=True
+2026-02-07T21:10:22.267 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=None (No Imbue) chance=45.0% strength=75%
+2026-02-07T21:10:22.268 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=None (No Imbue) chance=20.0% strength=60%
+2026-02-07T21:10:22.268 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Fire chance=10.0% strength=50%
+2026-02-07T21:10:22.269 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 03 Wildfolk -> faction 5 (Cult) enabled=True
+2026-02-07T21:10:22.270 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Lightning chance=30.0% strength=70%
+2026-02-07T21:10:22.270 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Fire chance=25.0% strength=60%
+2026-02-07T21:10:22.271 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=None (No Imbue) chance=15.0% strength=45%
+2026-02-07T21:10:22.272 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 04 Eraden -> faction 6 (Mercenary) enabled=True
+2026-02-07T21:10:22.272 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Fire chance=35.0% strength=80%
+2026-02-07T21:10:22.274 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=None (No Imbue) chance=30.0% strength=65%
+2026-02-07T21:10:22.274 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Lightning chance=20.0% strength=55%
+2026-02-07T21:10:22.275 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 05 Eye -> faction 7 (Gladiator) enabled=True
+2026-02-07T21:10:22.276 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Gravity chance=40.0% strength=60%
+2026-02-07T21:10:22.276 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Fire chance=35.0% strength=70%
+2026-02-07T21:10:22.277 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=None (No Imbue) chance=15.0% strength=60%
+2026-02-07T21:10:22.278 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 06 Rakta -> faction 8 (Soldier) enabled=True
+2026-02-07T21:10:22.278 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Lightning chance=30.0% strength=80%
+2026-02-07T21:10:22.279 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Lightning chance=25.0% strength=65%
+2026-02-07T21:10:22.280 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Fire chance=15.0% strength=55%
+2026-02-07T21:10:22.280 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 07 Special -> faction 9 (Rogue) enabled=True
+2026-02-07T21:10:22.281 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Gravity chance=45.0% strength=40%
+2026-02-07T21:10:22.282 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Lightning chance=30.0% strength=70%
+2026-02-07T21:10:22.282 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=None (No Imbue) chance=20.0% strength=60%
+2026-02-07T21:10:22.283 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Profile 08 Fallback -> faction -1 (Any Enemy) enabled=True
+2026-02-07T21:10:22.284 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot1 spell=Fire chance=20.0% strength=60%
+2026-02-07T21:10:22.285 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot2 spell=Fire chance=15.0% strength=50%
+2026-02-07T21:10:22.285 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP]   Slot3 spell=Lightning chance=10.0% strength=40%
+2026-02-07T21:10:22.985 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:24.275 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=3 roll=69.4 result=APPLY chance=15.0% spell=Fire strength=55%
+2026-02-07T21:10:24.536 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:26.092 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:26.355 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=2 roll=45.6 result=APPLY chance=25.0% spell=Lightning strength=65%
+2026-02-07T21:10:27.622 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:28.387 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=1 roll=14.0 result=APPLY chance=30.0% spell=Lightning strength=80%
+2026-02-07T21:10:29.175 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:29.645 INFO ThunderRoad.Creature.Kill                       : Player release possession of : HumanMale_Android(Clone)
+2026-02-07T21:10:29.648 INFO ThunderRoad.Player.ReleaseCreature              : ReleaseCreature
+2026-02-07T21:10:29.650 INFO ThunderRoad.Player.ReleaseCreature              : ReleaseCreature
+2026-02-07T21:10:29.652 INFO ThunderRoad.EventManager.InvokeUnpossession     : Unsubscribing from SandboxDefault
+2026-02-07T21:10:29.654 INFO UnityEngine.Events.UnityEvent.Invoke            : [MusicManager] Start transition from type : ArenaStartFight to type : 
+2026-02-07T21:10:30.454 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track PlayerDefaultMale [faction=2 Player] factionProfile=Fallback slot=2 roll=32.2 result=APPLY chance=15.0% spell=Fire strength=50%
+2026-02-07T21:10:30.455 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=2 roll=37.1 result=APPLY chance=25.0% spell=Lightning strength=65%
+2026-02-07T21:10:30.704 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:32.224 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:32.474 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track PlayerDefaultMale [faction=2 Player] factionProfile=Fallback slot=none roll=57.2 result=SKIP
+2026-02-07T21:10:32.475 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track HumanFemale [faction=8 Soldier] factionProfile=Rakta slot=none roll=83.8 result=SKIP
+2026-02-07T21:10:32.681 INFO ThunderRoad.EventManager.InvokeCreatureDespawn  : [EIP] Creature despawned, removed tracking: HumanMale [faction=8 Soldier]
+2026-02-07T21:10:33.433 INFO ThunderRoad.EventManager.InvokeCreatureDespawn  : [EIP] Creature despawned, removed tracking: HumanMale [faction=8 Soldier]
+2026-02-07T21:10:33.753 INFO E.Core.EnemyImbueManager.ProcessTrackedCreatures: [EIP] Imbued item MaceShortCommon with Fire at 55% (bucket=Mace).
+2026-02-07T21:10:34.517 INFO EnemyImbuePresets.Core.EIPModule.ScriptUpdate   : [EIP] Track PlayerDefaultMale [faction=2 Player] factionProfile=Fallback slot=1 roll=16.8 result=APPLY chance=20.0% spell=Fire strength=60%
+2026-02-07T21:10:34.754 INFO ThunderRoad.EventManager.InvokeCreatureDespawn  : [EIP] Creature despawned, removed tracking: HumanFemale [faction=8 Soldier]
+2026-02-07T21:10:35.345 INFO ThunderRoad.EventManager.InvokeLevelUnload      : [EIP] Level unload detected, cleared tracked states.
+2026-02-07T21:10:35.347 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Current level arena unloaded in: 0.61 sec
+2026-02-07T21:10:35.353 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Loaded LoadAddressableAssetsCoroutine in: 0.00 sec
+2026-02-07T21:10:35.397 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Load level Home using mode Sandbox
+Modules:
+Module: LevelModuleCleaner
+Module: LevelModuleMusic
+
+2026-02-07T21:10:35.437 INFO T.ThunderScriptManager.ThunderScriptLoop        : [EIP] Configuration changed, refreshed tracked assignments.
+2026-02-07T21:10:36.968 INFO T.PlayablePlatformBinder.BindDependingOnPlatform: Tower_Anim_Android
+2026-02-07T21:10:36.969 INFO T.PlayablePlatformBinder.BindDependingOnPlatform: Tower_Anim_PC
+2026-02-07T21:10:36.970 INFO T.PlayablePlatformBinder.BindDependingOnPlatform: Tower_Anim_Activation
+2026-02-07T21:10:37.001 WARN Unity: BakeLODGroup - Can't apply lightmap to a targetMeshRenderer because it's null on /MESHES/_EXTERIOR/TORN ROCKY COAST/PROPS/Boats/DistantBoat_Broken_01_Animated/Mesh
+2026-02-07T21:10:37.026 INFO T.L.<LoadLevelCoroutine>d__16.MoveNext          : Tonemapping: set defaults
+2026-02-07T21:10:37.114 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Refreshing Item Spawner with category: Unknown
+2026-02-07T21:10:38.258 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : [MusicManager] Music MusicDalgarian loaded !
+2026-02-07T21:10:38.675 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Spawning player at: /Level/StartHome. default
+2026-02-07T21:10:38.682 INFO ThunderRoad.PlayerFoot.Awake                    : SetDefaultPosition
+2026-02-07T21:10:38.683 INFO ThunderRoad.PlayerFoot.Awake                    : SetDefaultPosition
+2026-02-07T21:10:38.743 INFO ThunderRoad.Creature.Load                       : Loaded player skills:
+ - BoostJump
+ - StaticDisarm
+ - CombatFocus
+ - Telespin
+ - Telethrow
+ - Arcwire
+ - InfernoStaff
+ - GravityHammer
+ - Ignition
+ - MassReduction
+2026-02-07T21:10:38.744 WARN ThunderRoad.Brain.Load                          : BrainData: [ Player ] pool is empty.
+2026-02-07T21:10:38.750 INFO T.PlayerSpawner.<SpawnCoroutine>d__20.MoveNext  : Player take possession of : HumanMale_Android(Clone)
+2026-02-07T21:10:38.758 INFO ThunderRoad.Player.SetCreature                  : SetCreature
+2026-02-07T21:10:38.759 INFO ThunderRoad.Player.SetCreature                  : SetCreature
+2026-02-07T21:10:38.760 INFO ThunderRoad.EventManager.InvokePossession       : Subscribing to SandboxDefault
+2026-02-07T21:10:40.051 INFO ThunderRoad.Common.<WrapSafely>d__16.MoveNext   : Level Home OnLevelLoadCoroutine in: 3.02 sec
+2026-02-07T21:10:40.052 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Level Home loaded in: 4.65 sec
+2026-02-07T21:10:40.053 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Total time to load Home: 5.31 sec
+2026-02-07T21:10:40.068 INFO ThunderRoad.Container.Load                      : Spawning persistent items from container HomePersistenceContainer. Max items: 30
+[1] Stool2
+[2] AxeLongOldLumber
+[3] WoodLog7
+
+2026-02-07T21:10:40.106 INFO UnityEngine.SetupCoroutine.InvokeMoveNext       : Refreshing Item Spawner with category: Daggers
+2026-02-07T21:10:43.464 INFO ThunderRoad.InputXR.Update                      : System menu opened
+2026-02-07T21:10:43.466 INFO ThunderRoad.InputXR.Update                      : Game Paused

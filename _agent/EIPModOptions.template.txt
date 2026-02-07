@@ -1,0 +1,1333 @@
+        private static readonly string[] FactionCodes =
+        {
+            "F01",
+            "F02",
+            "F03",
+            "F04",
+            "F05",
+            "F06",
+            "F07",
+            "F08"
+        };
+
+        private static readonly FieldInfo[] FactionEnabledFields = new FieldInfo[FactionCount];
+        private static readonly FieldInfo[,] FactionSpellFields = new FieldInfo[FactionCount, ImbueSlotsPerFaction];
+        private static readonly FieldInfo[,] FactionChanceFields = new FieldInfo[FactionCount, ImbueSlotsPerFaction];
+        private static readonly FieldInfo[,] FactionStrengthFields = new FieldInfo[FactionCount, ImbueSlotsPerFaction];
+
+        private static readonly string[] FactionEnabledOptionNames = new string[FactionCount];
+        private static readonly string[,] FactionSpellOptionNames = new string[FactionCount, ImbueSlotsPerFaction];
+        private static readonly string[,] FactionChanceOptionNames = new string[FactionCount, ImbueSlotsPerFaction];
+        private static readonly string[,] FactionStrengthOptionNames = new string[FactionCount, ImbueSlotsPerFaction];
+
+        private static readonly Dictionary<int, int> FactionIdToIndex = new Dictionary<int, int>();
+
+        private static readonly string[][] LoreImbueValues =
+        {
+            new[] { "Fire", "Lightning", "Gravity" },
+            new[] { "Fire", "Fire", "Lightning" },
+            new[] { "Gravity", "Lightning", "Fire" },
+            new[] { "Lightning", "Fire", "Gravity" },
+            new[] { "Gravity", "Lightning", "Fire" },
+            new[] { "Fire", "Gravity", "Lightning" },
+            new[] { "Lightning", "Gravity", "Fire" },
+            new[] { "Fire", "Lightning", "Gravity" }
+        };
+
+        private static readonly float[][] LoreChanceValues =
+        {
+            new[] { 25f, 10f, 5f },
+            new[] { 45f, 20f, 10f },
+            new[] { 30f, 25f, 15f },
+            new[] { 35f, 30f, 20f },
+            new[] { 40f, 35f, 15f },
+            new[] { 50f, 25f, 15f },
+            new[] { 45f, 30f, 20f },
+            new[] { 20f, 15f, 10f }
+        };
+
+        private static readonly float[][] LoreStrengthValues =
+        {
+            new[] { 65f, 50f, 40f },
+            new[] { 75f, 60f, 50f },
+            new[] { 70f, 60f, 45f },
+            new[] { 80f, 65f, 55f },
+            new[] { 85f, 70f, 60f },
+            new[] { 80f, 65f, 55f },
+            new[] { 85f, 70f, 60f },
+            new[] { 60f, 50f, 40f }
+        };
+
+        private static readonly string[] FactionIdentityDominants =
+        {
+            "Fire",
+            "Fire",
+            "Gravity",
+            "Lightning",
+            "Gravity",
+            "Fire",
+            "Lightning",
+            "Fire"
+        };
+
+        static EIPModOptions()
+        {
+            for (int i = 0; i < FactionCount; i++)
+            {
+                string code = FactionCodes[i];
+                FactionEnabledFields[i] = FindField(code + "Enabled");
+                FactionEnabledOptionNames[i] = ReadConstString("Option" + code + "Enabled", FactionShortNames[i] + " Enabled");
+
+                for (int slot = 0; slot < ImbueSlotsPerFaction; slot++)
+                {
+                    string slotSuffix = "S" + (slot + 1).ToString();
+                    FactionSpellFields[i, slot] = FindField(code + slotSuffix + "Spell");
+                    FactionChanceFields[i, slot] = FindField(code + slotSuffix + "Chance");
+                    FactionStrengthFields[i, slot] = FindField(code + slotSuffix + "Strength");
+
+                    FactionSpellOptionNames[i, slot] = ReadConstString("Option" + code + slotSuffix + "Spell", FactionShortNames[i] + " Imbue " + (slot + 1).ToString());
+                    FactionChanceOptionNames[i, slot] = ReadConstString("Option" + code + slotSuffix + "Chance", FactionShortNames[i] + " Chance " + (slot + 1).ToString());
+                    FactionStrengthOptionNames[i, slot] = ReadConstString("Option" + code + slotSuffix + "Strength", FactionShortNames[i] + " Strength " + (slot + 1).ToString());
+                }
+            }
+
+            resolvedFactionIds = (int[])DefaultFactionIds.Clone();
+            RebuildFactionIndexMap();
+        }
+
+        public static float ClampPercent(float value)
+        {
+            return Mathf.Clamp(value, 0f, 100f);
+        }
+
+        public static string CanonicalSpellId(string spellId)
+        {
+            if (string.IsNullOrWhiteSpace(spellId))
+            {
+                return "Fire";
+            }
+
+            string value = spellId.Trim();
+            if (value.Equals("fire", StringComparison.OrdinalIgnoreCase))
+            {
+                return "Fire";
+            }
+            if (value.Equals("lightning", StringComparison.OrdinalIgnoreCase))
+            {
+                return "Lightning";
+            }
+            if (value.Equals("gravity", StringComparison.OrdinalIgnoreCase))
+            {
+                return "Gravity";
+            }
+
+            return value;
+        }
+
+        public static string GetFactionCategory(int factionIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            return i >= 0 ? FactionCategories[i] : string.Empty;
+        }
+
+        public static string GetFactionShortName(int factionIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            return i >= 0 ? FactionShortNames[i] : "Unknown";
+        }
+
+        public static int GetResolvedFactionId(int factionIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            if (i < 0)
+            {
+                return -1;
+            }
+
+            EnsureResolvedFactionIds();
+            return resolvedFactionIds[i];
+        }
+
+        public static string GetFactionEnabledOptionName(int factionIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            return i >= 0 ? FactionEnabledOptionNames[i] : string.Empty;
+        }
+
+        public static string GetFactionSlotSpellOptionName(int factionIndex, int slotIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            return (i >= 0 && s >= 0) ? FactionSpellOptionNames[i, s] : string.Empty;
+        }
+
+        public static string GetFactionSlotChanceOptionName(int factionIndex, int slotIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            return (i >= 0 && s >= 0) ? FactionChanceOptionNames[i, s] : string.Empty;
+        }
+
+        public static string GetFactionSlotStrengthOptionName(int factionIndex, int slotIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            return (i >= 0 && s >= 0) ? FactionStrengthOptionNames[i, s] : string.Empty;
+        }
+
+        public static bool GetFactionEnabled(int factionIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            return i >= 0 && ReadBoolField(FactionEnabledFields[i], true);
+        }
+
+        public static bool SetFactionEnabled(int factionIndex, bool value)
+        {
+            int i = ToFactionIndex(factionIndex);
+            return i >= 0 && SetBoolField(FactionEnabledFields[i], value);
+        }
+
+        public static string GetFactionSlotSpell(int factionIndex, int slotIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            if (i < 0 || s < 0)
+            {
+                return "Fire";
+            }
+
+            return CanonicalSpellId(ReadStringField(FactionSpellFields[i, s], "Fire"));
+        }
+
+        public static bool SetFactionSlotSpell(int factionIndex, int slotIndex, string spellId)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            if (i < 0 || s < 0)
+            {
+                return false;
+            }
+
+            return SetStringField(FactionSpellFields[i, s], CanonicalSpellId(spellId));
+        }
+
+        public static float GetFactionSlotChance(int factionIndex, int slotIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            if (i < 0 || s < 0)
+            {
+                return 0f;
+            }
+
+            return ClampPercent(ReadFloatField(FactionChanceFields[i, s], 0f));
+        }
+
+        public static bool SetFactionSlotChance(int factionIndex, int slotIndex, float chancePercent)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            if (i < 0 || s < 0)
+            {
+                return false;
+            }
+
+            return SetFloatField(FactionChanceFields[i, s], ClampPercent(chancePercent));
+        }
+
+        public static float GetFactionSlotStrength(int factionIndex, int slotIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            if (i < 0 || s < 0)
+            {
+                return 0f;
+            }
+
+            return ClampPercent(ReadFloatField(FactionStrengthFields[i, s], 0f));
+        }
+
+        public static bool SetFactionSlotStrength(int factionIndex, int slotIndex, float strengthPercent)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            if (i < 0 || s < 0)
+            {
+                return false;
+            }
+
+            return SetFloatField(FactionStrengthFields[i, s], ClampPercent(strengthPercent));
+        }
+
+        public static bool NormalizeAllFactionChanceValues()
+        {
+            bool changed = false;
+            for (int faction = 1; faction <= FactionCount; faction++)
+            {
+                changed |= NormalizeFactionChanceValues(faction);
+            }
+
+            return changed;
+        }
+
+        public static bool NormalizeFactionChanceValues(int factionIndex)
+        {
+            float c1 = GetFactionSlotChance(factionIndex, 1);
+            float c2 = GetFactionSlotChance(factionIndex, 2);
+            float c3 = GetFactionSlotChance(factionIndex, 3);
+
+            NormalizeChanceTriplet(ref c1, ref c2, ref c3);
+
+            bool changed = false;
+            changed |= SetFactionSlotChance(factionIndex, 1, c1);
+            changed |= SetFactionSlotChance(factionIndex, 2, c2);
+            changed |= SetFactionSlotChance(factionIndex, 3, c3);
+            return changed;
+        }
+
+        public static int GetPresetSelectionHash()
+        {
+            int hash = 17;
+            hash = CombineHash(hash, StringHash(NormalizeImbuePreset(PresetImbue)));
+            hash = CombineHash(hash, StringHash(NormalizeChancePreset(PresetChance)));
+            hash = CombineHash(hash, StringHash(NormalizeStrengthPreset(PresetStrength)));
+            return hash;
+        }
+
+        public static int GetChanceStateHash()
+        {
+            int hash = 19;
+            for (int faction = 1; faction <= FactionCount; faction++)
+            {
+                for (int slot = 1; slot <= ImbueSlotsPerFaction; slot++)
+                {
+                    hash = CombineHash(hash, PercentHash(GetFactionSlotChance(faction, slot)));
+                }
+            }
+            return hash;
+        }
+
+        public static int GetOptionsStateHash()
+        {
+            int hash = 23;
+            hash = CombineHash(hash, EnableMod ? 1 : 0);
+            hash = CombineHash(hash, StringHash(LogLevel));
+            hash = CombineHash(hash, PercentHash(UpdateInterval * 100f));
+            hash = CombineHash(hash, PercentHash(RescanInterval * 100f));
+
+            hash = CombineHash(hash, StringHash(WeaponFilterAll));
+            hash = CombineHash(hash, StringHash(WeaponFilterArrow));
+            hash = CombineHash(hash, StringHash(WeaponFilterDagger));
+            hash = CombineHash(hash, StringHash(WeaponFilterSword));
+            hash = CombineHash(hash, StringHash(WeaponFilterAxe));
+            hash = CombineHash(hash, StringHash(WeaponFilterMace));
+            hash = CombineHash(hash, StringHash(WeaponFilterSpear));
+            hash = CombineHash(hash, StringHash(WeaponFilterStaff));
+            hash = CombineHash(hash, StringHash(WeaponFilterBow));
+            hash = CombineHash(hash, StringHash(WeaponFilterShield));
+            hash = CombineHash(hash, StringHash(WeaponFilterThrowing));
+            hash = CombineHash(hash, StringHash(WeaponFilterOther));
+
+            for (int faction = 1; faction <= FactionCount; faction++)
+            {
+                hash = CombineHash(hash, GetFactionEnabled(faction) ? 1 : 0);
+                for (int slot = 1; slot <= ImbueSlotsPerFaction; slot++)
+                {
+                    hash = CombineHash(hash, StringHash(GetFactionSlotSpell(faction, slot)));
+                    hash = CombineHash(hash, PercentHash(GetFactionSlotChance(faction, slot)));
+                    hash = CombineHash(hash, PercentHash(GetFactionSlotStrength(faction, slot)));
+                }
+            }
+
+            return hash;
+        }
+
+        public static bool ApplySelectedPresets()
+        {
+            return ApplyPresets(
+                NormalizeImbuePreset(PresetImbue),
+                NormalizeChancePreset(PresetChance),
+                NormalizeStrengthPreset(PresetStrength));
+        }
+
+        public static bool ApplyPresets(string imbuePreset, string chancePreset, string strengthPreset)
+        {
+            string normalizedImbuePreset = NormalizeImbuePreset(imbuePreset);
+            string normalizedChancePreset = NormalizeChancePreset(chancePreset);
+            string normalizedStrengthPreset = NormalizeStrengthPreset(strengthPreset);
+
+            bool changed = false;
+            changed |= ApplyImbuePreset(normalizedImbuePreset);
+            changed |= ApplyChancePreset(normalizedChancePreset);
+            changed |= ApplyStrengthPreset(normalizedStrengthPreset);
+            return changed;
+        }
+
+        public static bool ApplyImbuePreset(string imbuePreset)
+        {
+            string[][] matrix = BuildImbuePresetMatrix(NormalizeImbuePreset(imbuePreset));
+            bool changed = false;
+
+            for (int faction = 1; faction <= FactionCount; faction++)
+            {
+                for (int slot = 1; slot <= ImbueSlotsPerFaction; slot++)
+                {
+                    changed |= SetFactionSlotSpell(faction, slot, matrix[faction - 1][slot - 1]);
+                }
+            }
+
+            return changed;
+        }
+
+        public static bool ApplyChancePreset(string chancePreset)
+        {
+            float[][] matrix = BuildScaledPresetMatrix(LoreChanceValues, NormalizeChancePreset(chancePreset), true);
+            bool changed = false;
+
+            for (int faction = 1; faction <= FactionCount; faction++)
+            {
+                for (int slot = 1; slot <= ImbueSlotsPerFaction; slot++)
+                {
+                    changed |= SetFactionSlotChance(faction, slot, matrix[faction - 1][slot - 1]);
+                }
+            }
+
+            changed |= NormalizeAllFactionChanceValues();
+            return changed;
+        }
+
+        public static bool ApplyStrengthPreset(string strengthPreset)
+        {
+            float[][] matrix = BuildScaledPresetMatrix(LoreStrengthValues, NormalizeStrengthPreset(strengthPreset), false);
+            bool changed = false;
+
+            for (int faction = 1; faction <= FactionCount; faction++)
+            {
+                for (int slot = 1; slot <= ImbueSlotsPerFaction; slot++)
+                {
+                    changed |= SetFactionSlotStrength(faction, slot, matrix[faction - 1][slot - 1]);
+                }
+            }
+
+            return changed;
+        }
+
+        public static IEnumerable<FactionProfile> GetAllFactionProfiles()
+        {
+            for (int i = 1; i <= FactionCount; i++)
+            {
+                yield return GetFactionProfileByIndex(i);
+            }
+        }
+
+        public static FactionProfile GetFactionProfileByIndex(int factionIndex)
+        {
+            int index = ToFactionIndex(factionIndex);
+            if (index < 0)
+            {
+                return default(FactionProfile);
+            }
+
+            EnsureResolvedFactionIds();
+
+            bool enabled = GetFactionEnabled(factionIndex);
+            string spell1 = GetFactionSlotSpell(factionIndex, 1);
+            string spell2 = GetFactionSlotSpell(factionIndex, 2);
+            string spell3 = GetFactionSlotSpell(factionIndex, 3);
+            float chance1 = GetFactionSlotChance(factionIndex, 1);
+            float chance2 = GetFactionSlotChance(factionIndex, 2);
+            float chance3 = GetFactionSlotChance(factionIndex, 3);
+            float strength1 = GetFactionSlotStrength(factionIndex, 1);
+            float strength2 = GetFactionSlotStrength(factionIndex, 2);
+            float strength3 = GetFactionSlotStrength(factionIndex, 3);
+
+            NormalizeChanceTriplet(ref chance1, ref chance2, ref chance3);
+
+            ImbueSlotConfig slot1 = BuildSlotConfig(1, spell1, chance1, strength1);
+            ImbueSlotConfig slot2 = BuildSlotConfig(2, spell2, chance2, strength2);
+            ImbueSlotConfig slot3 = BuildSlotConfig(3, spell3, chance3, strength3);
+
+            float totalChance = slot1.ChancePercent + slot2.ChancePercent + slot3.ChancePercent;
+
+            int hash = 31;
+            hash = CombineHash(hash, factionIndex);
+            hash = CombineHash(hash, resolvedFactionIds[index]);
+            hash = CombineHash(hash, enabled ? 1 : 0);
+            hash = CombineHash(hash, SlotHash(slot1));
+            hash = CombineHash(hash, SlotHash(slot2));
+            hash = CombineHash(hash, SlotHash(slot3));
+
+            return new FactionProfile
+            {
+                FactionIndex = factionIndex,
+                FactionId = resolvedFactionIds[index],
+                Enabled = enabled,
+                Slot1 = slot1,
+                Slot2 = slot2,
+                Slot3 = slot3,
+                TotalNormalizedChancePercent = totalChance,
+                ProfileHash = hash
+            };
+        }
+
+        public static bool TryResolveFactionProfile(int factionId, out FactionProfile profile)
+        {
+            EnsureResolvedFactionIds();
+
+            int exact = FindFactionIndexForId(factionId);
+            if (exact >= 0)
+            {
+                profile = GetFactionProfileByIndex(exact + 1);
+                return true;
+            }
+
+            profile = GetFactionProfileByIndex(FactionCount);
+            return true;
+        }
+
+        public static int FindFactionIndexForId(int factionId)
+        {
+            EnsureResolvedFactionIds();
+            return FactionIdToIndex.TryGetValue(factionId, out int index) ? index : -1;
+        }
+
+        public static string GetFactionName(int factionId, string fallbackName = null)
+        {
+            if (factionId < 0)
+            {
+                return "Any Enemy";
+            }
+
+            List<GameData.Faction> factions = Catalog.gameData?.factions;
+            if (factions != null)
+            {
+                for (int i = 0; i < factions.Count; i++)
+                {
+                    GameData.Faction faction = factions[i];
+                    if (faction != null && faction.id == factionId && !string.IsNullOrWhiteSpace(faction.name))
+                    {
+                        return faction.name;
+                    }
+                }
+            }
+
+            int index = FindFactionIndexForId(factionId);
+            if (index >= 0)
+            {
+                return FactionDisplayNames[index];
+            }
+
+            return string.IsNullOrWhiteSpace(fallbackName) ? "Faction " + factionId : fallbackName;
+        }
+
+        public static string GetWeaponFilterSelection(WeaponFilterBucket bucket)
+        {
+            switch (bucket)
+            {
+                case WeaponFilterBucket.All:
+                    return WeaponFilterAll;
+                case WeaponFilterBucket.Arrow:
+                    return WeaponFilterArrow;
+                case WeaponFilterBucket.Dagger:
+                    return WeaponFilterDagger;
+                case WeaponFilterBucket.Sword:
+                    return WeaponFilterSword;
+                case WeaponFilterBucket.Axe:
+                    return WeaponFilterAxe;
+                case WeaponFilterBucket.Mace:
+                    return WeaponFilterMace;
+                case WeaponFilterBucket.Spear:
+                    return WeaponFilterSpear;
+                case WeaponFilterBucket.Staff:
+                    return WeaponFilterStaff;
+                case WeaponFilterBucket.Bow:
+                    return WeaponFilterBow;
+                case WeaponFilterBucket.Shield:
+                    return WeaponFilterShield;
+                case WeaponFilterBucket.Throwing:
+                    return WeaponFilterThrowing;
+                case WeaponFilterBucket.Other:
+                    return WeaponFilterOther;
+                default:
+                    return WeaponFilterDefault;
+            }
+        }
+
+        public static string ResolveSpellForWeaponBucket(string baseSpellId, WeaponFilterBucket bucket)
+        {
+            string bucketValue = CanonicalWeaponFilter(GetWeaponFilterSelection(bucket));
+            if (bucket != WeaponFilterBucket.All && string.Equals(bucketValue, WeaponFilterDefault, StringComparison.Ordinal))
+            {
+                bucketValue = CanonicalWeaponFilter(WeaponFilterAll);
+            }
+
+            if (string.Equals(bucketValue, WeaponFilterNone, StringComparison.Ordinal))
+            {
+                return string.Empty;
+            }
+
+            if (string.Equals(bucketValue, WeaponFilterFire, StringComparison.Ordinal))
+            {
+                return "Fire";
+            }
+
+            if (string.Equals(bucketValue, WeaponFilterGravity, StringComparison.Ordinal))
+            {
+                return "Gravity";
+            }
+
+            if (string.Equals(bucketValue, WeaponFilterLightning, StringComparison.Ordinal))
+            {
+                return "Lightning";
+            }
+
+            return CanonicalSpellId(baseSpellId);
+        }
+
+        public static ModOptionString[] LogLevelProvider()
+        {
+            return new[]
+            {
+                new ModOptionString("Off", "Off"),
+                new ModOptionString("Basic", "Basic"),
+                new ModOptionString("Verbose", "Verbose")
+            };
+        }
+
+        public static ModOptionFloat[] PercentProvider()
+        {
+            ModOptionFloat[] values = new ModOptionFloat[21];
+            for (int i = 0; i < values.Length; i++)
+            {
+                float percent = i * 5f;
+                values[i] = new ModOptionFloat(percent.ToString("F0") + "%", percent);
+            }
+            return values;
+        }
+
+        public static ModOptionFloat[] UpdateIntervalProvider()
+        {
+            return new[]
+            {
+                new ModOptionFloat("0.05s", 0.05f),
+                new ModOptionFloat("0.10s", 0.10f),
+                new ModOptionFloat("0.15s", 0.15f),
+                new ModOptionFloat("0.20s", 0.20f),
+                new ModOptionFloat("0.25s", 0.25f),
+                new ModOptionFloat("0.33s", 0.33f),
+                new ModOptionFloat("0.50s", 0.50f),
+                new ModOptionFloat("0.75s", 0.75f),
+                new ModOptionFloat("1.00s", 1.00f)
+            };
+        }
+
+        public static ModOptionFloat[] RescanIntervalProvider()
+        {
+            return new[]
+            {
+                new ModOptionFloat("0.50s", 0.50f),
+                new ModOptionFloat("1.00s", 1.00f),
+                new ModOptionFloat("1.50s", 1.50f),
+                new ModOptionFloat("2.00s", 2.00f),
+                new ModOptionFloat("3.00s", 3.00f),
+                new ModOptionFloat("5.00s", 5.00f)
+            };
+        }
+
+        public static ModOptionString[] SpellProvider()
+        {
+            List<ModOptionString> values = new List<ModOptionString>();
+            HashSet<string> seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            AddSpellOption(values, seen, "Fire");
+            AddSpellOption(values, seen, "Lightning");
+            AddSpellOption(values, seen, "Gravity");
+
+            List<string> discovered = new List<string>();
+            try
+            {
+                List<SpellCastCharge> spells = Catalog.GetDataList<SpellCastCharge>();
+                if (spells != null)
+                {
+                    for (int i = 0; i < spells.Count; i++)
+                    {
+                        string id = spells[i]?.id;
+                        if (string.IsNullOrWhiteSpace(id))
+                        {
+                            continue;
+                        }
+
+                        string canonical = CanonicalSpellId(id);
+                        if (!seen.Contains(canonical))
+                        {
+                            discovered.Add(canonical);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // Catalog may not be fully initialized while options are built.
+            }
+
+            discovered.Sort(StringComparer.OrdinalIgnoreCase);
+            for (int i = 0; i < discovered.Count; i++)
+            {
+                AddSpellOption(values, seen, discovered[i]);
+            }
+
+            if (values.Count == 0)
+            {
+                values.Add(new ModOptionString("Fire", "Fire"));
+            }
+
+            return values.ToArray();
+        }
+
+        public static ModOptionString[] ImbuePresetProvider()
+        {
+            return new[]
+            {
+                new ModOptionString("Lore Accurate", PresetImbueLore),
+                new ModOptionString("Faction Identity", PresetImbueFactionIdentity),
+                new ModOptionString("Arcane Surge", PresetImbueArcaneSurge),
+                new ModOptionString("Elemental Chaos", PresetImbueElementalChaos),
+                new ModOptionString("Randomized", PresetImbueRandomized)
+            };
+        }
+
+        public static ModOptionString[] ChancePresetProvider()
+        {
+            return new[]
+            {
+                new ModOptionString("Low Intensity", PresetChanceLow),
+                new ModOptionString("Balanced Battles", PresetChanceBalanced),
+                new ModOptionString("Aggressive Waves", PresetChanceAggressive),
+                new ModOptionString("Relentless Threat", PresetChanceRelentless),
+                new ModOptionString("Overflow Normalized", PresetChanceOverflow)
+            };
+        }
+
+        public static ModOptionString[] StrengthPresetProvider()
+        {
+            return new[]
+            {
+                new ModOptionString("Faint Charge", PresetStrengthFaint),
+                new ModOptionString("Battle Ready", PresetStrengthStandard),
+                new ModOptionString("Empowered", PresetStrengthEmpowered),
+                new ModOptionString("Overcharged", PresetStrengthOvercharged),
+                new ModOptionString("Cataclysmic", PresetStrengthCataclysmic)
+            };
+        }
+
+        public static ModOptionString[] WeaponFilterProvider()
+        {
+            return new[]
+            {
+                new ModOptionString("Default", WeaponFilterDefault),
+                new ModOptionString("None", WeaponFilterNone),
+                new ModOptionString("Fire", WeaponFilterFire),
+                new ModOptionString("Gravity", WeaponFilterGravity),
+                new ModOptionString("Lightning", WeaponFilterLightning)
+            };
+        }
+
+        public static string NormalizeImbuePreset(string preset)
+        {
+            if (string.Equals(preset, PresetImbueLore, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Lore Accurate", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetImbueLore;
+            }
+
+            if (string.Equals(preset, PresetImbueFactionIdentity, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Faction Identity", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetImbueFactionIdentity;
+            }
+
+            if (string.Equals(preset, PresetImbueArcaneSurge, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Arcane Surge", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetImbueArcaneSurge;
+            }
+
+            if (string.Equals(preset, PresetImbueElementalChaos, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Elemental Chaos", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetImbueElementalChaos;
+            }
+
+            if (string.Equals(preset, PresetImbueRandomized, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Randomized", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetImbueRandomized;
+            }
+
+            return PresetImbueLore;
+        }
+
+        public static string NormalizeChancePreset(string preset)
+        {
+            if (string.Equals(preset, PresetChanceLow, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Low Intensity", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetChanceLow;
+            }
+
+            if (string.Equals(preset, PresetChanceBalanced, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Balanced Battles", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetChanceBalanced;
+            }
+
+            if (string.Equals(preset, PresetChanceAggressive, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Aggressive Waves", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetChanceAggressive;
+            }
+
+            if (string.Equals(preset, PresetChanceRelentless, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Relentless Threat", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetChanceRelentless;
+            }
+
+            if (string.Equals(preset, PresetChanceOverflow, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Overflow Normalized", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetChanceOverflow;
+            }
+
+            return PresetChanceBalanced;
+        }
+
+        public static string NormalizeStrengthPreset(string preset)
+        {
+            if (string.Equals(preset, PresetStrengthFaint, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Faint Charge", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetStrengthFaint;
+            }
+
+            if (string.Equals(preset, PresetStrengthStandard, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Battle Ready", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetStrengthStandard;
+            }
+
+            if (string.Equals(preset, PresetStrengthEmpowered, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Empowered", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetStrengthEmpowered;
+            }
+
+            if (string.Equals(preset, PresetStrengthOvercharged, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Overcharged", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetStrengthOvercharged;
+            }
+
+            if (string.Equals(preset, PresetStrengthCataclysmic, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(preset, "Cataclysmic", StringComparison.OrdinalIgnoreCase))
+            {
+                return PresetStrengthCataclysmic;
+            }
+
+            return PresetStrengthStandard;
+        }
+
+        private static void NormalizeChanceTriplet(ref float c1, ref float c2, ref float c3)
+        {
+            c1 = ClampPercent(c1);
+            c2 = ClampPercent(c2);
+            c3 = ClampPercent(c3);
+
+            float sum = c1 + c2 + c3;
+            if (sum > 100f && sum > 0.0001f)
+            {
+                float scale = 100f / sum;
+                c1 *= scale;
+                c2 *= scale;
+                c3 *= scale;
+            }
+        }
+
+        private static string[][] BuildImbuePresetMatrix(string preset)
+        {
+            preset = NormalizeImbuePreset(preset);
+            string[][] matrix = CreateSpellMatrix();
+
+            if (string.Equals(preset, PresetImbueFactionIdentity, StringComparison.Ordinal))
+            {
+                for (int faction = 0; faction < FactionCount; faction++)
+                {
+                    string dominant = CanonicalSpellId(FactionIdentityDominants[faction]);
+                    matrix[faction][0] = dominant;
+                    matrix[faction][1] = NextSpell(dominant, 1);
+                    matrix[faction][2] = NextSpell(dominant, 2);
+                }
+                return matrix;
+            }
+
+            if (string.Equals(preset, PresetImbueArcaneSurge, StringComparison.Ordinal))
+            {
+                for (int faction = 0; faction < FactionCount; faction++)
+                {
+                    matrix[faction][0] = LoreImbueValues[faction][1];
+                    matrix[faction][1] = LoreImbueValues[faction][2];
+                    matrix[faction][2] = LoreImbueValues[faction][0];
+                }
+                return matrix;
+            }
+
+            if (string.Equals(preset, PresetImbueElementalChaos, StringComparison.Ordinal))
+            {
+                for (int faction = 0; faction < FactionCount; faction++)
+                {
+                    for (int slot = 0; slot < ImbueSlotsPerFaction; slot++)
+                    {
+                        matrix[faction][slot] = BaseSpellPool[(faction + slot) % BaseSpellPool.Length];
+                    }
+                }
+                return matrix;
+            }
+
+            if (string.Equals(preset, PresetImbueRandomized, StringComparison.Ordinal))
+            {
+                for (int faction = 0; faction < FactionCount; faction++)
+                {
+                    for (int slot = 0; slot < ImbueSlotsPerFaction; slot++)
+                    {
+                        matrix[faction][slot] = BaseSpellPool[presetRandom.Next(0, BaseSpellPool.Length)];
+                    }
+                }
+                return matrix;
+            }
+
+            for (int faction = 0; faction < FactionCount; faction++)
+            {
+                for (int slot = 0; slot < ImbueSlotsPerFaction; slot++)
+                {
+                    matrix[faction][slot] = LoreImbueValues[faction][slot];
+                }
+            }
+
+            return matrix;
+        }
+
+        private static float[][] BuildScaledPresetMatrix(float[][] loreMatrix, string preset, bool chancePreset)
+        {
+            string normalizedPreset = chancePreset ? NormalizeChancePreset(preset) : NormalizeStrengthPreset(preset);
+            float scale = 1f;
+            float additive = 0f;
+            float tertiaryBonus = 0f;
+
+            if (chancePreset)
+            {
+                if (string.Equals(normalizedPreset, PresetChanceLow, StringComparison.Ordinal))
+                {
+                    scale = 0.55f;
+                }
+                else if (string.Equals(normalizedPreset, PresetChanceAggressive, StringComparison.Ordinal))
+                {
+                    scale = 1.40f;
+                    additive = 3f;
+                }
+                else if (string.Equals(normalizedPreset, PresetChanceRelentless, StringComparison.Ordinal))
+                {
+                    scale = 1.85f;
+                    additive = 6f;
+                    tertiaryBonus = 2f;
+                }
+                else if (string.Equals(normalizedPreset, PresetChanceOverflow, StringComparison.Ordinal))
+                {
+                    scale = 2.20f;
+                    additive = 12f;
+                    tertiaryBonus = 4f;
+                }
+            }
+            else
+            {
+                if (string.Equals(normalizedPreset, PresetStrengthFaint, StringComparison.Ordinal))
+                {
+                    scale = 0.55f;
+                }
+                else if (string.Equals(normalizedPreset, PresetStrengthEmpowered, StringComparison.Ordinal))
+                {
+                    scale = 1.25f;
+                    additive = 3f;
+                }
+                else if (string.Equals(normalizedPreset, PresetStrengthOvercharged, StringComparison.Ordinal))
+                {
+                    scale = 1.45f;
+                    additive = 7f;
+                    tertiaryBonus = 3f;
+                }
+                else if (string.Equals(normalizedPreset, PresetStrengthCataclysmic, StringComparison.Ordinal))
+                {
+                    scale = 1.75f;
+                    additive = 12f;
+                    tertiaryBonus = 6f;
+                }
+            }
+
+            float[][] matrix = CreateFloatMatrix();
+            for (int faction = 0; faction < FactionCount; faction++)
+            {
+                for (int slot = 0; slot < ImbueSlotsPerFaction; slot++)
+                {
+                    float baseValue = loreMatrix[faction][slot];
+                    float value = baseValue * scale + additive + ((slot == 2) ? tertiaryBonus : 0f);
+                    matrix[faction][slot] = ClampPercent(value);
+                }
+            }
+
+            return matrix;
+        }
+
+        private static ImbueSlotConfig BuildSlotConfig(int slotIndex, string spellId, float chancePercent, float strengthPercent)
+        {
+            return new ImbueSlotConfig
+            {
+                SlotIndex = slotIndex,
+                SpellId = CanonicalSpellId(spellId),
+                ChancePercent = ClampPercent(chancePercent),
+                StrengthPercent = ClampPercent(strengthPercent)
+            };
+        }
+
+        private static int SlotHash(ImbueSlotConfig slot)
+        {
+            int hash = 37;
+            hash = CombineHash(hash, slot.SlotIndex);
+            hash = CombineHash(hash, StringHash(slot.SpellId));
+            hash = CombineHash(hash, PercentHash(slot.ChancePercent));
+            hash = CombineHash(hash, PercentHash(slot.StrengthPercent));
+            return hash;
+        }
+
+        private static string[][] CreateSpellMatrix()
+        {
+            string[][] matrix = new string[FactionCount][];
+            for (int i = 0; i < FactionCount; i++)
+            {
+                matrix[i] = new string[ImbueSlotsPerFaction];
+            }
+            return matrix;
+        }
+
+        private static float[][] CreateFloatMatrix()
+        {
+            float[][] matrix = new float[FactionCount][];
+            for (int i = 0; i < FactionCount; i++)
+            {
+                matrix[i] = new float[ImbueSlotsPerFaction];
+            }
+            return matrix;
+        }
+
+        private static string NextSpell(string spell, int offset)
+        {
+            string canonical = CanonicalSpellId(spell);
+            int index = 0;
+
+            for (int i = 0; i < BaseSpellPool.Length; i++)
+            {
+                if (BaseSpellPool[i].Equals(canonical, StringComparison.Ordinal))
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            int next = (index + offset) % BaseSpellPool.Length;
+            return BaseSpellPool[next];
+        }
+
+        private static void EnsureResolvedFactionIds()
+        {
+            List<GameData.Faction> factions = Catalog.gameData?.factions;
+            if (factions == null || factions.Count == 0)
+            {
+                if (resolvedFactionIds == null || resolvedFactionIds.Length != FactionCount)
+                {
+                    resolvedFactionIds = (int[])DefaultFactionIds.Clone();
+                    RebuildFactionIndexMap();
+                }
+                resolvedFromCatalog = false;
+                resolvedFactionCount = -1;
+                return;
+            }
+
+            if (resolvedFromCatalog &&
+                resolvedFactionIds != null &&
+                resolvedFactionIds.Length == FactionCount &&
+                resolvedFactionCount == factions.Count)
+            {
+                return;
+            }
+
+            int[] resolved = (int[])DefaultFactionIds.Clone();
+            for (int i = 0; i < FactionCount - 1; i++)
+            {
+                resolved[i] = ResolveFactionId(factions, DefaultFactionIds[i], FactionDisplayNames[i], FactionKeywords[i]);
+            }
+            resolved[FactionCount - 1] = -1;
+
+            resolvedFactionIds = resolved;
+            resolvedFromCatalog = true;
+            resolvedFactionCount = factions.Count;
+            RebuildFactionIndexMap();
+        }
+
+        private static int ResolveFactionId(List<GameData.Faction> factions, int fallbackId, string displayName, string[] keywords)
+        {
+            for (int i = 0; i < factions.Count; i++)
+            {
+                GameData.Faction faction = factions[i];
+                if (faction != null && faction.id == fallbackId)
+                {
+                    return faction.id;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(displayName))
+            {
+                for (int i = 0; i < factions.Count; i++)
+                {
+                    GameData.Faction faction = factions[i];
+                    if (faction == null || string.IsNullOrWhiteSpace(faction.name))
+                    {
+                        continue;
+                    }
+
+                    if (faction.name.Equals(displayName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return faction.id;
+                    }
+                }
+            }
+
+            if (keywords != null)
+            {
+                for (int i = 0; i < factions.Count; i++)
+                {
+                    GameData.Faction faction = factions[i];
+                    if (faction == null || string.IsNullOrWhiteSpace(faction.name))
+                    {
+                        continue;
+                    }
+
+                    string name = faction.name.ToLowerInvariant();
+                    for (int k = 0; k < keywords.Length; k++)
+                    {
+                        string keyword = keywords[k];
+                        if (!string.IsNullOrWhiteSpace(keyword) && name.Contains(keyword))
+                        {
+                            return faction.id;
+                        }
+                    }
+                }
+            }
+
+            return fallbackId;
+        }
+
+        private static void RebuildFactionIndexMap()
+        {
+            FactionIdToIndex.Clear();
+            if (resolvedFactionIds == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < resolvedFactionIds.Length; i++)
+            {
+                int factionId = resolvedFactionIds[i];
+                if (factionId >= 0 && !FactionIdToIndex.ContainsKey(factionId))
+                {
+                    FactionIdToIndex.Add(factionId, i);
+                }
+            }
+        }
+
+        private static FieldInfo FindField(string fieldName)
+        {
+            return typeof(EIPModOptions).GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+        }
+
+        private static string ReadConstString(string fieldName, string fallback)
+        {
+            FieldInfo field = typeof(EIPModOptions).GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+            if (field == null)
+            {
+                return fallback;
+            }
+
+            object value = field.GetValue(null);
+            return value as string ?? fallback;
+        }
+
+        private static bool ReadBoolField(FieldInfo field, bool fallback)
+        {
+            if (field == null)
+            {
+                return fallback;
+            }
+
+            object value = field.GetValue(null);
+            return value is bool b ? b : fallback;
+        }
+
+        private static float ReadFloatField(FieldInfo field, float fallback)
+        {
+            if (field == null)
+            {
+                return fallback;
+            }
+
+            object value = field.GetValue(null);
+            if (value is float f)
+            {
+                return f;
+            }
+            if (value is double d)
+            {
+                return (float)d;
+            }
+            if (value is int n)
+            {
+                return n;
+            }
+
+            return fallback;
+        }
+
+        private static string ReadStringField(FieldInfo field, string fallback)
+        {
+            if (field == null)
+            {
+                return fallback;
+            }
+
+            object value = field.GetValue(null);
+            return value as string ?? fallback;
+        }
+
+        private static bool SetBoolField(FieldInfo field, bool value)
+        {
+            if (field == null)
+            {
+                return false;
+            }
+
+            bool current = ReadBoolField(field, value);
+            if (current == value)
+            {
+                return false;
+            }
+
+            field.SetValue(null, value);
+            return true;
+        }
+
+        private static bool SetFloatField(FieldInfo field, float value)
+        {
+            if (field == null)
+            {
+                return false;
+            }
+
+            float current = ReadFloatField(field, value);
+            if (Mathf.Abs(current - value) < 0.0001f)
+            {
+                return false;
+            }
+
+            field.SetValue(null, value);
+            return true;
+        }
+
+        private static bool SetStringField(FieldInfo field, string value)
+        {
+            if (field == null)
+            {
+                return false;
+            }
+
+            string next = value ?? string.Empty;
+            string current = ReadStringField(field, string.Empty);
+            if (string.Equals(current, next, StringComparison.Ordinal))
+            {
+                return false;
+            }
+
+            field.SetValue(null, next);
+            return true;
+        }
+
+        private static int ToFactionIndex(int factionIndex)
+        {
+            int index = factionIndex - 1;
+            return index >= 0 && index < FactionCount ? index : -1;
+        }
+
+        private static int ToSlotIndex(int slotIndex)
+        {
+            int index = slotIndex - 1;
+            return index >= 0 && index < ImbueSlotsPerFaction ? index : -1;
+        }
+
+        private static int CombineHash(int seed, int value)
+        {
+            unchecked
+            {
+                return (seed * 397) ^ value;
+            }
+        }
+
+        private static int StringHash(string value)
+        {
+            return string.IsNullOrEmpty(value) ? 0 : StringComparer.OrdinalIgnoreCase.GetHashCode(value);
+        }
+
+        private static int PercentHash(float value)
+        {
+            return Mathf.RoundToInt(value * 100f);
+        }
+
+        private static string CanonicalWeaponFilter(string value)
+        {
+            if (string.Equals(value, WeaponFilterNone, StringComparison.OrdinalIgnoreCase))
+            {
+                return WeaponFilterNone;
+            }
+            if (string.Equals(value, WeaponFilterFire, StringComparison.OrdinalIgnoreCase))
+            {
+                return WeaponFilterFire;
+            }
+            if (string.Equals(value, WeaponFilterGravity, StringComparison.OrdinalIgnoreCase))
+            {
+                return WeaponFilterGravity;
+            }
+            if (string.Equals(value, WeaponFilterLightning, StringComparison.OrdinalIgnoreCase))
+            {
+                return WeaponFilterLightning;
+            }
+            return WeaponFilterDefault;
+        }
+
+        private static void AddSpellOption(List<ModOptionString> values, HashSet<string> seen, string spellId)
+        {
+            if (string.IsNullOrWhiteSpace(spellId))
+            {
+                return;
+            }
+
+            string canonical = CanonicalSpellId(spellId);
+            if (seen.Add(canonical))
+            {
+                values.Add(new ModOptionString(canonical, canonical));
+            }
+        }
