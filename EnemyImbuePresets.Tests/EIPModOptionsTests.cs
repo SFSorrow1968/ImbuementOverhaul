@@ -6,6 +6,15 @@ namespace EnemyImbuePresets.Tests
     [TestFixture]
     public class EIPModOptionsTests
     {
+        [SetUp]
+        public void SetUp()
+        {
+            EIPModOptions.EnableBasicLogging = true;
+            EIPModOptions.EnableDiagnosticsLogging = false;
+            EIPModOptions.EnableVerboseLogging = false;
+            EIPModOptions.SessionDiagnostics = false;
+        }
+
         [Test]
         public void Version_IsSemverLike()
         {
@@ -17,6 +26,14 @@ namespace EnemyImbuePresets.Tests
         public void SessionDiagnostics_DefaultsOff()
         {
             Assert.That(EIPModOptions.SessionDiagnostics, Is.False);
+        }
+
+        [Test]
+        public void BooleanLogging_DefaultsAreSensible()
+        {
+            Assert.That(EIPModOptions.EnableBasicLogging, Is.True);
+            Assert.That(EIPModOptions.EnableDiagnosticsLogging, Is.False);
+            Assert.That(EIPModOptions.EnableVerboseLogging, Is.False);
         }
 
         [Test]

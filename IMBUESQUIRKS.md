@@ -52,7 +52,7 @@
 
 - **Issue**: One-off per-creature logs are hard to compare across long playthroughs when tuning presets.
 - **Context**: Manual inspection misses aggregate patterns (for example, why most enemies are skipped or why transfer failures spike).
-- **Solution/Workaround**: Use periodic `diag evt=summary` logs and set `Log Level` to `Diagnostics` or `Verbose` when collecting repro logs.
+- **Solution/Workaround**: Use periodic `diag evt=summary` logs with `Session Diagnostics` enabled; add `Diagnostics Logs` or `Verbose Logs` only when deeper traces are required.
 
 ## Entry 10
 

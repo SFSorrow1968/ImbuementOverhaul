@@ -3,21 +3,14 @@ using UnityEngine;
 
 namespace EnemyImbuePresets.Core
 {
-    internal enum EIPLogLevel
-    {
-        Off = 0,
-        Basic = 1,
-        Diagnostics = 2,
-        Verbose = 3
-    }
-
     internal static class EIPLog
     {
         private const string Prefix = "[EIP] ";
 
-        public static bool DiagnosticsEnabled => GetCurrentLevel() >= EIPLogLevel.Diagnostics;
+        public static bool DiagnosticsEnabled => EIPModOptions.EnableDiagnosticsLogging || VerboseEnabled;
         public static bool StructuredDiagnosticsEnabled => DiagnosticsEnabled || EIPModOptions.SessionDiagnostics;
-        public static bool VerboseEnabled => GetCurrentLevel() >= EIPLogLevel.Verbose;
+        public static bool VerboseEnabled => EIPModOptions.EnableVerboseLogging;
+        public static bool BasicEnabled => EIPModOptions.EnableBasicLogging || DiagnosticsEnabled;
 
         public static void Info(string message, bool verboseOnly = false)
         {
@@ -26,12 +19,11 @@ namespace EnemyImbuePresets.Core
                 return;
             }
 
-            EIPLogLevel level = GetCurrentLevel();
-            if (level == EIPLogLevel.Off)
+            if (!BasicEnabled)
             {
                 return;
             }
-            if (verboseOnly && level < EIPLogLevel.Verbose)
+            if (verboseOnly && !VerboseEnabled)
             {
                 return;
             }
@@ -46,12 +38,11 @@ namespace EnemyImbuePresets.Core
                 return;
             }
 
-            EIPLogLevel level = GetCurrentLevel();
-            if (level == EIPLogLevel.Off)
+            if (!BasicEnabled)
             {
                 return;
             }
-            if (verboseOnly && level < EIPLogLevel.Verbose)
+            if (verboseOnly && !VerboseEnabled)
             {
                 return;
             }
@@ -82,24 +73,6 @@ namespace EnemyImbuePresets.Core
             }
 
             Debug.Log(Prefix + message);
-        }
-
-        private static EIPLogLevel GetCurrentLevel()
-        {
-            string configured = EIPModOptions.LogLevel;
-            if (string.Equals(configured, "Off", System.StringComparison.OrdinalIgnoreCase))
-            {
-                return EIPLogLevel.Off;
-            }
-            if (string.Equals(configured, "Verbose", System.StringComparison.OrdinalIgnoreCase))
-            {
-                return EIPLogLevel.Verbose;
-            }
-            if (string.Equals(configured, "Diagnostics", System.StringComparison.OrdinalIgnoreCase))
-            {
-                return EIPLogLevel.Diagnostics;
-            }
-            return EIPLogLevel.Basic;
         }
     }
 }

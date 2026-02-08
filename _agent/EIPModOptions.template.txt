@@ -311,7 +311,10 @@
         {
             int hash = 23;
             hash = CombineHash(hash, EnableMod ? 1 : 0);
-            hash = CombineHash(hash, StringHash(LogLevel));
+            hash = CombineHash(hash, EnableBasicLogging ? 1 : 0);
+            hash = CombineHash(hash, EnableDiagnosticsLogging ? 1 : 0);
+            hash = CombineHash(hash, EnableVerboseLogging ? 1 : 0);
+            hash = CombineHash(hash, SessionDiagnostics ? 1 : 0);
             hash = CombineHash(hash, PercentHash(UpdateInterval * 100f));
             hash = CombineHash(hash, PercentHash(RescanInterval * 100f));
 
@@ -582,16 +585,6 @@
             }
 
             return CanonicalSpellId(baseSpellId);
-        }
-
-        public static ModOptionString[] LogLevelProvider()
-        {
-            return new[]
-            {
-                new ModOptionString("Off", "Off"),
-                new ModOptionString("Basic", "Basic"),
-                new ModOptionString("Verbose", "Verbose")
-            };
         }
 
         public static ModOptionFloat[] PercentProvider()

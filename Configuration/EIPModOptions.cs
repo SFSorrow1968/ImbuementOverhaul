@@ -14,7 +14,8 @@ namespace EnemyImbuePresets.Configuration
 
         private const string CategoryPresets = "Factioned Imbuement";
         private const string CategoryEnemyTypes = "Enemy Type Eligibility";
-        private const string CategoryDiagnostics = "Diagnostics";
+        private const string CategoryDiagnostics = "Advanced";
+        private const string CategoryDiagnosticsDumps = "Advanced - Dumps";
 
         private const string CategoryF01 = "Combat Practice (Mixed Enemies)";
         private const string CategoryF02 = "Outlaws (T0)";
@@ -39,7 +40,9 @@ namespace EnemyImbuePresets.Configuration
         private const string OptionEnemyTypeMeleeEligible = "Melee Eligible";
         private const string OptionEnemyTypeUncertainFallback = "Uncertain Enemy Type Fallback";
 
-        private const string OptionLogLevel = "Log Level";
+        private const string OptionEnableBasicLogging = "Basic Logs";
+        private const string OptionEnableDiagnosticsLogging = "Diagnostics Logs";
+        private const string OptionEnableVerboseLogging = "Verbose Logs";
         private const string OptionSessionDiagnostics = "Session Diagnostics";
         private const string OptionUpdateInterval = "Imbue Update Interval";
         private const string OptionRescanInterval = "Enemy Rescan Interval";
@@ -528,25 +531,29 @@ namespace EnemyImbuePresets.Configuration
         [ModOption(name = OptionF08S3Strength, category = CategoryF08, categoryOrder = 170, order = 90, defaultValueIndex = 8, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F08S3Strength = 40f;
 
-        [ModOption(name = OptionLogLevel, category = CategoryDiagnostics, categoryOrder = 999, order = 0, defaultValueIndex = 1, valueSourceName = nameof(LogLevelProvider))]
-        public static string LogLevel = "Basic";
-        [ModOption(name = OptionSessionDiagnostics, category = CategoryDiagnostics, categoryOrder = 999, order = 5, defaultValueIndex = 0, tooltip = "Emit structured session diagnostics summaries even when Log Level is Basic/Off")]
+        [ModOption(name = OptionEnableBasicLogging, category = CategoryDiagnostics, categoryOrder = 999, order = 0, defaultValueIndex = 1, tooltip = "Enable general informational logs")]
+        public static bool EnableBasicLogging = true;
+        [ModOption(name = OptionEnableDiagnosticsLogging, category = CategoryDiagnostics, categoryOrder = 999, order = 5, defaultValueIndex = 0, tooltip = "Enable deeper troubleshooting logs")]
+        public static bool EnableDiagnosticsLogging = false;
+        [ModOption(name = OptionEnableVerboseLogging, category = CategoryDiagnostics, categoryOrder = 999, order = 7, defaultValueIndex = 0, tooltip = "Enable high-volume per-entity and per-state logs")]
+        public static bool EnableVerboseLogging = false;
+        [ModOption(name = OptionSessionDiagnostics, category = CategoryDiagnostics, categoryOrder = 999, order = 8, defaultValueIndex = 0, tooltip = "Emit structured session diagnostics summaries even when other logs are off")]
         public static bool SessionDiagnostics = false;
         [ModOption(name = OptionUpdateInterval, category = CategoryDiagnostics, categoryOrder = 999, order = 10, defaultValueIndex = 4, valueSourceName = nameof(UpdateIntervalProvider), interactionType = (ModOption.InteractionType)2)]
         public static float UpdateInterval = 0.25f;
         [ModOption(name = OptionRescanInterval, category = CategoryDiagnostics, categoryOrder = 999, order = 20, defaultValueIndex = 3, valueSourceName = nameof(RescanIntervalProvider), interactionType = (ModOption.InteractionType)2)]
         public static float RescanInterval = 2.0f;
 
-        [ModOption(name = OptionDumpFactions, category = CategoryDiagnostics, categoryOrder = 999, order = 30, defaultValueIndex = 0)]
+        [ModOption(name = OptionDumpFactions, category = CategoryDiagnosticsDumps, categoryOrder = 1000, order = 10, defaultValueIndex = 0)]
         [ModOptionDontSave]
         public static bool DumpFactions = false;
-        [ModOption(name = OptionDumpWaveMap, category = CategoryDiagnostics, categoryOrder = 999, order = 40, defaultValueIndex = 0)]
+        [ModOption(name = OptionDumpWaveMap, category = CategoryDiagnosticsDumps, categoryOrder = 1000, order = 20, defaultValueIndex = 0)]
         [ModOptionDontSave]
         public static bool DumpWaveMap = false;
-        [ModOption(name = OptionDumpState, category = CategoryDiagnostics, categoryOrder = 999, order = 50, defaultValueIndex = 0)]
+        [ModOption(name = OptionDumpState, category = CategoryDiagnosticsDumps, categoryOrder = 1000, order = 30, defaultValueIndex = 0)]
         [ModOptionDontSave]
         public static bool DumpState = false;
-        [ModOption(name = OptionDumpEnemyTypes, category = CategoryDiagnostics, categoryOrder = 999, order = 55, defaultValueIndex = 0)]
+        [ModOption(name = OptionDumpEnemyTypes, category = CategoryDiagnosticsDumps, categoryOrder = 1000, order = 40, defaultValueIndex = 0)]
         [ModOptionDontSave]
         public static bool DumpEnemyTypes = false;
         [ModOption(name = OptionForceReapply, category = CategoryDiagnostics, categoryOrder = 999, order = 60, defaultValueIndex = 0)]
@@ -1090,7 +1097,10 @@ namespace EnemyImbuePresets.Configuration
         {
             int hash = 23;
             hash = CombineHash(hash, EnableMod ? 1 : 0);
-            hash = CombineHash(hash, StringHash(LogLevel));
+            hash = CombineHash(hash, EnableBasicLogging ? 1 : 0);
+            hash = CombineHash(hash, EnableDiagnosticsLogging ? 1 : 0);
+            hash = CombineHash(hash, EnableVerboseLogging ? 1 : 0);
+            hash = CombineHash(hash, SessionDiagnostics ? 1 : 0);
             hash = CombineHash(hash, PercentHash(UpdateInterval * 100f));
             hash = CombineHash(hash, PercentHash(RescanInterval * 100f));
 
@@ -1470,17 +1480,6 @@ namespace EnemyImbuePresets.Configuration
                 ", bow=" + EnemyTypeBowEligible +
                 ", melee=" + EnemyTypeMeleeEligible +
                 ", uncertainFallback=" + GetEnemyTypeFallbackMode();
-        }
-
-        public static ModOptionString[] LogLevelProvider()
-        {
-            return new[]
-            {
-                new ModOptionString("Off", "Off"),
-                new ModOptionString("Basic", "Basic"),
-                new ModOptionString("Diagnostics", "Diagnostics"),
-                new ModOptionString("Verbose", "Verbose")
-            };
         }
 
         public static ModOptionString[] EnemyTypeFallbackProvider()

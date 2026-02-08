@@ -326,14 +326,17 @@ def add_menu_workbook() -> None:
             ws.append([str(order + slot * 3), faction_name, f"{short_name} Strength {slot}", "Slider", "0..100 in 5% steps", "Preset-driven", "Strength", "Source of truth for slot strength"])
 
     diag_rows = [
-        ["999", "Diagnostics", "Log Level", "Dropdown", "Off | Basic | Diagnostics | Verbose", "Basic", "No", "Logging detail"],
-        ["1000", "Diagnostics", "Imbue Update Interval", "Dropdown", "0.05s..1.00s", "0.25s", "No", "Performance/response tradeoff"],
-        ["1001", "Diagnostics", "Enemy Rescan Interval", "Dropdown", "0.50s..5.00s", "2.00s", "No", "Tracking refresh interval"],
-        ["1002", "Diagnostics", "Dump Factions", "Button", "False/True", "False", "No", "One-shot debug action"],
-        ["1003", "Diagnostics", "Dump Wave-Faction Map", "Button", "False/True", "False", "No", "One-shot debug action"],
-        ["1004", "Diagnostics", "Dump State", "Button", "False/True", "False", "No", "One-shot debug action"],
-        ["1005", "Diagnostics", "Dump Enemy Type Detection", "Button", "False/True", "False", "No", "One-shot debug action"],
-        ["1006", "Diagnostics", "Force Reapply", "Button", "False/True", "False", "No", "One-shot debug action"],
+        ["999", "Advanced", "Basic Logs", "Toggle", "On/Off", "On", "No", "General informational logging"],
+        ["1000", "Advanced", "Diagnostics Logs", "Toggle", "On/Off", "Off", "No", "Deeper troubleshooting logs"],
+        ["1001", "Advanced", "Verbose Logs", "Toggle", "On/Off", "Off", "No", "High-volume per-creature logs"],
+        ["1002", "Advanced", "Session Diagnostics", "Toggle", "On/Off", "Off", "No", "Structured session summary logs"],
+        ["1003", "Advanced", "Imbue Update Interval", "Dropdown", "0.05s..1.00s", "0.25s", "No", "Performance/response tradeoff"],
+        ["1004", "Advanced", "Enemy Rescan Interval", "Dropdown", "0.50s..5.00s", "2.00s", "No", "Tracking refresh interval"],
+        ["1005", "Advanced", "Force Reapply", "Button", "False/True", "False", "No", "One-shot reapply action"],
+        ["1010", "Advanced - Dumps", "Dump Factions", "Button", "False/True", "False", "No", "One-shot dump action"],
+        ["1011", "Advanced - Dumps", "Dump Wave-Faction Map", "Button", "False/True", "False", "No", "One-shot dump action"],
+        ["1012", "Advanced - Dumps", "Dump State", "Button", "False/True", "False", "No", "One-shot dump action"],
+        ["1013", "Advanced - Dumps", "Dump Enemy Type Detection", "Button", "False/True", "False", "No", "One-shot dump action"],
     ]
     for row in diag_rows:
         ws.append(row)

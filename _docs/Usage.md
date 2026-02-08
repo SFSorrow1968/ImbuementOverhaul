@@ -49,8 +49,12 @@
 - `Enemy Rescan Interval`: how often all active enemies are rescanned for tracking.
 - Recommended starting point: `0.25s` update and `2.0s` rescan.
 
-## Diagnostics
-- `Log Level`: `Off`, `Basic`, `Diagnostics`, `Verbose`.
+## Advanced
+- `Basic Logs`: general informational logs.
+- `Diagnostics Logs`: deeper troubleshooting logs.
+- `Verbose Logs`: high-volume per-creature/per-apply logs.
+- `Session Diagnostics`: structured `diag evt=...` summaries for post-session analysis.
+- Dump actions are grouped under `Advanced - Dumps`.
 - `Dump Factions`: logs detected factions and resolved profile mapping.
 - `Dump Wave-Faction Map`: logs sandbox wave titles grouped by faction id.
 - `Dump State`: logs tracked creature assignment state.
