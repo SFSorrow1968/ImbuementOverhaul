@@ -27,8 +27,8 @@ Factioned Imbuement is a framework-style mod for assigning weapon imbues to enem
 - `dotnet build EnemyImbuePresets.csproj -c Nomad`
 
 Output folders:
-- `bin/Release/PCVR/EnemyImbuePresets/`
-- `bin/Release/Nomad/EnemyImbuePresets/`
+- `bin/PCVR/EnemyImbuePresets/`
+- `bin/Nomad/EnemyImbuePresets/`
 
 ## Design Artifacts
 - `_docs/EnemyImbuePresets_MenuMock.xlsx`

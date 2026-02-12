@@ -11,7 +11,6 @@ namespace EnemyImbuePresets.Core
     {
         private const string OptionKeySeparator = "||";
         private const float UpdateIntervalSeconds = 0.15f;
-        private const float StartupOverwriteWatchSeconds = 8f;
 
         private ModManager.ModData modData;
         private bool initialized;
@@ -19,9 +18,6 @@ namespace EnemyImbuePresets.Core
         private int lastPresetHash;
         private int lastChanceHash;
         private int lastOptionCatalogHash;
-        private bool startupOverwriteWatchActive;
-        private float startupOverwriteWatchEndTime;
-        private int startupOptionsStateHash;
         private static string lastEligibilityHintSignature = string.Empty;
 
         private readonly Dictionary<string, ModOption> modOptionsByKey = new Dictionary<string, ModOption>(StringComparer.Ordinal);
@@ -39,9 +35,6 @@ namespace EnemyImbuePresets.Core
             lastPresetHash = int.MinValue;
             lastChanceHash = int.MinValue;
             lastOptionCatalogHash = int.MinValue;
-            startupOverwriteWatchActive = false;
-            startupOverwriteWatchEndTime = 0f;
-            startupOptionsStateHash = int.MinValue;
             lastEligibilityHintSignature = string.Empty;
             modData = null;
             modOptionsByKey.Clear();
@@ -52,20 +45,7 @@ namespace EnemyImbuePresets.Core
                 return;
             }
 
-            bool changed = false;
-            changed |= ApplyPresetsIfChanged(force: true);
-            changed |= NormalizeChanceFields(force: true);
-
-            if (changed)
-            {
-                ModManager.RefreshModOptionsUI();
-            }
-
-            // Mod options can apply after ScriptEnable and clobber faction collapsibles.
-            // Watch startup for one overwrite and re-apply current presets once if detected.
-            startupOptionsStateHash = EIPModOptions.GetOptionsStateHash();
-            startupOverwriteWatchActive = true;
-            startupOverwriteWatchEndTime = Time.unscaledTime + StartupOverwriteWatchSeconds;
+            SeedTrackingState();
         }
 
         public void Shutdown()
@@ -76,9 +56,6 @@ namespace EnemyImbuePresets.Core
             lastPresetHash = int.MinValue;
             lastChanceHash = int.MinValue;
             lastOptionCatalogHash = int.MinValue;
-            startupOverwriteWatchActive = false;
-            startupOverwriteWatchEndTime = 0f;
-            startupOptionsStateHash = int.MinValue;
             lastEligibilityHintSignature = string.Empty;
         }
 
@@ -92,13 +69,7 @@ namespace EnemyImbuePresets.Core
                     return;
                 }
 
-                bool initChanged = false;
-                initChanged |= ApplyPresetsIfChanged(force: true);
-                initChanged |= NormalizeChanceFields(force: true);
-                if (initChanged)
-                {
-                    ModManager.RefreshModOptionsUI();
-                }
+                SeedTrackingState();
                 return;
             }
 
@@ -110,7 +81,6 @@ namespace EnemyImbuePresets.Core
 
             nextUpdateTime = now + UpdateIntervalSeconds;
             bool changed = false;
-            changed |= ReapplyPresetsIfStartupOverwriteDetected(now);
 
             bool optionCatalogChanged = RefreshOptionCache();
             changed |= ApplyPresetsIfChanged(force: false);
@@ -124,36 +94,6 @@ namespace EnemyImbuePresets.Core
             {
                 ModManager.RefreshModOptionsUI();
             }
-        }
-
-        private bool ReapplyPresetsIfStartupOverwriteDetected(float now)
-        {
-            if (!startupOverwriteWatchActive)
-            {
-                return false;
-            }
-
-            if (now > startupOverwriteWatchEndTime)
-            {
-                startupOverwriteWatchActive = false;
-                return false;
-            }
-
-            int currentOptionsHash = EIPModOptions.GetOptionsStateHash();
-            if (currentOptionsHash == startupOptionsStateHash)
-            {
-                return false;
-            }
-
-            bool changed = false;
-            changed |= ApplyPresetsIfChanged(force: true);
-            changed |= NormalizeChanceFields(force: true);
-
-            startupOptionsStateHash = EIPModOptions.GetOptionsStateHash();
-            startupOverwriteWatchActive = false;
-
-            EIPLog.Info("Detected post-load mod-option overwrite; re-applied selected presets once.");
-            return changed;
         }
 
         private void TryInitialize()
@@ -174,6 +114,12 @@ namespace EnemyImbuePresets.Core
 
             RefreshOptionCache();
             initialized = true;
+        }
+
+        private void SeedTrackingState()
+        {
+            lastPresetHash = EIPModOptions.GetPresetSelectionHash();
+            lastChanceHash = EIPModOptions.GetChanceStateHash();
         }
 
         private bool ApplyPresetsIfChanged(bool force)

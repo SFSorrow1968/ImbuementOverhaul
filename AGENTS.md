@@ -1,11 +1,11 @@
-# Agent Instructions
+﻿# Agent Instructions
 
 When making changes in this repo:
-- Always build `Release` and `Nomad` before finalizing.
+- Always build both targets before finalizing (`Release` for PCVR and `Nomad` for Nomad).
 - Keep changes aligned with the current folder structure (`Configuration`, `Core`, `Hooks`, `_agent`, `_docs`).
 - Use local references in `References/` and local tooling in `../.tools/` to decompile `../libs/*.dll` when API behavior is unclear.
 - Shared game DLL path for this workspace is `D:\Documents\Projects\repos\BS\libs`.
-- Build artifacts are expected in `bin/Release/PCVR/EnemyImbuePresets/` and `bin/Release/Nomad/EnemyImbuePresets/`.
+- Build artifacts must end up in `bin/PCVR/<ModName>/` and `bin/Nomad/<ModName>/` (platform folder, then mod-name folder; no intermediate build folders).
 - Treat `QUIRKS.md` as an index of theme-specific quirk logs, not a single catch-all file.
 - Before deep refactors or debugging sessions, review `DEVELOPMENT.md`, `QUIRKS.md`, and the relevant `<THEME>QUIRKS.md` files.
 - Add non-obvious findings to a specifically named quirk file such as `IMBUESQUIRKS.md`, `UIQUIRKS.md`, or `TOOLINGQUIRKS.md`.
@@ -18,3 +18,6 @@ When making changes in this repo:
 - For low-noise repro in this repo, start with: `Basic Logs=On`, `Diagnostics Logs=Off`, `Verbose Logs=Off`.
 - If the issue needs decision-path context, enable `Diagnostics Logs=On` (keep `Verbose Logs=Off`).
 - Only enable `Verbose Logs=On` for short targeted repro runs, then switch it back off.
+
+- In BS batch mode, also consult root quirk docs: ../QUIRKS.md and _quirks/EIP_*QUIRKS.md.
+
