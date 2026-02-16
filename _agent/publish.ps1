@@ -49,8 +49,8 @@ dotnet build -c Release
 dotnet build -c Nomad
 
 # Verify Build Artifacts
-if (-not (Test-Path "bin/PCVR/Enemy Imbue Presets/Enemy Imbue Presets.dll")) { Write-Error "PCVR Build Failed: DLL not found." }
-if (-not (Test-Path "bin/Nomad/Enemy Imbue Presets/Enemy Imbue Presets.dll")) { Write-Error "Nomad Build Failed: DLL not found." }
+if (-not (Test-Path "bin/PCVR/EnemyImbuePresets/EnemyImbuePresets.dll")) { Write-Error "PCVR Build Failed: DLL not found." }
+if (-not (Test-Path "bin/Nomad/EnemyImbuePresets/EnemyImbuePresets.dll")) { Write-Error "Nomad Build Failed: DLL not found." }
 
 # 4. Package
 Write-Host "4. Packaging..." -ForegroundColor Cyan
@@ -60,8 +60,8 @@ $nomadZip = "Enemy Imbue Presets_Nomad_v$version.zip"
 if (Test-Path $pcvrZip) { Remove-Item $pcvrZip }
 if (Test-Path $nomadZip) { Remove-Item $nomadZip }
 
-Compress-Archive -Path "bin/PCVR/Enemy Imbue Presets/*" -DestinationPath $pcvrZip
-Compress-Archive -Path "bin/Nomad/Enemy Imbue Presets/*" -DestinationPath $nomadZip
+Compress-Archive -Path "bin/PCVR/EnemyImbuePresets/*" -DestinationPath $pcvrZip
+Compress-Archive -Path "bin/Nomad/EnemyImbuePresets/*" -DestinationPath $nomadZip
 
 Write-Host "   Created $pcvrZip" -ForegroundColor Green
 Write-Host "   Created $nomadZip" -ForegroundColor Green
