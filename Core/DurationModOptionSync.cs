@@ -133,12 +133,10 @@ namespace ImbuementOverhaul.Core
         private bool SyncSourceOfTruthOptions()
         {
             bool changed = false;
-            changed |= SyncFloatOption(DurationModOptions.CategoryGlobal, DurationModOptions.OptionGlobalDrainMultiplier, DurationModOptions.GlobalDrainMultiplier);
-            changed |= SyncFloatOption(DurationModOptions.CategoryPlayerHeld, DurationModOptions.OptionPlayerHeldDrainMultiplier, DurationModOptions.PlayerHeldDrainMultiplier);
-            changed |= SyncFloatOption(DurationModOptions.CategoryPlayerThrown, DurationModOptions.OptionPlayerThrownDrainMultiplier, DurationModOptions.PlayerThrownDrainMultiplier);
-            changed |= SyncFloatOption(DurationModOptions.CategoryNpcHeld, DurationModOptions.OptionNpcHeldDrainMultiplier, DurationModOptions.NpcHeldDrainMultiplier);
-            changed |= SyncFloatOption(DurationModOptions.CategoryNpcThrown, DurationModOptions.OptionNpcThrownDrainMultiplier, DurationModOptions.NpcThrownDrainMultiplier);
-            changed |= SyncFloatOption(DurationModOptions.CategoryWorld, DurationModOptions.OptionWorldDrainMultiplier, DurationModOptions.WorldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryPresets, DurationModOptions.OptionGlobalDrainMultiplier, DurationModOptions.GlobalDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryPresets, DurationModOptions.OptionPlayerHeldDrainMultiplier, DurationModOptions.PlayerHeldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryPresets, DurationModOptions.OptionNpcHeldDrainMultiplier, DurationModOptions.NpcHeldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryPresets, DurationModOptions.OptionWorldDrainMultiplier, DurationModOptions.WorldDrainMultiplier);
             return changed;
         }
 

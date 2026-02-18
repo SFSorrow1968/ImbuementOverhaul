@@ -14,9 +14,7 @@ namespace ImbuementOverhaul.Tests
             DurationModOptions.PresetContextProfile = DurationModOptions.PresetContextUniform;
             DurationModOptions.GlobalDrainMultiplier = 0.85f;
             DurationModOptions.PlayerHeldDrainMultiplier = 1.0f;
-            DurationModOptions.PlayerThrownDrainMultiplier = 1.0f;
             DurationModOptions.NpcHeldDrainMultiplier = 1.0f;
-            DurationModOptions.NpcThrownDrainMultiplier = 1.0f;
             DurationModOptions.WorldDrainMultiplier = 1.0f;
             DurationModOptions.EnableBasicLogging = true;
             DurationModOptions.EnableDiagnosticsLogging = false;

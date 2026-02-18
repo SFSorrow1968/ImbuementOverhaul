@@ -8,13 +8,7 @@ namespace ImbuementOverhaul.Configuration
     {
         public const string VERSION = "0.1.0";
 
-        public const string CategoryPresets = "Imbue Duration Presets";
-        public const string CategoryGlobal = "Global Duration";
-        public const string CategoryPlayerHeld = "Player Held";
-        public const string CategoryPlayerThrown = "Player Thrown";
-        public const string CategoryNpcHeld = "NPC Held";
-        public const string CategoryNpcThrown = "NPC Thrown";
-        public const string CategoryWorld = "World / Dropped";
+        public const string CategoryPresets = "Imbuement Overhaul";
         public const string CategoryDiagnostics = "Duration Advanced";
 
         public const string OptionEnableMod = "Enable Duration Scaling";
@@ -23,9 +17,7 @@ namespace ImbuementOverhaul.Configuration
 
         public const string OptionGlobalDrainMultiplier = "Global Drain Multiplier";
         public const string OptionPlayerHeldDrainMultiplier = "Player Held Drain Multiplier";
-        public const string OptionPlayerThrownDrainMultiplier = "Player Thrown Drain Multiplier";
         public const string OptionNpcHeldDrainMultiplier = "NPC Held Drain Multiplier";
-        public const string OptionNpcThrownDrainMultiplier = "NPC Thrown Drain Multiplier";
         public const string OptionWorldDrainMultiplier = "World / Dropped Drain Multiplier";
 
         public const string OptionUpdateInterval = "Update Interval";
@@ -51,16 +43,13 @@ namespace ImbuementOverhaul.Configuration
         public const string PresetContextUniform = "Uniform";
         public const string PresetContextPlayerFavored = "PlayerFavored";
         public const string PresetContextNpcFavored = "NpcFavored";
-        public const string PresetContextThrownFocus = "ThrownFocus";
         public const string PresetContextWorldDecay = "WorldDecay";
 
         public enum DrainContext
         {
             PlayerHeld = 0,
-            PlayerThrown = 1,
-            NpcHeld = 2,
-            NpcThrown = 3,
-            WorldDropped = 4,
+            NpcHeld = 1,
+            WorldDropped = 2,
         }
 
         [ModOption(name = OptionEnableMod, order = 0, defaultValueIndex = 1, tooltip = "Master switch for imbue duration scaling")]
@@ -72,34 +61,28 @@ namespace ImbuementOverhaul.Configuration
         [ModOption(name = OptionPresetContext, category = CategoryPresets, categoryOrder = 0, order = 20, defaultValueIndex = 0, valueSourceName = nameof(ContextPresetProvider), tooltip = "Batch writes context collapsibles without changing runtime rules")]
         public static string PresetContextProfile = PresetContextUniform;
 
-        [ModOption(name = OptionGlobalDrainMultiplier, category = CategoryGlobal, categoryOrder = 20, order = 0, defaultValueIndex = 6, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Base drain multiplier. 1.00 = base game, lower = longer, 0 = infinite")]
+        [ModOption(name = OptionGlobalDrainMultiplier, category = CategoryPresets, categoryOrder = 0, order = 30, defaultValueIndex = 6, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Base drain multiplier. 1.00 = base game, lower = longer, 0 = infinite")]
         public static float GlobalDrainMultiplier = 0.85f;
 
-        [ModOption(name = OptionUpdateInterval, category = CategoryGlobal, categoryOrder = 20, order = 10, defaultValueIndex = 1, valueSourceName = nameof(UpdateIntervalProvider), interactionType = (ModOption.InteractionType)2, tooltip = "How often runtime scaling updates active imbues")]
+        [ModOption(name = OptionUpdateInterval, category = CategoryDiagnostics, categoryOrder = 200, order = 30, defaultValueIndex = 1, valueSourceName = nameof(UpdateIntervalProvider), interactionType = (ModOption.InteractionType)2, tooltip = "How often runtime scaling updates active imbues")]
         public static float UpdateIntervalSeconds = 0.10f;
 
-        [ModOption(name = OptionMaxCorrectionPerTick, category = CategoryGlobal, categoryOrder = 20, order = 20, defaultValueIndex = 3, valueSourceName = nameof(MaxCorrectionProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Caps max energy correction each tick as % of max energy")]
+        [ModOption(name = OptionMaxCorrectionPerTick, category = CategoryDiagnostics, categoryOrder = 200, order = 40, defaultValueIndex = 3, valueSourceName = nameof(MaxCorrectionProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Caps max energy correction each tick as % of max energy")]
         public static float MaxCorrectionPercentPerTick = 15f;
 
-        [ModOption(name = OptionMinimumEnergyFloor, category = CategoryGlobal, categoryOrder = 20, order = 30, defaultValueIndex = 1, valueSourceName = nameof(MinimumEnergyFloorProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Optional floor used when slowing drain to avoid accidental unload bursts")]
+        [ModOption(name = OptionMinimumEnergyFloor, category = CategoryDiagnostics, categoryOrder = 200, order = 50, defaultValueIndex = 1, valueSourceName = nameof(MinimumEnergyFloorProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Optional floor used when slowing drain to avoid accidental unload bursts")]
         public static float MinimumEnergyFloorPercent = 1f;
 
-        [ModOption(name = OptionUseNativeInfinite, category = CategoryGlobal, categoryOrder = 20, order = 40, defaultValueIndex = 1, tooltip = "When global drain is Infinite, also toggle native Imbue.infiniteImbue")]
+        [ModOption(name = OptionUseNativeInfinite, category = CategoryDiagnostics, categoryOrder = 200, order = 60, defaultValueIndex = 1, tooltip = "When global drain is Infinite, also toggle native Imbue.infiniteImbue")]
         public static bool UseNativeInfiniteFlag = true;
 
-        [ModOption(name = OptionPlayerHeldDrainMultiplier, category = CategoryPlayerHeld, categoryOrder = 100, order = 0, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Context multiplier for held player weapons")]
+        [ModOption(name = OptionPlayerHeldDrainMultiplier, category = CategoryPresets, categoryOrder = 0, order = 40, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Context multiplier for held player weapons")]
         public static float PlayerHeldDrainMultiplier = 1f;
 
-        [ModOption(name = OptionPlayerThrownDrainMultiplier, category = CategoryPlayerThrown, categoryOrder = 110, order = 0, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Context multiplier for thrown player weapons")]
-        public static float PlayerThrownDrainMultiplier = 1f;
-
-        [ModOption(name = OptionNpcHeldDrainMultiplier, category = CategoryNpcHeld, categoryOrder = 120, order = 0, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Context multiplier for held NPC weapons")]
+        [ModOption(name = OptionNpcHeldDrainMultiplier, category = CategoryPresets, categoryOrder = 0, order = 50, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Context multiplier for held NPC weapons")]
         public static float NpcHeldDrainMultiplier = 1f;
 
-        [ModOption(name = OptionNpcThrownDrainMultiplier, category = CategoryNpcThrown, categoryOrder = 130, order = 0, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Context multiplier for thrown NPC weapons")]
-        public static float NpcThrownDrainMultiplier = 1f;
-
-        [ModOption(name = OptionWorldDrainMultiplier, category = CategoryWorld, categoryOrder = 140, order = 0, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Context multiplier for dropped/world weapons")]
+        [ModOption(name = OptionWorldDrainMultiplier, category = CategoryPresets, categoryOrder = 0, order = 60, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2, tooltip = "Context multiplier for dropped/world weapons")]
         public static float WorldDrainMultiplier = 1f;
 
         [ModOption(name = OptionEnableBasicLogging, category = CategoryDiagnostics, categoryOrder = 200, order = 0, defaultValueIndex = 1, tooltip = "Enable general informational logs")]
@@ -138,7 +121,6 @@ namespace ImbuementOverhaul.Configuration
                 new ModOptionString("Uniform", PresetContextUniform),
                 new ModOptionString("Player Favored", PresetContextPlayerFavored),
                 new ModOptionString("NPC Favored", PresetContextNpcFavored),
-                new ModOptionString("Thrown Focus", PresetContextThrownFocus),
                 new ModOptionString("World Decay", PresetContextWorldDecay),
             };
         }
@@ -211,14 +193,12 @@ namespace ImbuementOverhaul.Configuration
             string contextPreset = NormalizeContextPreset(PresetContextProfile);
 
             float global = ResolveDurationPresetMultiplier(durationPreset);
-            ResolveContextFactors(contextPreset, out float playerHeld, out float playerThrown, out float npcHeld, out float npcThrown, out float world);
+            ResolveContextFactors(contextPreset, out float playerHeld, out float npcHeld, out float world);
 
             bool changed = false;
             changed |= SetFloat(ref GlobalDrainMultiplier, global);
             changed |= SetFloat(ref PlayerHeldDrainMultiplier, playerHeld);
-            changed |= SetFloat(ref PlayerThrownDrainMultiplier, playerThrown);
             changed |= SetFloat(ref NpcHeldDrainMultiplier, npcHeld);
-            changed |= SetFloat(ref NpcThrownDrainMultiplier, npcThrown);
             changed |= SetFloat(ref WorldDrainMultiplier, world);
             return changed;
         }
@@ -236,9 +216,7 @@ namespace ImbuementOverhaul.Configuration
             int hash = 17;
             hash = CombineHash(hash, PercentHash(GlobalDrainMultiplier));
             hash = CombineHash(hash, PercentHash(PlayerHeldDrainMultiplier));
-            hash = CombineHash(hash, PercentHash(PlayerThrownDrainMultiplier));
             hash = CombineHash(hash, PercentHash(NpcHeldDrainMultiplier));
-            hash = CombineHash(hash, PercentHash(NpcThrownDrainMultiplier));
             hash = CombineHash(hash, PercentHash(WorldDrainMultiplier));
             hash = CombineHash(hash, PercentHash(UpdateIntervalSeconds));
             hash = CombineHash(hash, PercentHash(MaxCorrectionPercentPerTick));
@@ -255,14 +233,8 @@ namespace ImbuementOverhaul.Configuration
                 case DrainContext.PlayerHeld:
                     contextMultiplier = PlayerHeldDrainMultiplier;
                     break;
-                case DrainContext.PlayerThrown:
-                    contextMultiplier = PlayerThrownDrainMultiplier;
-                    break;
                 case DrainContext.NpcHeld:
                     contextMultiplier = NpcHeldDrainMultiplier;
-                    break;
-                case DrainContext.NpcThrown:
-                    contextMultiplier = NpcThrownDrainMultiplier;
                     break;
                 default:
                     contextMultiplier = WorldDrainMultiplier;
@@ -316,7 +288,6 @@ namespace ImbuementOverhaul.Configuration
 
             if (token.Contains("PLAYER")) return PresetContextPlayerFavored;
             if (token.Contains("NPC")) return PresetContextNpcFavored;
-            if (token.Contains("THROWN")) return PresetContextThrownFocus;
             if (token.Contains("WORLD") || token.Contains("DROPPED")) return PresetContextWorldDecay;
             return PresetContextUniform;
         }
@@ -325,9 +296,7 @@ namespace ImbuementOverhaul.Configuration
         {
             return "global=" + GlobalDrainMultiplier.ToString("0.00") +
                    " playerHeld=" + PlayerHeldDrainMultiplier.ToString("0.00") +
-                   " playerThrown=" + PlayerThrownDrainMultiplier.ToString("0.00") +
                    " npcHeld=" + NpcHeldDrainMultiplier.ToString("0.00") +
-                   " npcThrown=" + NpcThrownDrainMultiplier.ToString("0.00") +
                    " world=" + WorldDrainMultiplier.ToString("0.00") +
                    " update=" + GetUpdateIntervalSeconds().ToString("0.00") + "s" +
                    " maxCorrection=" + MaxCorrectionPercentPerTick.ToString("0") + "%" +
@@ -359,50 +328,33 @@ namespace ImbuementOverhaul.Configuration
             }
         }
 
-        private static void ResolveContextFactors(string contextPreset, out float playerHeld, out float playerThrown, out float npcHeld, out float npcThrown, out float world)
+        private static void ResolveContextFactors(string contextPreset, out float playerHeld, out float npcHeld, out float world)
         {
             playerHeld = 1f;
-            playerThrown = 1f;
             npcHeld = 1f;
-            npcThrown = 1f;
             world = 1f;
 
             switch (contextPreset)
             {
                 case PresetContextPlayerFavored:
                     playerHeld = 0.75f;
-                    playerThrown = 0.70f;
                     npcHeld = 1.25f;
-                    npcThrown = 1.35f;
                     world = 1.00f;
                     break;
                 case PresetContextNpcFavored:
                     playerHeld = 1.25f;
-                    playerThrown = 1.35f;
                     npcHeld = 0.75f;
-                    npcThrown = 0.80f;
                     world = 1.00f;
-                    break;
-                case PresetContextThrownFocus:
-                    playerHeld = 1.00f;
-                    playerThrown = 0.65f;
-                    npcHeld = 1.00f;
-                    npcThrown = 0.70f;
-                    world = 1.10f;
                     break;
                 case PresetContextWorldDecay:
                     playerHeld = 0.95f;
-                    playerThrown = 1.05f;
                     npcHeld = 0.95f;
-                    npcThrown = 1.10f;
                     world = 1.80f;
                     break;
             }
 
             playerHeld = Mathf.Clamp(playerHeld, 0f, 6f);
-            playerThrown = Mathf.Clamp(playerThrown, 0f, 6f);
             npcHeld = Mathf.Clamp(npcHeld, 0f, 6f);
-            npcThrown = Mathf.Clamp(npcThrown, 0f, 6f);
             world = Mathf.Clamp(world, 0f, 6f);
         }
 

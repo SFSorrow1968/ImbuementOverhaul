@@ -278,7 +278,6 @@ namespace ImbuementOverhaul.Core
 
         private static DurationModOptions.DrainContext ResolveContext(Item item)
         {
-            bool thrown = item.isFlying || item.isThrowed;
             Creature creature = item.mainHandler != null && item.mainHandler.creature != null
                 ? item.mainHandler.creature
                 : (item.lastHandler != null ? item.lastHandler.creature : null);
@@ -287,9 +286,9 @@ namespace ImbuementOverhaul.Core
             {
                 if (creature.isPlayer)
                 {
-                    return thrown ? DurationModOptions.DrainContext.PlayerThrown : DurationModOptions.DrainContext.PlayerHeld;
+                    return DurationModOptions.DrainContext.PlayerHeld;
                 }
-                return thrown ? DurationModOptions.DrainContext.NpcThrown : DurationModOptions.DrainContext.NpcHeld;
+                return DurationModOptions.DrainContext.NpcHeld;
             }
 
             return DurationModOptions.DrainContext.WorldDropped;

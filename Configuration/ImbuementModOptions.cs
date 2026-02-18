@@ -9,7 +9,7 @@ namespace ImbuementOverhaul.Configuration
     public static class ImbuementModOptions
     {
         public const string VERSION = "0.4.0";
-        public const int FactionCount = 8;
+        public const int FactionCount = 7;
         public const int ImbueSlotsPerFaction = 3;
 
         private const string CategoryPresets = "Imbuement Overhaul";
@@ -23,7 +23,6 @@ namespace ImbuementOverhaul.Configuration
         private const string CategoryF05 = "The Eye (T3)";
         private const string CategoryF06 = "Rakta";
         private const string CategoryF07 = "Special / Rogue";
-        private const string CategoryF08 = "Fallback (Any Enemy)";
 
         private const string OptionEnableMod = "Enable Mod";
         private const string OptionPresetFactionProfile = "Faction Profile Preset";
@@ -121,17 +120,6 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionF07S3Chance = "Special Chance 3";
         private const string OptionF07S3Strength = "Special Strength 3";
 
-        private const string OptionF08Enabled = "Fallback Enabled";
-        private const string OptionF08S1Spell = "Fallback Imbue 1";
-        private const string OptionF08S1Chance = "Fallback Chance 1";
-        private const string OptionF08S1Strength = "Fallback Strength 1";
-        private const string OptionF08S2Spell = "Fallback Imbue 2";
-        private const string OptionF08S2Chance = "Fallback Chance 2";
-        private const string OptionF08S2Strength = "Fallback Strength 2";
-        private const string OptionF08S3Spell = "Fallback Imbue 3";
-        private const string OptionF08S3Chance = "Fallback Chance 3";
-        private const string OptionF08S3Strength = "Fallback Strength 3";
-
         public const string PresetProfileLore = "LoreFriendly";
         public const string PresetProfileFrontier = "FrontierPressure";
         public const string PresetProfileWarfront = "WarfrontArcana";
@@ -173,7 +161,6 @@ namespace ImbuementOverhaul.Configuration
             CategoryF05,
             CategoryF06,
             CategoryF07,
-            CategoryF08,
         };
 
         private static readonly int[] DefaultFactionIds =
@@ -185,7 +172,6 @@ namespace ImbuementOverhaul.Configuration
             7,
             8,
             9,
-            -1,
         };
 
         private static readonly string[] FactionDisplayNames =
@@ -197,7 +183,6 @@ namespace ImbuementOverhaul.Configuration
             "The Eye",
             "Rakta",
             "Special / Rogue",
-            "Any Enemy",
         };
 
         private static readonly string[] FactionShortNames =
@@ -209,7 +194,6 @@ namespace ImbuementOverhaul.Configuration
             "Eye",
             "Rakta",
             "Special",
-            "Fallback",
         };
 
         private static readonly string[] EnemyTypeDisplayNames =
@@ -242,7 +226,6 @@ namespace ImbuementOverhaul.Configuration
             new[] { "eye", "t3" },
             new[] { "rakta" },
             new[] { "special", "rogue" },
-            new string[0],
         };
 
         private static readonly System.Random presetRandom = new System.Random();
@@ -490,30 +473,6 @@ namespace ImbuementOverhaul.Configuration
         [ModOption(name = OptionF07S3Strength, category = CategoryF07, categoryOrder = 160, order = 90, defaultValueIndex = 12, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F07S3Strength = 60f;
 
-        [ModOption(name = OptionF08Enabled, category = CategoryF08, categoryOrder = 170, order = 0, defaultValueIndex = 1)]
-        public static bool F08Enabled = true;
-
-        [ModOption(name = OptionF08S1Spell, category = CategoryF08, categoryOrder = 170, order = 10, defaultValueIndex = 0, valueSourceName = nameof(SpellProvider))]
-        public static string F08S1Spell = "Fire";
-        [ModOption(name = OptionF08S1Chance, category = CategoryF08, categoryOrder = 170, order = 20, defaultValueIndex = 4, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2, tooltip = "If total slot chances exceed 100, they are normalized.")]
-        public static float F08S1Chance = 20f;
-        [ModOption(name = OptionF08S1Strength, category = CategoryF08, categoryOrder = 170, order = 30, defaultValueIndex = 12, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
-        public static float F08S1Strength = 60f;
-
-        [ModOption(name = OptionF08S2Spell, category = CategoryF08, categoryOrder = 170, order = 40, defaultValueIndex = 1, valueSourceName = nameof(SpellProvider))]
-        public static string F08S2Spell = "Lightning";
-        [ModOption(name = OptionF08S2Chance, category = CategoryF08, categoryOrder = 170, order = 50, defaultValueIndex = 3, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2, tooltip = "If total slot chances exceed 100, they are normalized.")]
-        public static float F08S2Chance = 15f;
-        [ModOption(name = OptionF08S2Strength, category = CategoryF08, categoryOrder = 170, order = 60, defaultValueIndex = 10, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
-        public static float F08S2Strength = 50f;
-
-        [ModOption(name = OptionF08S3Spell, category = CategoryF08, categoryOrder = 170, order = 70, defaultValueIndex = 2, valueSourceName = nameof(SpellProvider))]
-        public static string F08S3Spell = "Gravity";
-        [ModOption(name = OptionF08S3Chance, category = CategoryF08, categoryOrder = 170, order = 80, defaultValueIndex = 2, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2, tooltip = "If total slot chances exceed 100, they are normalized.")]
-        public static float F08S3Chance = 10f;
-        [ModOption(name = OptionF08S3Strength, category = CategoryF08, categoryOrder = 170, order = 90, defaultValueIndex = 8, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
-        public static float F08S3Strength = 40f;
-
         [ModOption(name = OptionEnableBasicLogging, category = CategoryDiagnostics, categoryOrder = 999, order = 0, defaultValueIndex = 1, tooltip = "Enable general informational logs")]
         public static bool EnableBasicLogging = true;
         [ModOption(name = OptionEnableDiagnosticsLogging, category = CategoryDiagnostics, categoryOrder = 999, order = 5, defaultValueIndex = 0, tooltip = "Enable deeper troubleshooting logs")]
@@ -537,8 +496,7 @@ namespace ImbuementOverhaul.Configuration
             "F04",
             "F05",
             "F06",
-            "F07",
-            "F08"
+            "F07"
         };
 
         private static readonly FieldInfo[] FactionEnabledFields = new FieldInfo[FactionCount];
@@ -554,13 +512,13 @@ namespace ImbuementOverhaul.Configuration
         private static readonly Dictionary<int, int> FactionIdToIndex = new Dictionary<int, int>();
 
         // Preset profile determines faction eligibility toggles.
-        // Factions: Combat, Outlaws, Wildfolk, Eraden, Eye, Rakta, Special, Fallback.
+        // Factions: Combat, Outlaws, Wildfolk, Eraden, Eye, Rakta, Special.
         private static readonly bool[][] ProfileEnabledValues =
         {
-            new[] { false, false, false, true, true, true, true, true }, // Lore Friendly
-            new[] { false, false, true,  true, true, true, true, true }, // Frontier Pressure
-            new[] { false, true,  true,  true, true, true, true, true }, // Warfront Arcana
-            new[] { true,  true,  true,  true, true, true, true, true }  // High Magic Conflict
+            new[] { false, false, false, true, true, true, true }, // Lore Friendly
+            new[] { false, false, true,  true, true, true, true }, // Frontier Pressure
+            new[] { false, true,  true,  true, true, true, true }, // Warfront Arcana
+            new[] { true,  true,  true,  true, true, true, true }  // High Magic Conflict
         };
 
         // Enemy-type eligibility profile writes:
@@ -1297,8 +1255,8 @@ namespace ImbuementOverhaul.Configuration
                 return true;
             }
 
-            profile = GetFactionProfileByIndex(FactionCount);
-            return true;
+            profile = default(FactionProfile);
+            return false;
         }
 
         public static int FindFactionIndexForId(int factionId)
@@ -1311,7 +1269,7 @@ namespace ImbuementOverhaul.Configuration
         {
             if (factionId < 0)
             {
-                return "Any Enemy";
+                return string.IsNullOrWhiteSpace(fallbackName) ? "Unknown Faction" : fallbackName;
             }
 
             List<GameData.Faction> factions = Catalog.gameData?.factions;
@@ -2236,11 +2194,10 @@ namespace ImbuementOverhaul.Configuration
             }
 
             int[] resolved = (int[])DefaultFactionIds.Clone();
-            for (int i = 0; i < FactionCount - 1; i++)
+            for (int i = 0; i < FactionCount; i++)
             {
                 resolved[i] = ResolveFactionId(factions, DefaultFactionIds[i], FactionDisplayNames[i], FactionKeywords[i]);
             }
-            resolved[FactionCount - 1] = -1;
 
             resolvedFactionIds = resolved;
             resolvedFromCatalog = true;
