@@ -14,5 +14,6 @@ This project uses a "Router-based" agent workflow to keep context clean.
 3. **Publishing**
    - Script: `_agent/publish.ps1`
    - Role: Automates building and zipping releases.
+   - Git: After a snapshot commit, push the branch immediately.
 
 *Maintained by agents for humans.*
