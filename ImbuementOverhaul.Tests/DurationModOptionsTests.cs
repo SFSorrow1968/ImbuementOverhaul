@@ -10,9 +10,7 @@ namespace ImbuementOverhaul.Tests
         public void SetUp()
         {
             DurationModOptions.EnableMod = true;
-            DurationModOptions.PresetDurationExperience = DurationModOptions.PresetDefaultPlus;
-            DurationModOptions.PresetContextProfile = DurationModOptions.PresetContextUniform;
-            DurationModOptions.GlobalDrainMultiplier = 0.85f;
+            DurationModOptions.PresetDrainProfile = DurationModOptions.PresetDrainBalanced;
             DurationModOptions.PlayerHeldDrainMultiplier = 1.0f;
             DurationModOptions.NpcHeldDrainMultiplier = 1.0f;
             DurationModOptions.WorldDrainMultiplier = 1.0f;
@@ -39,27 +37,39 @@ namespace ImbuementOverhaul.Tests
         [Test]
         public void PresetNormalization_MapsAliases()
         {
-            Assert.That(DurationModOptions.NormalizeDurationPreset("infinite"), Is.EqualTo(DurationModOptions.PresetInfinite));
-            Assert.That(DurationModOptions.NormalizeDurationPreset("Way Less"), Is.EqualTo(DurationModOptions.PresetWayLess));
-            Assert.That(DurationModOptions.NormalizeContextPreset("player power"), Is.EqualTo(DurationModOptions.PresetContextPlayerFavored));
+            Assert.That(DurationModOptions.NormalizeDrainPreset("player dominant"), Is.EqualTo(DurationModOptions.PresetDrainPlayerDominant));
+            Assert.That(DurationModOptions.NormalizeDrainPreset("npc favored"), Is.EqualTo(DurationModOptions.PresetDrainEnemyFavored));
+            Assert.That(DurationModOptions.NormalizeDrainPreset("balanced"), Is.EqualTo(DurationModOptions.PresetDrainBalanced));
         }
 
         [Test]
-        public void ApplyingInfinitePreset_BatchWritesSourceOfTruthFields()
+        public void ApplyingPreset_BatchWritesSourceOfTruthFields()
         {
-            DurationModOptions.PresetDurationExperience = DurationModOptions.PresetInfinite;
-            DurationModOptions.PresetContextProfile = DurationModOptions.PresetContextUniform;
+            DurationModOptions.PresetDrainProfile = DurationModOptions.PresetDrainEnemyDominant;
 
-            int presetHash = DurationModOptions.GetPresetSelectionHash();
+            bool changed = DurationModOptions.ApplySelectedPresets();
 
-            Assert.That(presetHash, Is.Not.EqualTo(0));
+            Assert.That(changed, Is.True);
+            Assert.That(DurationModOptions.PlayerHeldDrainMultiplier, Is.EqualTo(1.60f));
+            Assert.That(DurationModOptions.NpcHeldDrainMultiplier, Is.EqualTo(0.50f));
+            Assert.That(DurationModOptions.WorldDrainMultiplier, Is.EqualTo(1.60f));
         }
 
         [Test]
         public void PresetNormalization_DefaultsWhenUnknown()
         {
-            Assert.That(DurationModOptions.NormalizeDurationPreset("nonsense"), Is.EqualTo(DurationModOptions.PresetDefaultPlus));
-            Assert.That(DurationModOptions.NormalizeContextPreset("nonsense"), Is.EqualTo(DurationModOptions.PresetContextUniform));
+            Assert.That(DurationModOptions.NormalizeDrainPreset("nonsense"), Is.EqualTo(DurationModOptions.PresetDrainBalanced));
+        }
+
+        [Test]
+        public void BalancedPreset_KeepsAllThreeContextsEqual()
+        {
+            DurationModOptions.PresetDrainProfile = DurationModOptions.PresetDrainBalanced;
+            DurationModOptions.ApplySelectedPresets();
+
+            Assert.That(DurationModOptions.PlayerHeldDrainMultiplier, Is.EqualTo(1.00f));
+            Assert.That(DurationModOptions.NpcHeldDrainMultiplier, Is.EqualTo(1.00f));
+            Assert.That(DurationModOptions.WorldDrainMultiplier, Is.EqualTo(1.00f));
         }
     }
 }

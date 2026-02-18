@@ -112,8 +112,13 @@ namespace ImbuementOverhaul.Core
                 }
 
                 scannedItems++;
-                DurationModOptions.DrainContext context = ResolveContext(item);
+                DurationModOptions.DrainContext context = ResolveContext(item, out Creature holderCreature);
                 float multiplier = DurationModOptions.GetEffectiveDrainMultiplier(context);
+                if (context == DurationModOptions.DrainContext.NpcHeld)
+                {
+                    multiplier *= ResolveNpcFactionDrainMultiplier(holderCreature);
+                }
+                multiplier = Mathf.Clamp(multiplier, 0f, 6f);
 
                 for (int j = 0; j < item.imbues.Count; j++)
                 {
@@ -276,15 +281,15 @@ namespace ImbuementOverhaul.Core
             }
         }
 
-        private static DurationModOptions.DrainContext ResolveContext(Item item)
+        private static DurationModOptions.DrainContext ResolveContext(Item item, out Creature holderCreature)
         {
-            Creature creature = item.mainHandler != null && item.mainHandler.creature != null
+            holderCreature = item.mainHandler != null && item.mainHandler.creature != null
                 ? item.mainHandler.creature
                 : (item.lastHandler != null ? item.lastHandler.creature : null);
 
-            if (creature != null)
+            if (holderCreature != null)
             {
-                if (creature.isPlayer)
+                if (holderCreature.isPlayer)
                 {
                     return DurationModOptions.DrainContext.PlayerHeld;
                 }
@@ -292,6 +297,29 @@ namespace ImbuementOverhaul.Core
             }
 
             return DurationModOptions.DrainContext.WorldDropped;
+        }
+
+        private static float ResolveNpcFactionDrainMultiplier(Creature creature)
+        {
+            if (creature == null)
+            {
+                return 1f;
+            }
+
+            int factionId = creature.factionId;
+            int slotIndex = 0;
+            if (FactionImbuementManager.Instance.TryGetTrackedSlotForCreature(creature, out int trackedFactionId, out int trackedSlot))
+            {
+                factionId = trackedFactionId;
+                slotIndex = trackedSlot;
+            }
+
+            if (slotIndex <= 0)
+            {
+                return 1f;
+            }
+
+            return ImbuementModOptions.GetFactionSlotDrainMultiplierByFactionId(factionId, slotIndex);
         }
 
         private void HandleDiagnosticsToggles()

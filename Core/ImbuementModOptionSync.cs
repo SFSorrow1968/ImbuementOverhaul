@@ -189,6 +189,7 @@ namespace ImbuementOverhaul.Core
                     changed |= SyncStringOption(category, ImbuementModOptions.GetFactionSlotSpellOptionName(faction, slot), ImbuementModOptions.GetFactionSlotSpell(faction, slot));
                     changed |= SyncFloatOption(category, ImbuementModOptions.GetFactionSlotChanceOptionName(faction, slot), ImbuementModOptions.GetFactionSlotChance(faction, slot));
                     changed |= SyncFloatOption(category, ImbuementModOptions.GetFactionSlotStrengthOptionName(faction, slot), ImbuementModOptions.GetFactionSlotStrength(faction, slot));
+                    changed |= SyncFloatOption(category, ImbuementModOptions.GetFactionSlotDrainMultiplierOptionName(faction, slot), ImbuementModOptions.GetFactionSlotDrainMultiplier(faction, slot));
                 }
             }
 
@@ -290,21 +291,24 @@ namespace ImbuementOverhaul.Core
                 string s1Spell = ImbuementModOptions.GetFactionSlotSpell(faction, 1);
                 float s1Chance = ImbuementModOptions.GetFactionSlotChance(faction, 1);
                 float s1Strength = ImbuementModOptions.GetFactionSlotStrength(faction, 1);
+                float s1Drain = ImbuementModOptions.GetFactionSlotDrainMultiplier(faction, 1);
 
                 string s2Spell = ImbuementModOptions.GetFactionSlotSpell(faction, 2);
                 float s2Chance = ImbuementModOptions.GetFactionSlotChance(faction, 2);
                 float s2Strength = ImbuementModOptions.GetFactionSlotStrength(faction, 2);
+                float s2Drain = ImbuementModOptions.GetFactionSlotDrainMultiplier(faction, 2);
 
                 string s3Spell = ImbuementModOptions.GetFactionSlotSpell(faction, 3);
                 float s3Chance = ImbuementModOptions.GetFactionSlotChance(faction, 3);
                 float s3Strength = ImbuementModOptions.GetFactionSlotStrength(faction, 3);
+                float s3Drain = ImbuementModOptions.GetFactionSlotDrainMultiplier(faction, 3);
 
                 ImbuementLog.Info(
                     "Preset write " + shortName +
                     " enabled=" + enabled +
-                    " | S1 " + s1Spell + " " + s1Chance.ToString("F1") + "%/" + s1Strength.ToString("F1") + "%" +
-                    " | S2 " + s2Spell + " " + s2Chance.ToString("F1") + "%/" + s2Strength.ToString("F1") + "%" +
-                    " | S3 " + s3Spell + " " + s3Chance.ToString("F1") + "%/" + s3Strength.ToString("F1") + "%",
+                    " | S1 " + s1Spell + " " + s1Chance.ToString("F1") + "%/" + s1Strength.ToString("F1") + "% drain=" + s1Drain.ToString("0.00") + "x" +
+                    " | S2 " + s2Spell + " " + s2Chance.ToString("F1") + "%/" + s2Strength.ToString("F1") + "% drain=" + s2Drain.ToString("0.00") + "x" +
+                    " | S3 " + s3Spell + " " + s3Chance.ToString("F1") + "%/" + s3Strength.ToString("F1") + "% drain=" + s3Drain.ToString("0.00") + "x",
                     verboseOnly: true);
             }
         }

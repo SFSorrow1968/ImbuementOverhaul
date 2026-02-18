@@ -1,8 +1,8 @@
 # DurationModOptions Quirks
 **Known Issues**:
-- [Shared category]: Duration preset controls now live in `Imbuement Overhaul` category; option sync must resolve by category+name to avoid collisions.
-- [Legacy preset tokens]: Saved context preset values containing `THROWN` now normalize to `Uniform` because thrown-only profiles were removed.
+- [Preset migration]: Legacy saved values from old duration/context presets now normalize into the new 5-step `Drain Multiplier Preset` model.
+- [No global multiplier]: Runtime scaling now uses only context sliders (`Player Held`, `NPC Held`, `World`) and no longer has a separate global drain multiplier.
 
 **Edge Cases**:
-- [Thrown items]: Runtime thrown contexts are intentionally folded into held contexts (`PlayerHeld` or `NpcHeld`).
-- [Preset writes]: `ApplySelectedPresets` writes only `global`, `playerHeld`, `npcHeld`, and `world` source-of-truth fields.
+- [Balanced default]: Preset index 3 (`Balanced`) sets all three context multipliers to `1.00`.
+- [Native infinite]: `Use Native Infinite Flag` now activates only when all three context multipliers are `0.00`.

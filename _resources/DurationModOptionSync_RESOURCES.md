@@ -9,4 +9,4 @@
 
 ## Documentation
 - **Spec**: `_docs/DESIGN.md`
-- **Relevant Info**: Sync keys are built from `category + || + optionName`.
+- **Relevant Info**: Sync keys are built from `category + || + optionName`; drain sliders now resolve under `Drain Multiplier` category.

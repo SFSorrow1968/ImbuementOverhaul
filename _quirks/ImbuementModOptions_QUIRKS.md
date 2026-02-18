@@ -5,3 +5,4 @@
 **Edge Cases**:
 - [Unknown factions]: `TryResolveFactionProfile` now returns `false` when no exact faction id match exists.
 - [Resolved ids]: Catalog resolution now resolves all configured factions directly without reserving a synthetic fallback id.
+- [Faction weight]: `Faction Weight` preset toggle batch-writes all per-faction slot drain multipliers by tier when enabled.

@@ -1,7 +1,7 @@
 # DurationModOptionsTests Resources
 
 ## Tools & Utilities
-- **Test file**: `ImbuementOverhaul.Tests/DurationModOptionsTests.cs` - Validates preset normalization and defaults.
+- **Test file**: `ImbuementOverhaul.Tests/DurationModOptionsTests.cs` - Validates drain preset normalization and source-of-truth writes.
 
 ## Libraries & Dependencies
 - **Library**: `NUnit` - Assertion framework.

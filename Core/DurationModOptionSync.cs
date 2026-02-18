@@ -108,8 +108,7 @@ namespace ImbuementOverhaul.Core
                 return false;
             }
 
-            string durationPreset = DurationModOptions.NormalizeDurationPreset(DurationModOptions.PresetDurationExperience);
-            string contextPreset = DurationModOptions.NormalizeContextPreset(DurationModOptions.PresetContextProfile);
+            string drainPreset = DurationModOptions.NormalizeDrainPreset(DurationModOptions.PresetDrainProfile);
 
             bool valuesChanged = DurationModOptions.ApplySelectedPresets();
             bool uiChanged = SyncSourceOfTruthOptions();
@@ -119,8 +118,7 @@ namespace ImbuementOverhaul.Core
             if (force || valuesChanged || uiChanged)
             {
                 DurationLog.Info(
-                    "Preset batch wrote source-of-truth collapsibles: duration=" + durationPreset +
-                    " context=" + contextPreset +
+                    "Preset batch wrote source-of-truth collapsibles: drainPreset=" + drainPreset +
                     " valuesChanged=" + valuesChanged +
                     " uiSynced=" + uiChanged +
                     " snapshot={" + DurationModOptions.GetSourceOfTruthSummary() + "}",
@@ -133,10 +131,9 @@ namespace ImbuementOverhaul.Core
         private bool SyncSourceOfTruthOptions()
         {
             bool changed = false;
-            changed |= SyncFloatOption(DurationModOptions.CategoryPresets, DurationModOptions.OptionGlobalDrainMultiplier, DurationModOptions.GlobalDrainMultiplier);
-            changed |= SyncFloatOption(DurationModOptions.CategoryPresets, DurationModOptions.OptionPlayerHeldDrainMultiplier, DurationModOptions.PlayerHeldDrainMultiplier);
-            changed |= SyncFloatOption(DurationModOptions.CategoryPresets, DurationModOptions.OptionNpcHeldDrainMultiplier, DurationModOptions.NpcHeldDrainMultiplier);
-            changed |= SyncFloatOption(DurationModOptions.CategoryPresets, DurationModOptions.OptionWorldDrainMultiplier, DurationModOptions.WorldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryDrainMultipliers, DurationModOptions.OptionPlayerHeldDrainMultiplier, DurationModOptions.PlayerHeldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryDrainMultipliers, DurationModOptions.OptionNpcHeldDrainMultiplier, DurationModOptions.NpcHeldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryDrainMultipliers, DurationModOptions.OptionWorldDrainMultiplier, DurationModOptions.WorldDrainMultiplier);
             return changed;
         }
 

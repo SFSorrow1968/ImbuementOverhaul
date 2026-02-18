@@ -241,6 +241,28 @@ namespace ImbuementOverhaul.Core
             ImbuementLog.Info("Level unload detected, cleared tracked states.");
         }
 
+        public bool TryGetTrackedSlotForCreature(Creature creature, out int factionId, out int slotIndex)
+        {
+            factionId = creature != null ? creature.factionId : -1;
+            slotIndex = 0;
+            if (creature == null)
+            {
+                return false;
+            }
+
+            if (!tracked.TryGetValue(creature.GetInstanceID(), out TrackedCreatureState state) ||
+                state == null ||
+                !state.RollPassed ||
+                state.SelectedSlot <= 0)
+            {
+                return false;
+            }
+
+            factionId = state.FactionId;
+            slotIndex = state.SelectedSlot;
+            return true;
+        }
+
         private void TrackCurrentCreatures(bool forceRefresh, float now)
         {
             List<Creature> allActive = Creature.allActive;

@@ -8,7 +8,7 @@ namespace ImbuementOverhaul.Configuration
 {
     public static class ImbuementModOptions
     {
-        public const string VERSION = "0.4.0";
+        public const string VERSION = "0.4.1";
         public const int FactionCount = 7;
         public const int ImbueSlotsPerFaction = 3;
 
@@ -30,6 +30,7 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionPresetImbue = "Imbue Experience Preset";
         private const string OptionPresetChance = "Chance Experience Preset";
         private const string OptionPresetStrength = "Strength Experience Preset";
+        private const string OptionFactionWeight = "Faction Weight";
 
         private const string OptionEnemyTypeMageEligible = "Mage Eligible";
         private const string OptionEnemyTypeBowEligible = "Bow Eligible";
@@ -53,6 +54,9 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionF01S3Spell = "Combat Imbue 3";
         private const string OptionF01S3Chance = "Combat Chance 3";
         private const string OptionF01S3Strength = "Combat Strength 3";
+        private const string OptionF01S1DrainMultiplier = "Combat Drain Multiplier 1";
+        private const string OptionF01S2DrainMultiplier = "Combat Drain Multiplier 2";
+        private const string OptionF01S3DrainMultiplier = "Combat Drain Multiplier 3";
 
         private const string OptionF02Enabled = "Outlaws Enabled";
         private const string OptionF02S1Spell = "Outlaws Imbue 1";
@@ -64,6 +68,9 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionF02S3Spell = "Outlaws Imbue 3";
         private const string OptionF02S3Chance = "Outlaws Chance 3";
         private const string OptionF02S3Strength = "Outlaws Strength 3";
+        private const string OptionF02S1DrainMultiplier = "Outlaws Drain Multiplier 1";
+        private const string OptionF02S2DrainMultiplier = "Outlaws Drain Multiplier 2";
+        private const string OptionF02S3DrainMultiplier = "Outlaws Drain Multiplier 3";
 
         private const string OptionF03Enabled = "Wildfolk Enabled";
         private const string OptionF03S1Spell = "Wildfolk Imbue 1";
@@ -75,6 +82,9 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionF03S3Spell = "Wildfolk Imbue 3";
         private const string OptionF03S3Chance = "Wildfolk Chance 3";
         private const string OptionF03S3Strength = "Wildfolk Strength 3";
+        private const string OptionF03S1DrainMultiplier = "Wildfolk Drain Multiplier 1";
+        private const string OptionF03S2DrainMultiplier = "Wildfolk Drain Multiplier 2";
+        private const string OptionF03S3DrainMultiplier = "Wildfolk Drain Multiplier 3";
 
         private const string OptionF04Enabled = "Eraden Enabled";
         private const string OptionF04S1Spell = "Eraden Imbue 1";
@@ -86,6 +96,9 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionF04S3Spell = "Eraden Imbue 3";
         private const string OptionF04S3Chance = "Eraden Chance 3";
         private const string OptionF04S3Strength = "Eraden Strength 3";
+        private const string OptionF04S1DrainMultiplier = "Eraden Drain Multiplier 1";
+        private const string OptionF04S2DrainMultiplier = "Eraden Drain Multiplier 2";
+        private const string OptionF04S3DrainMultiplier = "Eraden Drain Multiplier 3";
 
         private const string OptionF05Enabled = "Eye Enabled";
         private const string OptionF05S1Spell = "Eye Imbue 1";
@@ -97,6 +110,9 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionF05S3Spell = "Eye Imbue 3";
         private const string OptionF05S3Chance = "Eye Chance 3";
         private const string OptionF05S3Strength = "Eye Strength 3";
+        private const string OptionF05S1DrainMultiplier = "Eye Drain Multiplier 1";
+        private const string OptionF05S2DrainMultiplier = "Eye Drain Multiplier 2";
+        private const string OptionF05S3DrainMultiplier = "Eye Drain Multiplier 3";
 
         private const string OptionF06Enabled = "Rakta Enabled";
         private const string OptionF06S1Spell = "Rakta Imbue 1";
@@ -108,6 +124,9 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionF06S3Spell = "Rakta Imbue 3";
         private const string OptionF06S3Chance = "Rakta Chance 3";
         private const string OptionF06S3Strength = "Rakta Strength 3";
+        private const string OptionF06S1DrainMultiplier = "Rakta Drain Multiplier 1";
+        private const string OptionF06S2DrainMultiplier = "Rakta Drain Multiplier 2";
+        private const string OptionF06S3DrainMultiplier = "Rakta Drain Multiplier 3";
 
         private const string OptionF07Enabled = "Special Enabled";
         private const string OptionF07S1Spell = "Special Imbue 1";
@@ -119,6 +138,9 @@ namespace ImbuementOverhaul.Configuration
         private const string OptionF07S3Spell = "Special Imbue 3";
         private const string OptionF07S3Chance = "Special Chance 3";
         private const string OptionF07S3Strength = "Special Strength 3";
+        private const string OptionF07S1DrainMultiplier = "Special Drain Multiplier 1";
+        private const string OptionF07S2DrainMultiplier = "Special Drain Multiplier 2";
+        private const string OptionF07S3DrainMultiplier = "Special Drain Multiplier 3";
 
         public const string PresetProfileLore = "LoreFriendly";
         public const string PresetProfileFrontier = "FrontierPressure";
@@ -228,6 +250,17 @@ namespace ImbuementOverhaul.Configuration
             new[] { "special", "rogue" },
         };
 
+        private static readonly float[] FactionWeightValues =
+        {
+            1.00f, // Combat
+            0.75f, // Outlaws (T0)
+            0.85f, // Wildfolk (T1)
+            1.00f, // Eraden (T2)
+            1.15f, // The Eye (T3)
+            1.35f, // Rakta
+            1.60f, // Special / Rogue
+        };
+
         private static readonly System.Random presetRandom = new System.Random();
         private static readonly string[] BaseSpellPool = { "Fire", "Lightning", "Gravity" };
 
@@ -296,6 +329,9 @@ namespace ImbuementOverhaul.Configuration
         [ModOption(name = OptionPresetStrength, category = CategoryPresets, categoryOrder = 0, order = 30, defaultValueIndex = 0, valueSourceName = nameof(StrengthPresetProvider), tooltip = "Controls per-slot imbue strength for each faction.")]
         public static string PresetStrength = PresetStrengthFaint;
 
+        [ModOption(name = OptionFactionWeight, category = CategoryPresets, categoryOrder = 0, order = 40, defaultValueIndex = 1, tooltip = "Batch writes per-faction drain multipliers based on faction tier.")]
+        public static bool FactionWeight = true;
+
         [ModOption(name = OptionEnemyTypeMageEligible, category = CategoryEnemyTypes, categoryOrder = 20, order = 0, defaultValueIndex = 1, tooltip = "If disabled, pure mage enemies cannot receive imbues.")]
         public static bool EnemyTypeMageEligible = true;
         [ModOption(name = OptionEnemyTypeBowEligible, category = CategoryEnemyTypes, categoryOrder = 20, order = 10, defaultValueIndex = 0, tooltip = "If disabled, non-caster bow enemies cannot receive imbues.")]
@@ -328,6 +364,12 @@ namespace ImbuementOverhaul.Configuration
         public static float F01S3Chance = 5f;
         [ModOption(name = OptionF01S3Strength, category = CategoryF01, categoryOrder = 100, order = 90, defaultValueIndex = 8, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F01S3Strength = 40f;
+        [ModOption(name = OptionF01S1DrainMultiplier, category = CategoryF01, categoryOrder = 100, order = 35, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F01S1DrainMultiplier = 1.00f;
+        [ModOption(name = OptionF01S2DrainMultiplier, category = CategoryF01, categoryOrder = 100, order = 65, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F01S2DrainMultiplier = 1.00f;
+        [ModOption(name = OptionF01S3DrainMultiplier, category = CategoryF01, categoryOrder = 100, order = 95, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F01S3DrainMultiplier = 1.00f;
 
         [ModOption(name = OptionF02Enabled, category = CategoryF02, categoryOrder = 110, order = 0, defaultValueIndex = 1)]
         public static bool F02Enabled = true;
@@ -352,6 +394,12 @@ namespace ImbuementOverhaul.Configuration
         public static float F02S3Chance = 10f;
         [ModOption(name = OptionF02S3Strength, category = CategoryF02, categoryOrder = 110, order = 90, defaultValueIndex = 10, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F02S3Strength = 50f;
+        [ModOption(name = OptionF02S1DrainMultiplier, category = CategoryF02, categoryOrder = 110, order = 35, defaultValueIndex = 5, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F02S1DrainMultiplier = 0.75f;
+        [ModOption(name = OptionF02S2DrainMultiplier, category = CategoryF02, categoryOrder = 110, order = 65, defaultValueIndex = 5, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F02S2DrainMultiplier = 0.75f;
+        [ModOption(name = OptionF02S3DrainMultiplier, category = CategoryF02, categoryOrder = 110, order = 95, defaultValueIndex = 5, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F02S3DrainMultiplier = 0.75f;
 
         [ModOption(name = OptionF03Enabled, category = CategoryF03, categoryOrder = 120, order = 0, defaultValueIndex = 1)]
         public static bool F03Enabled = true;
@@ -376,6 +424,12 @@ namespace ImbuementOverhaul.Configuration
         public static float F03S3Chance = 15f;
         [ModOption(name = OptionF03S3Strength, category = CategoryF03, categoryOrder = 120, order = 90, defaultValueIndex = 9, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F03S3Strength = 45f;
+        [ModOption(name = OptionF03S1DrainMultiplier, category = CategoryF03, categoryOrder = 120, order = 35, defaultValueIndex = 6, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F03S1DrainMultiplier = 0.85f;
+        [ModOption(name = OptionF03S2DrainMultiplier, category = CategoryF03, categoryOrder = 120, order = 65, defaultValueIndex = 6, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F03S2DrainMultiplier = 0.85f;
+        [ModOption(name = OptionF03S3DrainMultiplier, category = CategoryF03, categoryOrder = 120, order = 95, defaultValueIndex = 6, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F03S3DrainMultiplier = 0.85f;
 
         [ModOption(name = OptionF04Enabled, category = CategoryF04, categoryOrder = 130, order = 0, defaultValueIndex = 1)]
         public static bool F04Enabled = true;
@@ -400,6 +454,12 @@ namespace ImbuementOverhaul.Configuration
         public static float F04S3Chance = 20f;
         [ModOption(name = OptionF04S3Strength, category = CategoryF04, categoryOrder = 130, order = 90, defaultValueIndex = 11, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F04S3Strength = 55f;
+        [ModOption(name = OptionF04S1DrainMultiplier, category = CategoryF04, categoryOrder = 130, order = 35, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F04S1DrainMultiplier = 1.00f;
+        [ModOption(name = OptionF04S2DrainMultiplier, category = CategoryF04, categoryOrder = 130, order = 65, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F04S2DrainMultiplier = 1.00f;
+        [ModOption(name = OptionF04S3DrainMultiplier, category = CategoryF04, categoryOrder = 130, order = 95, defaultValueIndex = 7, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F04S3DrainMultiplier = 1.00f;
 
         [ModOption(name = OptionF05Enabled, category = CategoryF05, categoryOrder = 140, order = 0, defaultValueIndex = 1)]
         public static bool F05Enabled = true;
@@ -424,6 +484,12 @@ namespace ImbuementOverhaul.Configuration
         public static float F05S3Chance = 15f;
         [ModOption(name = OptionF05S3Strength, category = CategoryF05, categoryOrder = 140, order = 90, defaultValueIndex = 12, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F05S3Strength = 60f;
+        [ModOption(name = OptionF05S1DrainMultiplier, category = CategoryF05, categoryOrder = 140, order = 35, defaultValueIndex = 8, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F05S1DrainMultiplier = 1.15f;
+        [ModOption(name = OptionF05S2DrainMultiplier, category = CategoryF05, categoryOrder = 140, order = 65, defaultValueIndex = 8, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F05S2DrainMultiplier = 1.15f;
+        [ModOption(name = OptionF05S3DrainMultiplier, category = CategoryF05, categoryOrder = 140, order = 95, defaultValueIndex = 8, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F05S3DrainMultiplier = 1.15f;
 
         [ModOption(name = OptionF06Enabled, category = CategoryF06, categoryOrder = 150, order = 0, defaultValueIndex = 1)]
         public static bool F06Enabled = true;
@@ -448,6 +514,12 @@ namespace ImbuementOverhaul.Configuration
         public static float F06S3Chance = 15f;
         [ModOption(name = OptionF06S3Strength, category = CategoryF06, categoryOrder = 150, order = 90, defaultValueIndex = 11, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F06S3Strength = 55f;
+        [ModOption(name = OptionF06S1DrainMultiplier, category = CategoryF06, categoryOrder = 150, order = 35, defaultValueIndex = 9, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F06S1DrainMultiplier = 1.35f;
+        [ModOption(name = OptionF06S2DrainMultiplier, category = CategoryF06, categoryOrder = 150, order = 65, defaultValueIndex = 9, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F06S2DrainMultiplier = 1.35f;
+        [ModOption(name = OptionF06S3DrainMultiplier, category = CategoryF06, categoryOrder = 150, order = 95, defaultValueIndex = 9, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F06S3DrainMultiplier = 1.35f;
 
         [ModOption(name = OptionF07Enabled, category = CategoryF07, categoryOrder = 160, order = 0, defaultValueIndex = 1)]
         public static bool F07Enabled = true;
@@ -472,6 +544,12 @@ namespace ImbuementOverhaul.Configuration
         public static float F07S3Chance = 20f;
         [ModOption(name = OptionF07S3Strength, category = CategoryF07, categoryOrder = 160, order = 90, defaultValueIndex = 12, valueSourceName = nameof(PercentProvider), interactionType = (ModOption.InteractionType)2)]
         public static float F07S3Strength = 60f;
+        [ModOption(name = OptionF07S1DrainMultiplier, category = CategoryF07, categoryOrder = 160, order = 35, defaultValueIndex = 10, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F07S1DrainMultiplier = 1.60f;
+        [ModOption(name = OptionF07S2DrainMultiplier, category = CategoryF07, categoryOrder = 160, order = 65, defaultValueIndex = 10, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F07S2DrainMultiplier = 1.60f;
+        [ModOption(name = OptionF07S3DrainMultiplier, category = CategoryF07, categoryOrder = 160, order = 95, defaultValueIndex = 10, valueSourceName = nameof(DrainMultiplierProvider), interactionType = (ModOption.InteractionType)2)]
+        public static float F07S3DrainMultiplier = 1.60f;
 
         [ModOption(name = OptionEnableBasicLogging, category = CategoryDiagnostics, categoryOrder = 999, order = 0, defaultValueIndex = 1, tooltip = "Enable general informational logs")]
         public static bool EnableBasicLogging = true;
@@ -503,11 +581,13 @@ namespace ImbuementOverhaul.Configuration
         private static readonly FieldInfo[,] FactionSpellFields = new FieldInfo[FactionCount, ImbueSlotsPerFaction];
         private static readonly FieldInfo[,] FactionChanceFields = new FieldInfo[FactionCount, ImbueSlotsPerFaction];
         private static readonly FieldInfo[,] FactionStrengthFields = new FieldInfo[FactionCount, ImbueSlotsPerFaction];
+        private static readonly FieldInfo[,] FactionDrainMultiplierFields = new FieldInfo[FactionCount, ImbueSlotsPerFaction];
 
         private static readonly string[] FactionEnabledOptionNames = new string[FactionCount];
         private static readonly string[,] FactionSpellOptionNames = new string[FactionCount, ImbueSlotsPerFaction];
         private static readonly string[,] FactionChanceOptionNames = new string[FactionCount, ImbueSlotsPerFaction];
         private static readonly string[,] FactionStrengthOptionNames = new string[FactionCount, ImbueSlotsPerFaction];
+        private static readonly string[,] FactionDrainMultiplierOptionNames = new string[FactionCount, ImbueSlotsPerFaction];
 
         private static readonly Dictionary<int, int> FactionIdToIndex = new Dictionary<int, int>();
 
@@ -715,10 +795,12 @@ namespace ImbuementOverhaul.Configuration
                     FactionSpellFields[i, slot] = FindField(code + slotSuffix + "Spell");
                     FactionChanceFields[i, slot] = FindField(code + slotSuffix + "Chance");
                     FactionStrengthFields[i, slot] = FindField(code + slotSuffix + "Strength");
+                    FactionDrainMultiplierFields[i, slot] = FindField(code + slotSuffix + "DrainMultiplier");
 
                     FactionSpellOptionNames[i, slot] = ReadConstString("Option" + code + slotSuffix + "Spell", FactionShortNames[i] + " Imbue " + (slot + 1).ToString());
                     FactionChanceOptionNames[i, slot] = ReadConstString("Option" + code + slotSuffix + "Chance", FactionShortNames[i] + " Chance " + (slot + 1).ToString());
                     FactionStrengthOptionNames[i, slot] = ReadConstString("Option" + code + slotSuffix + "Strength", FactionShortNames[i] + " Strength " + (slot + 1).ToString());
+                    FactionDrainMultiplierOptionNames[i, slot] = ReadConstString("Option" + code + slotSuffix + "DrainMultiplier", FactionShortNames[i] + " Drain Multiplier " + (slot + 1).ToString());
                 }
             }
 
@@ -883,6 +965,13 @@ namespace ImbuementOverhaul.Configuration
             return (i >= 0 && s >= 0) ? FactionStrengthOptionNames[i, s] : string.Empty;
         }
 
+        public static string GetFactionSlotDrainMultiplierOptionName(int factionIndex, int slotIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            return (i >= 0 && s >= 0) ? FactionDrainMultiplierOptionNames[i, s] : string.Empty;
+        }
+
         public static bool GetFactionEnabled(int factionIndex)
         {
             int i = ToFactionIndex(factionIndex);
@@ -967,6 +1056,47 @@ namespace ImbuementOverhaul.Configuration
             return SetFloatField(FactionStrengthFields[i, s], ClampPercent(strengthPercent));
         }
 
+        public static float GetFactionSlotDrainMultiplier(int factionIndex, int slotIndex)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            if (i < 0 || s < 0)
+            {
+                return 1f;
+            }
+
+            return Mathf.Clamp(ReadFloatField(FactionDrainMultiplierFields[i, s], 1f), 0f, 6f);
+        }
+
+        public static bool SetFactionSlotDrainMultiplier(int factionIndex, int slotIndex, float multiplier)
+        {
+            int i = ToFactionIndex(factionIndex);
+            int s = ToSlotIndex(slotIndex);
+            if (i < 0 || s < 0)
+            {
+                return false;
+            }
+
+            return SetFloatField(FactionDrainMultiplierFields[i, s], Mathf.Clamp(multiplier, 0f, 6f));
+        }
+
+        public static float GetFactionSlotDrainMultiplierByFactionId(int factionId, int slotIndex)
+        {
+            int resolvedSlot = ToSlotIndex(slotIndex);
+            if (resolvedSlot < 0)
+            {
+                return 1f;
+            }
+
+            int factionIndex = FindFactionIndexForId(factionId);
+            if (factionIndex < 0)
+            {
+                return 1f;
+            }
+
+            return GetFactionSlotDrainMultiplier(factionIndex + 1, resolvedSlot + 1);
+        }
+
         public static bool NormalizeAllFactionChanceValues()
         {
             bool changed = false;
@@ -1001,6 +1131,7 @@ namespace ImbuementOverhaul.Configuration
             hash = CombineHash(hash, StringHash(NormalizeImbuePreset(PresetImbue)));
             hash = CombineHash(hash, StringHash(NormalizeChancePreset(PresetChance)));
             hash = CombineHash(hash, StringHash(NormalizeStrengthPreset(PresetStrength)));
+            hash = CombineHash(hash, FactionWeight ? 1 : 0);
             return hash;
         }
 
@@ -1024,6 +1155,7 @@ namespace ImbuementOverhaul.Configuration
             hash = CombineHash(hash, EnableBasicLogging ? 1 : 0);
             hash = CombineHash(hash, EnableDiagnosticsLogging ? 1 : 0);
             hash = CombineHash(hash, EnableVerboseLogging ? 1 : 0);
+            hash = CombineHash(hash, FactionWeight ? 1 : 0);
             hash = CombineHash(hash, PercentHash(UpdateInterval * 100f));
             hash = CombineHash(hash, PercentHash(RescanInterval * 100f));
 
@@ -1041,6 +1173,7 @@ namespace ImbuementOverhaul.Configuration
                     hash = CombineHash(hash, StringHash(GetFactionSlotSpell(faction, slot)));
                     hash = CombineHash(hash, PercentHash(GetFactionSlotChance(faction, slot)));
                     hash = CombineHash(hash, PercentHash(GetFactionSlotStrength(faction, slot)));
+                    hash = CombineHash(hash, PercentHash(GetFactionSlotDrainMultiplier(faction, slot)));
                 }
             }
 
@@ -1110,6 +1243,27 @@ namespace ImbuementOverhaul.Configuration
             changed |= ApplyImbuePreset(normalizedImbuePreset);
             changed |= ApplyChancePreset(normalizedChancePreset);
             changed |= ApplyStrengthPreset(normalizedStrengthPreset);
+            changed |= ApplyFactionWeightPreset(FactionWeight);
+            return changed;
+        }
+
+        public static bool ApplyFactionWeightPreset(bool enabled)
+        {
+            if (!enabled)
+            {
+                return false;
+            }
+
+            bool changed = false;
+            for (int faction = 1; faction <= FactionCount; faction++)
+            {
+                float value = FactionWeightValues[faction - 1];
+                for (int slot = 1; slot <= ImbueSlotsPerFaction; slot++)
+                {
+                    changed |= SetFactionSlotDrainMultiplier(faction, slot, value);
+                }
+            }
+
             return changed;
         }
 
@@ -1390,6 +1544,27 @@ namespace ImbuementOverhaul.Configuration
             {
                 new ModOptionString("Treat As Melee", EnemyTypeFallbackMelee),
                 new ModOptionString("Skip Enemy", EnemyTypeFallbackSkip)
+            };
+        }
+
+        public static ModOptionFloat[] DrainMultiplierProvider()
+        {
+            return new[]
+            {
+                new ModOptionFloat("Infinite", 0.00f),
+                new ModOptionFloat("0.10x", 0.10f),
+                new ModOptionFloat("0.25x", 0.25f),
+                new ModOptionFloat("0.50x", 0.50f),
+                new ModOptionFloat("0.65x", 0.65f),
+                new ModOptionFloat("0.75x", 0.75f),
+                new ModOptionFloat("0.85x", 0.85f),
+                new ModOptionFloat("1.00x", 1.00f),
+                new ModOptionFloat("1.15x", 1.15f),
+                new ModOptionFloat("1.35x", 1.35f),
+                new ModOptionFloat("1.60x", 1.60f),
+                new ModOptionFloat("2.00x", 2.00f),
+                new ModOptionFloat("2.50x", 2.50f),
+                new ModOptionFloat("3.00x", 3.00f),
             };
         }
 
