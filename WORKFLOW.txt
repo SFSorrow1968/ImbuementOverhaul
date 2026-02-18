@@ -16,4 +16,10 @@ This project uses a "Router-based" agent workflow to keep context clean.
    - Role: Automates building and zipping releases.
    - Git: After a snapshot commit, push the branch immediately.
 
+
+4. **Git Snapshots (Required)**
+   - Source of truth: `_docs/GIT_WORKFLOW.md`
+   - Role: Defines mandatory commit/tag/push/versioning behavior.
+   - Rule: For each successful build snapshot, create a new snapshot branch and new snapshot tag (immutable, never force-update old snapshot refs).
+
 *Maintained by agents for humans.*

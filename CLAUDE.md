@@ -26,7 +26,7 @@
 
 **Rule**: Only read these if relevant to your current task.
 
-- **Git Workflow**: `[_docs/GIT_WORKFLOW.md](file:///D:/Documents/Projects/repos/BS/Mods/Imbuement Overhaul/_docs/GIT_WORKFLOW.md)` (Read if pushing code/builds)
+- **Git Workflow**: [_docs/GIT_WORKFLOW.md](file:///D:/Documents/Projects/repos/BS/Mods/Imbuement Overhaul/_docs/GIT_WORKFLOW.md) (**MANDATORY before any commit/tag/push**. Follow exactly: version bump + new immutable snapshot branch/tag each successful build.)
 - **Design Specs**: `[_docs/DESIGN.md](file:///D:/Documents/Projects/repos/BS/Mods/Imbuement Overhaul/_docs/DESIGN.md)` (Read if changing features)
 - **Publishing**: `[_docs/PUBLISH.md](file:///D:/Documents/Projects/repos/BS/Mods/Imbuement Overhaul/_docs/PUBLISH.md)` (Read if preparing release)
 - **Tools**: `[_docs/TOOLS.md](file:///D:/Documents/Projects/repos/BS/Mods/Imbuement Overhaul/_docs/TOOLS.md)` (Read if using scripts)
@@ -41,7 +41,7 @@
    - *Libs*: `D:\Documents\Projects\repos\BS\SDK\libs`
 2. **Test**: Run VS Code Task `Test ALL Mods` (or `_agent/test.ps1`).
 3. **Publish**: Use VS Code Task `Publish Active Mod` (or run `_agent/publish.ps1`).
-4. **Snapshot**: IF build succeeds, you MUST commit. (See `GIT_WORKFLOW.md` for format)
+4. **Snapshot**: IF build succeeds, you MUST follow `_docs/GIT_WORKFLOW.md` exactly (version bump, snapshot commit, push, then new immutable snapshot branch/tag).
 
 ## 4. Agentic Tools
 
@@ -66,5 +66,6 @@ The following extensions are configured to assist you:
 2. **Update Scratchpad**: Before finishing your session (or when blocking on user feedback), update `SCRATCHPAD.md` with:
    - **Current Status**: What is working, what is broken.
    - **Next Steps**: Precise instructions for the next agent.
+
 
 
