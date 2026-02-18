@@ -1,7 +1,7 @@
 # Usage
 
 ## Presets
-- Set `Faction Profile Preset`, `Enemy Type Profile Preset`, `Imbue Experience Preset`, `Chance Experience Preset`, and `Strength Experience Preset` in `Factioned Imbuement`.
+- Set `Faction Profile Preset`, `Enemy Type Profile Preset`, `Imbue Experience Preset`, `Chance Experience Preset`, and `Strength Experience Preset` in `Imbuement Overhaul`.
 - Preset changes write directly into every faction collapsible.
 - Faction-level manual edits remain in effect until a preset is changed again.
 - `Faction Profile Preset` writes faction enabled/disabled values.
@@ -10,10 +10,10 @@
 - `Casters` also mirrors caster enemies' active/loaded spell id onto imbued weapons by default.
 
 ## XLSX Reference
-- `_docs/EnemyImbuePresets_MenuMock.xlsx`:
+- `_docs/ImbuementOverhaul_MenuMock.xlsx`:
 - `Menu Layout` sheet shows full option order and defaults.
 - `Preset Impact` sheet shows exactly which options are source-of-truth and which preset family writes them.
-- `_docs/EnemyImbuePresets_PresetMatrix.xlsx`:
+- `_docs/ImbuementOverhaul_PresetMatrix.xlsx`:
 - `Overview` sheet explains write behavior at a glance.
 - `Faction Profile` maps which factions each faction-profile preset enables/disables.
 - `Enemy Type Profile` maps archetype toggle writes (`Mage`, `Bow`, `Melee`) per enemy-type preset.
@@ -52,3 +52,4 @@
 - `Diagnostics Logs`: deeper troubleshooting logs.
 - `Verbose Logs`: high-volume per-creature/per-apply logs.
 - `Force Reapply`: immediately reapplies imbues on tracked enemies.
+

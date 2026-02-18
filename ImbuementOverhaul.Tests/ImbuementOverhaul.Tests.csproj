@@ -14,7 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EnemyImbuePresets.csproj" />
+    <ProjectReference Include="..\ImbuementOverhaul.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="bin\**;obj\**" />
   </ItemGroup>
 
 </Project>

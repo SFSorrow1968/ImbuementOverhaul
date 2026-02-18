@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EnemyImbuePresets.Core
+namespace ImbuementOverhaul.Core
 {
     internal static class EIPTelemetry
     {
@@ -459,3 +459,4 @@ namespace EnemyImbuePresets.Core
         }
     }
 }
+

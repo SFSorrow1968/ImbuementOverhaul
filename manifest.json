@@ -1,7 +1,7 @@
 ﻿{
-  "Name": "Factioned Imbuement",
-  "Description": "Assign configurable imbues to enemy factions with preset-driven and per-faction overrides.",
+  "Name": "Imbuement Overhaul",
+  "Description": "Faction-based imbuement presets plus full imbuement duration controls with per-context tuning.",
   "Author": "dkatz",
-  "ModVersion": "0.1.1",
+  "ModVersion": "0.2.0",
   "GameVersion": "1.0.0.0"
 }

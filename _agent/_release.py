@@ -1,5 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-"""Build and release Enemy Imbue Presets mod."""
+# -*- coding: utf-8 -*-
+"""Build and release Imbuement Overhaul mod."""
 import json
 import subprocess
 from pathlib import Path
@@ -32,14 +32,14 @@ def main():
     version = get_version()
     tag = f"v{version}"
 
-    print(f"\n=== Releasing Enemy Imbue Presets {version} ===\n")
+    print(f"\n=== Releasing Imbuement Overhaul {version} ===\n")
 
     require_clean_non_main_git_state()
     run("powershell -ExecutionPolicy Bypass -File _agent/ci-smoke.ps1 -Strict")
 
     print("\n=== Creating release zips ===\n")
-    run('powershell -Command "Compress-Archive -Path bin/Release/PCVR/EnemyImbuePresets -DestinationPath EnemyImbuePresets-PCVR.zip -Force"')
-    run('powershell -Command "Compress-Archive -Path bin/Release/Nomad/EnemyImbuePresets -DestinationPath EnemyImbuePresets-Nomad.zip -Force"')
+    run('powershell -Command "Compress-Archive -Path bin/Release/PCVR/ImbuementOverhaul -DestinationPath ImbuementOverhaul-PCVR.zip -Force"')
+    run('powershell -Command "Compress-Archive -Path bin/Release/Nomad/ImbuementOverhaul -DestinationPath ImbuementOverhaul-Nomad.zip -Force"')
 
     result = subprocess.run(f"git tag -l {tag}", shell=True, capture_output=True, text=True, cwd=BASE)
     if tag not in result.stdout:
@@ -49,12 +49,13 @@ def main():
 
     print("\n=== Creating GitHub release ===\n")
     run(
-        f'gh release create {tag} EnemyImbuePresets-PCVR.zip EnemyImbuePresets-Nomad.zip '
-        f'--title "Enemy Imbue Presets {version}" --notes "Release {version}"'
+        f'gh release create {tag} ImbuementOverhaul-PCVR.zip ImbuementOverhaul-Nomad.zip '
+        f'--title "Imbuement Overhaul {version}" --notes "Release {version}"'
     )
 
-    print(f"\n=== Enemy Imbue Presets {version} released ===\n")
+    print(f"\n=== Imbuement Overhaul {version} released ===\n")
 
 
 if __name__ == "__main__":
     main()
+

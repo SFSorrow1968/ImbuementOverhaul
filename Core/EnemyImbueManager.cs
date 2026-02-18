@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using EnemyImbuePresets.Configuration;
+using ImbuementOverhaul.Configuration;
 using ThunderRoad;
 using UnityEngine;
 
-namespace EnemyImbuePresets.Core
+namespace ImbuementOverhaul.Core
 {
     public sealed class EnemyImbueManager
     {
@@ -1905,3 +1905,4 @@ namespace EnemyImbuePresets.Core
         }
     }
 }
+

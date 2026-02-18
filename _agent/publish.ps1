@@ -1,4 +1,4 @@
-# Enemy Imbue Presets Publishing Script
+# Imbuement Overhaul Publishing Script
 # Usage: ./publish.ps1
 # Automates the workflow defined in _docs/PUBLISH.md
 
@@ -49,19 +49,19 @@ dotnet build -c Release
 dotnet build -c Nomad
 
 # Verify Build Artifacts
-if (-not (Test-Path "bin/PCVR/EnemyImbuePresets/EnemyImbuePresets.dll")) { Write-Error "PCVR Build Failed: DLL not found." }
-if (-not (Test-Path "bin/Nomad/EnemyImbuePresets/EnemyImbuePresets.dll")) { Write-Error "Nomad Build Failed: DLL not found." }
+if (-not (Test-Path "bin/PCVR/ImbuementOverhaul/ImbuementOverhaul.dll")) { Write-Error "PCVR Build Failed: DLL not found." }
+if (-not (Test-Path "bin/Nomad/ImbuementOverhaul/ImbuementOverhaul.dll")) { Write-Error "Nomad Build Failed: DLL not found." }
 
 # 4. Package
 Write-Host "4. Packaging..." -ForegroundColor Cyan
-$pcvrZip = "Enemy Imbue Presets_PCVR_v$version.zip"
-$nomadZip = "Enemy Imbue Presets_Nomad_v$version.zip"
+$pcvrZip = "Imbuement Overhaul_PCVR_v$version.zip"
+$nomadZip = "Imbuement Overhaul_Nomad_v$version.zip"
 
 if (Test-Path $pcvrZip) { Remove-Item $pcvrZip }
 if (Test-Path $nomadZip) { Remove-Item $nomadZip }
 
-Compress-Archive -Path "bin/PCVR/EnemyImbuePresets/*" -DestinationPath $pcvrZip
-Compress-Archive -Path "bin/Nomad/EnemyImbuePresets/*" -DestinationPath $nomadZip
+Compress-Archive -Path "bin/PCVR/ImbuementOverhaul/*" -DestinationPath $pcvrZip
+Compress-Archive -Path "bin/Nomad/ImbuementOverhaul/*" -DestinationPath $nomadZip
 
 Write-Host "   Created $pcvrZip" -ForegroundColor Green
 Write-Host "   Created $nomadZip" -ForegroundColor Green
@@ -72,3 +72,4 @@ Write-Host "   Created $nomadZip" -ForegroundColor Green
 # git tag -a "v$version" -m "Release v$version"
 
 Write-Host "Done! Ready to upload to GitHub/Nexus." -ForegroundColor Magenta
+

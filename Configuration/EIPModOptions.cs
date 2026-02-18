@@ -4,7 +4,7 @@ using System.Reflection;
 using ThunderRoad;
 using UnityEngine;
 
-namespace EnemyImbuePresets.Configuration
+namespace ImbuementOverhaul.Configuration
 {
     public static class EIPModOptions
     {
@@ -12,7 +12,7 @@ namespace EnemyImbuePresets.Configuration
         public const int FactionCount = 8;
         public const int ImbueSlotsPerFaction = 3;
 
-        private const string CategoryPresets = "Factioned Imbuement";
+        private const string CategoryPresets = "Imbuement Overhaul";
         private const string CategoryEnemyTypes = "Enemy Type Eligibility";
         private const string CategoryDiagnostics = "Advanced";
 
@@ -295,7 +295,7 @@ namespace EnemyImbuePresets.Configuration
             public int ProfileHash;
         }
 
-        [ModOption(name = OptionEnableMod, order = 0, defaultValueIndex = 1, tooltip = "Master switch for Factioned Imbuement.")]
+        [ModOption(name = OptionEnableMod, order = 0, defaultValueIndex = 1, tooltip = "Master switch for Imbuement Overhaul.")]
         public static bool EnableMod = true;
 
         [ModOption(name = OptionPresetFactionProfile, category = CategoryPresets, categoryOrder = 0, order = 5, defaultValueIndex = 0, valueSourceName = nameof(FactionProfilePresetProvider), tooltip = "Controls which faction collapsibles are eligible for imbues.")]
@@ -2484,4 +2484,5 @@ namespace EnemyImbuePresets.Configuration
         }
     }
 }
+
 

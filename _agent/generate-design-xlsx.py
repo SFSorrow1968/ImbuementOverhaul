@@ -9,8 +9,8 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT / "_docs"
-MENU_PATH = DOCS_DIR / "EnemyImbuePresets_MenuMock.xlsx"
-MATRIX_PATH = DOCS_DIR / "EnemyImbuePresets_PresetMatrix.xlsx"
+MENU_PATH = DOCS_DIR / "ImbuementOverhaul_MenuMock.xlsx"
+MATRIX_PATH = DOCS_DIR / "ImbuementOverhaul_PresetMatrix.xlsx"
 
 
 FACTIONS = [
@@ -301,11 +301,11 @@ def add_menu_workbook() -> None:
 
     base_rows = [
         ["0", "Root (No Collapsible)", "Enable Mod", "Toggle", "On/Off", "On", "No", "Master switch"],
-        ["5", "Factioned Imbuement", "Faction Profile Preset", "Dropdown", "Default | Core Factions | Most Factions | All Factions | Random", "Default", "N/A", "Batch-writes faction Enabled toggles"],
-        ["7", "Factioned Imbuement", "Enemy Type Profile Preset", "Dropdown", "Mage | Mage Bow | Mage Melee | Mage Bow Melee | Random", "Mage", "N/A", "Batch-writes enemy archetype eligibility toggles"],
-        ["10", "Factioned Imbuement", "Imbue Experience Preset", "Dropdown", "Default | Two-Slot | Tri-Slot | Tri-Slot+ | Random", "Default", "N/A", "Batch-writes faction Imbue 1/2/3"],
-        ["20", "Factioned Imbuement", "Chance Experience Preset", "Dropdown", "Default | Increased | High | Very High | Maximum", "Default", "N/A", "Batch-writes faction Chance 1/2/3 (normalized)"],
-        ["30", "Factioned Imbuement", "Strength Experience Preset", "Dropdown", "Default | Increased | High | Very High | Maximum", "Default", "N/A", "Batch-writes faction Strength 1/2/3"],
+        ["5", "Imbuement Overhaul", "Faction Profile Preset", "Dropdown", "Default | Core Factions | Most Factions | All Factions | Random", "Default", "N/A", "Batch-writes faction Enabled toggles"],
+        ["7", "Imbuement Overhaul", "Enemy Type Profile Preset", "Dropdown", "Mage | Mage Bow | Mage Melee | Mage Bow Melee | Random", "Mage", "N/A", "Batch-writes enemy archetype eligibility toggles"],
+        ["10", "Imbuement Overhaul", "Imbue Experience Preset", "Dropdown", "Default | Two-Slot | Tri-Slot | Tri-Slot+ | Random", "Default", "N/A", "Batch-writes faction Imbue 1/2/3"],
+        ["20", "Imbuement Overhaul", "Chance Experience Preset", "Dropdown", "Default | Increased | High | Very High | Maximum", "Default", "N/A", "Batch-writes faction Chance 1/2/3 (normalized)"],
+        ["30", "Imbuement Overhaul", "Strength Experience Preset", "Dropdown", "Default | Increased | High | Very High | Maximum", "Default", "N/A", "Batch-writes faction Strength 1/2/3"],
         ["40", "Enemy Type Eligibility", "Mage Eligible", "Toggle", "On/Off", "Preset-driven", "Enemy Type Profile", "Controls pure mage archetype eligibility"],
         ["41", "Enemy Type Eligibility", "Mage Bow Eligible", "Toggle", "On/Off", "Preset-driven", "Enemy Type Profile", "Controls mage-bow hybrid eligibility"],
         ["42", "Enemy Type Eligibility", "Mage Melee Eligible", "Toggle", "On/Off", "Preset-driven", "Enemy Type Profile", "Controls mage-melee hybrid eligibility"],
@@ -387,7 +387,7 @@ def add_matrix_workbook() -> None:
     overview = wb.active
     overview.title = "Overview"
 
-    overview.append(["Factioned Imbuement - Preset To Collapsible Mapping"])
+    overview.append(["Imbuement Overhaul - Preset To Collapsible Mapping"])
     overview.append(["Source of truth: faction collapsible values. Presets only batch-write those values."])
     overview.append([""])
     overview.append(["Preset Family", "Writes Which Collapsible Options", "Rows Affected", "Notes"])
@@ -532,3 +532,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

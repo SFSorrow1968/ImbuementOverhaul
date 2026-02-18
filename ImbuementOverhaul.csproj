@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>EnemyImbuePresets</AssemblyName>
-    <RootNamespace>EnemyImbuePresets</RootNamespace>
+    <AssemblyName>ImbuementOverhaul</AssemblyName>
+    <RootNamespace>ImbuementOverhaul</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

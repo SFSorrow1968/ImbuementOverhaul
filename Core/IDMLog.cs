@@ -1,16 +1,16 @@
-using ImbuementOverhaul.Configuration;
+﻿using ImbueDurationManager.Configuration;
 using UnityEngine;
 
-namespace ImbuementOverhaul.Core
+namespace ImbueDurationManager.Core
 {
-    internal static class EIPLog
+    internal static class IDMLog
     {
-        private const string Prefix = "[EIP] ";
+        private const string Prefix = "[IDM] ";
 
-        public static bool DiagnosticsEnabled => EIPModOptions.EnableDiagnosticsLogging || VerboseEnabled;
+        public static bool DiagnosticsEnabled => IDMModOptions.EnableDiagnosticsLogging || VerboseEnabled;
         public static bool StructuredDiagnosticsEnabled => DiagnosticsEnabled;
-        public static bool VerboseEnabled => EIPModOptions.EnableVerboseLogging;
-        public static bool BasicEnabled => EIPModOptions.EnableBasicLogging || DiagnosticsEnabled;
+        public static bool VerboseEnabled => IDMModOptions.EnableVerboseLogging;
+        public static bool BasicEnabled => IDMModOptions.EnableBasicLogging || DiagnosticsEnabled;
 
         public static void Info(string message, bool verboseOnly = false)
         {
@@ -23,6 +23,7 @@ namespace ImbuementOverhaul.Core
             {
                 return;
             }
+
             if (verboseOnly && !VerboseEnabled)
             {
                 return;
@@ -42,6 +43,7 @@ namespace ImbuementOverhaul.Core
             {
                 return;
             }
+
             if (verboseOnly && !VerboseEnabled)
             {
                 return;
@@ -76,4 +78,3 @@ namespace ImbuementOverhaul.Core
         }
     }
 }
-

@@ -1,8 +1,8 @@
-﻿using System;
-using EnemyImbuePresets.Core;
+using System;
+using ImbuementOverhaul.Core;
 using ThunderRoad;
 
-namespace EnemyImbuePresets.Hooks
+namespace ImbuementOverhaul.Hooks
 {
     public sealed class EventHooks
     {
@@ -103,3 +103,4 @@ namespace EnemyImbuePresets.Hooks
         }
     }
 }
+

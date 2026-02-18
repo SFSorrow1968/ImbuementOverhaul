@@ -1,9 +1,11 @@
-﻿using System;
-using EnemyImbuePresets.Configuration;
+using System;
+using ImbuementOverhaul.Configuration;
+using ImbueDurationManager.Configuration;
+using ImbueDurationManager.Core;
 using ThunderRoad;
 using UnityEngine;
 
-namespace EnemyImbuePresets.Core
+namespace ImbuementOverhaul.Core
 {
     public class EIPModule : ThunderScript
     {
@@ -16,11 +18,19 @@ namespace EnemyImbuePresets.Core
 
             try
             {
-                EIPLog.Info("Factioned Imbuement v" + EIPModOptions.VERSION + " enabled.");
+                EIPLog.Info(
+                    "Imbuement Overhaul enabled. " +
+                    "factionEngine=" + EIPModOptions.VERSION +
+                    " durationEngine=" + IDMModOptions.VERSION + ".");
+
                 EIPTelemetry.Initialize();
                 EnemyImbueManager.Instance.Initialize();
                 EIPModOptionSync.Instance.Initialize();
                 Hooks.EventHooks.Subscribe();
+
+                IDMTelemetry.Initialize();
+                IDMModOptionSync.Instance.Initialize();
+                IDMManager.Instance.Initialize();
             }
             catch (Exception ex)
             {
@@ -34,9 +44,16 @@ namespace EnemyImbuePresets.Core
 
             try
             {
-                EIPTelemetry.Update(Time.unscaledTime);
+                float now = Time.unscaledTime;
+
                 EIPModOptionSync.Instance.Update();
                 EnemyImbueManager.Instance.Update();
+
+                IDMModOptionSync.Instance.Update();
+                IDMManager.Instance.Update();
+
+                EIPTelemetry.Update(now);
+                IDMTelemetry.Update(now);
             }
             catch (Exception ex)
             {
@@ -49,10 +66,16 @@ namespace EnemyImbuePresets.Core
             try
             {
                 Hooks.EventHooks.Unsubscribe();
+
+                IDMManager.Instance.Shutdown();
+                IDMModOptionSync.Instance.Shutdown();
+                IDMTelemetry.Shutdown();
+
                 EIPModOptionSync.Instance.Shutdown();
                 EnemyImbueManager.Instance.Shutdown();
                 EIPTelemetry.Shutdown();
-                EIPLog.Info("Factioned Imbuement disabled.");
+
+                EIPLog.Info("Imbuement Overhaul disabled.");
             }
             catch (Exception ex)
             {
@@ -63,3 +86,4 @@ namespace EnemyImbuePresets.Core
         }
     }
 }
+

@@ -1,7 +1,7 @@
-﻿using EnemyImbuePresets.Configuration;
+using ImbuementOverhaul.Configuration;
 using NUnit.Framework;
 
-namespace EnemyImbuePresets.Tests
+namespace ImbuementOverhaul.Tests
 {
     [TestFixture]
     public class EIPModOptionsTests
@@ -73,3 +73,4 @@ namespace EnemyImbuePresets.Tests
         }
     }
 }
+
