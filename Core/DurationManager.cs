@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using ImbueDurationManager.Configuration;
+using System.Collections.Generic;
+using ImbuementOverhaul.Configuration;
 using ThunderRoad;
 using UnityEngine;
 
-namespace ImbueDurationManager.Core
+namespace ImbuementOverhaul.Core
 {
-    internal sealed class IDMManager
+    internal sealed class DurationManager
     {
         private struct TrackedImbueState
         {
@@ -15,7 +15,7 @@ namespace ImbueDurationManager.Core
             public float LastAppliedMultiplier;
         }
 
-        public static IDMManager Instance { get; } = new IDMManager();
+        public static DurationManager Instance { get; } = new DurationManager();
 
         private readonly Dictionary<int, TrackedImbueState> trackedStates = new Dictionary<int, TrackedImbueState>();
         private float nextUpdateTime;
@@ -27,7 +27,7 @@ namespace ImbueDurationManager.Core
         private const float AdaptiveIntervalStep = 0.5f;
         private const float MaxAdaptiveIntervalMultiplier = 4f;
 
-        private IDMManager()
+        private DurationManager()
         {
         }
 
@@ -53,7 +53,7 @@ namespace ImbueDurationManager.Core
         {
             HandleDiagnosticsToggles();
 
-            if (!IDMModOptions.EnableMod)
+            if (!DurationModOptions.EnableMod)
             {
                 if (nativeInfiniteApplied)
                 {
@@ -75,10 +75,10 @@ namespace ImbueDurationManager.Core
                 return;
             }
 
-            float interval = IDMModOptions.GetUpdateIntervalSeconds() * adaptiveIntervalMultiplier;
+            float interval = DurationModOptions.GetUpdateIntervalSeconds() * adaptiveIntervalMultiplier;
             nextUpdateTime = now + interval;
 
-            bool shouldNativeInfinite = IDMModOptions.ShouldUseNativeInfinite();
+            bool shouldNativeInfinite = DurationModOptions.ShouldUseNativeInfinite();
             if (shouldNativeInfinite != nativeInfiniteApplied)
             {
                 SetNativeInfinite(shouldNativeInfinite);
@@ -112,8 +112,8 @@ namespace ImbueDurationManager.Core
                 }
 
                 scannedItems++;
-                IDMModOptions.DrainContext context = ResolveContext(item);
-                float multiplier = IDMModOptions.GetEffectiveDrainMultiplier(context);
+                DurationModOptions.DrainContext context = ResolveContext(item);
+                float multiplier = DurationModOptions.GetEffectiveDrainMultiplier(context);
 
                 for (int j = 0; j < item.imbues.Count; j++)
                 {
@@ -155,13 +155,13 @@ namespace ImbueDurationManager.Core
 
                         if (multiplier <= 1f)
                         {
-                            float floor = imbue.maxEnergy * IDMModOptions.GetMinimumEnergyFloorRatio();
+                            float floor = imbue.maxEnergy * DurationModOptions.GetMinimumEnergyFloorRatio();
                             targetEnergy = Mathf.Max(targetEnergy, floor);
                         }
 
                         targetEnergy = Mathf.Clamp(targetEnergy, 0f, imbue.maxEnergy);
 
-                        float maxCorrection = imbue.maxEnergy * IDMModOptions.GetMaxCorrectionRatio();
+                        float maxCorrection = imbue.maxEnergy * DurationModOptions.GetMaxCorrectionRatio();
                         targetEnergy = Mathf.Clamp(targetEnergy, currentEnergy - maxCorrection, currentEnergy + maxCorrection);
 
                         float correction = targetEnergy - currentEnergy;
@@ -179,9 +179,9 @@ namespace ImbueDurationManager.Core
                                 adjustedDown++;
                             }
 
-                            if (IDMTelemetry.ShouldLogCorrection(key, now) && IDMLog.VerboseEnabled)
+                            if (DurationTelemetry.ShouldLogCorrection(key, now) && DurationLog.VerboseEnabled)
                             {
-                                IDMLog.Info(
+                                DurationLog.Info(
                                     "imbue_correction context=" + context +
                                     " multiplier=" + multiplier.ToString("0.00") +
                                     " naturalDrain=" + naturalDrain.ToString("0.000") +
@@ -210,7 +210,7 @@ namespace ImbueDurationManager.Core
 
             CleanupStaleStates(now);
             UpdateAdaptiveInterval(scannedImbues, adjustedUp + adjustedDown);
-            IDMTelemetry.RecordCycle(scannedItems, scannedImbues, adjustedUp, adjustedDown, unchanged, trackedStates.Count, nativeInfiniteApplied);
+            DurationTelemetry.RecordCycle(scannedItems, scannedImbues, adjustedUp, adjustedDown, unchanged, trackedStates.Count, nativeInfiniteApplied);
         }
 
         private void UpdateAdaptiveInterval(int scannedImbues, int corrections)
@@ -233,9 +233,9 @@ namespace ImbueDurationManager.Core
                 }
             }
 
-            if (!Mathf.Approximately(previousMultiplier, adaptiveIntervalMultiplier) && IDMLog.DiagnosticsEnabled)
+            if (!Mathf.Approximately(previousMultiplier, adaptiveIntervalMultiplier) && DurationLog.DiagnosticsEnabled)
             {
-                IDMLog.Info(
+                DurationLog.Info(
                     "adaptive_scan multiplier=" + adaptiveIntervalMultiplier.ToString("0.0") +
                     " stableCycles=" + stableCyclesWithoutCorrections +
                     " scannedImbues=" + scannedImbues +
@@ -276,7 +276,7 @@ namespace ImbueDurationManager.Core
             }
         }
 
-        private static IDMModOptions.DrainContext ResolveContext(Item item)
+        private static DurationModOptions.DrainContext ResolveContext(Item item)
         {
             bool thrown = item.isFlying || item.isThrowed;
             Creature creature = item.mainHandler != null && item.mainHandler.creature != null
@@ -287,24 +287,24 @@ namespace ImbueDurationManager.Core
             {
                 if (creature.isPlayer)
                 {
-                    return thrown ? IDMModOptions.DrainContext.PlayerThrown : IDMModOptions.DrainContext.PlayerHeld;
+                    return thrown ? DurationModOptions.DrainContext.PlayerThrown : DurationModOptions.DrainContext.PlayerHeld;
                 }
-                return thrown ? IDMModOptions.DrainContext.NpcThrown : IDMModOptions.DrainContext.NpcHeld;
+                return thrown ? DurationModOptions.DrainContext.NpcThrown : DurationModOptions.DrainContext.NpcHeld;
             }
 
-            return IDMModOptions.DrainContext.WorldDropped;
+            return DurationModOptions.DrainContext.WorldDropped;
         }
 
         private void HandleDiagnosticsToggles()
         {
             bool refreshed = false;
 
-            if (IDMModOptions.ResetTracking)
+            if (DurationModOptions.ResetTracking)
             {
-                IDMModOptions.ResetTracking = false;
+                DurationModOptions.ResetTracking = false;
                 trackedStates.Clear();
-                IDMTelemetry.ResetTrackingCounters();
-                IDMLog.Info("Tracking reset from diagnostics menu.", true);
+                DurationTelemetry.ResetTrackingCounters();
+                DurationLog.Info("Tracking reset from diagnostics menu.", true);
                 refreshed = true;
             }
 
@@ -318,7 +318,8 @@ namespace ImbueDurationManager.Core
         {
             nativeInfiniteApplied = enabled;
             Imbue.infiniteImbue = enabled;
-            IDMLog.Info("native_infinite=" + enabled + " source=global_drain", true);
+            DurationLog.Info("native_infinite=" + enabled + " source=global_drain", true);
         }
     }
 }
+

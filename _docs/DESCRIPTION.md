@@ -15,7 +15,7 @@ When asked to "generate description" or similar:
 
 ## Tone
 - Aesthetic, concise, non-childish.
-- Focus on "Immersive Enemies" and "Faction-based Magic".
+- Focus on "Imbuement Overhaul", "Faction-based imbuement", and "duration control".
 
 ## Required Sections
 1. **Overview**: <= 250 chars. Hook the user immediately.
@@ -24,5 +24,6 @@ When asked to "generate description" or similar:
    - **Usage/Config**: Brief mention of how to use it (e.g. "Configurable via Mod Options").
 
 ## Source Files to Analyze
-- `Configuration/EIPModOptions.cs`
-- `Core/EIPManager.cs`
+- Primary options classes under `Configuration/`
+- Runtime managers under `Core/`
+- Module lifecycle entrypoint under `Core/`

@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace ImbuementOverhaul.Core
 {
-    internal static class EIPLog
+    internal static class ImbuementLog
     {
-        private const string Prefix = "[EIP] ";
+        private const string Prefix = "[IO] ";
 
-        public static bool DiagnosticsEnabled => EIPModOptions.EnableDiagnosticsLogging || VerboseEnabled;
+        public static bool DiagnosticsEnabled => ImbuementModOptions.EnableDiagnosticsLogging || VerboseEnabled;
         public static bool StructuredDiagnosticsEnabled => DiagnosticsEnabled;
-        public static bool VerboseEnabled => EIPModOptions.EnableVerboseLogging;
-        public static bool BasicEnabled => EIPModOptions.EnableBasicLogging || DiagnosticsEnabled;
+        public static bool VerboseEnabled => ImbuementModOptions.EnableVerboseLogging;
+        public static bool BasicEnabled => ImbuementModOptions.EnableBasicLogging || DiagnosticsEnabled;
 
         public static void Info(string message, bool verboseOnly = false)
         {
@@ -76,4 +76,5 @@ namespace ImbuementOverhaul.Core
         }
     }
 }
+
 

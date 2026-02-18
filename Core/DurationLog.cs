@@ -1,16 +1,16 @@
-﻿using ImbueDurationManager.Configuration;
+using ImbuementOverhaul.Configuration;
 using UnityEngine;
 
-namespace ImbueDurationManager.Core
+namespace ImbuementOverhaul.Core
 {
-    internal static class IDMLog
+    internal static class DurationLog
     {
-        private const string Prefix = "[IDM] ";
+        private const string Prefix = "[IOD] ";
 
-        public static bool DiagnosticsEnabled => IDMModOptions.EnableDiagnosticsLogging || VerboseEnabled;
+        public static bool DiagnosticsEnabled => DurationModOptions.EnableDiagnosticsLogging || VerboseEnabled;
         public static bool StructuredDiagnosticsEnabled => DiagnosticsEnabled;
-        public static bool VerboseEnabled => IDMModOptions.EnableVerboseLogging;
-        public static bool BasicEnabled => IDMModOptions.EnableBasicLogging || DiagnosticsEnabled;
+        public static bool VerboseEnabled => DurationModOptions.EnableVerboseLogging;
+        public static bool BasicEnabled => DurationModOptions.EnableBasicLogging || DiagnosticsEnabled;
 
         public static void Info(string message, bool verboseOnly = false)
         {
@@ -78,3 +78,4 @@ namespace ImbueDurationManager.Core
         }
     }
 }
+

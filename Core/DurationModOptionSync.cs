@@ -1,17 +1,17 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using ImbueDurationManager.Configuration;
+using ImbuementOverhaul.Configuration;
 using ThunderRoad;
 using UnityEngine;
 
-namespace ImbueDurationManager.Core
+namespace ImbuementOverhaul.Core
 {
-    internal sealed class IDMModOptionSync
+    internal sealed class DurationModOptionSync
     {
         private const string OptionKeySeparator = "||";
         private const float UpdateIntervalSeconds = 0.15f;
 
-        public static IDMModOptionSync Instance { get; } = new IDMModOptionSync();
+        public static DurationModOptionSync Instance { get; } = new DurationModOptionSync();
 
         private readonly Dictionary<string, ModOption> modOptionsByKey = new Dictionary<string, ModOption>(StringComparer.Ordinal);
 
@@ -20,7 +20,7 @@ namespace ImbueDurationManager.Core
         private float nextUpdateTime;
         private int lastPresetHash;
 
-        private IDMModOptionSync()
+        private DurationModOptionSync()
         {
         }
 
@@ -38,7 +38,7 @@ namespace ImbueDurationManager.Core
                 return;
             }
 
-            lastPresetHash = IDMModOptions.GetPresetSelectionHash();
+            lastPresetHash = DurationModOptions.GetPresetSelectionHash();
         }
 
         public void Shutdown()
@@ -59,7 +59,7 @@ namespace ImbueDurationManager.Core
                     return;
                 }
 
-                lastPresetHash = IDMModOptions.GetPresetSelectionHash();
+                lastPresetHash = DurationModOptions.GetPresetSelectionHash();
                 return;
             }
 
@@ -102,28 +102,28 @@ namespace ImbueDurationManager.Core
 
         private bool ApplyPresetsIfChanged(bool force)
         {
-            int presetHash = IDMModOptions.GetPresetSelectionHash();
+            int presetHash = DurationModOptions.GetPresetSelectionHash();
             if (!force && presetHash == lastPresetHash)
             {
                 return false;
             }
 
-            string durationPreset = IDMModOptions.NormalizeDurationPreset(IDMModOptions.PresetDurationExperience);
-            string contextPreset = IDMModOptions.NormalizeContextPreset(IDMModOptions.PresetContextProfile);
+            string durationPreset = DurationModOptions.NormalizeDurationPreset(DurationModOptions.PresetDurationExperience);
+            string contextPreset = DurationModOptions.NormalizeContextPreset(DurationModOptions.PresetContextProfile);
 
-            bool valuesChanged = IDMModOptions.ApplySelectedPresets();
+            bool valuesChanged = DurationModOptions.ApplySelectedPresets();
             bool uiChanged = SyncSourceOfTruthOptions();
 
-            lastPresetHash = IDMModOptions.GetPresetSelectionHash();
+            lastPresetHash = DurationModOptions.GetPresetSelectionHash();
 
             if (force || valuesChanged || uiChanged)
             {
-                IDMLog.Info(
+                DurationLog.Info(
                     "Preset batch wrote source-of-truth collapsibles: duration=" + durationPreset +
                     " context=" + contextPreset +
                     " valuesChanged=" + valuesChanged +
                     " uiSynced=" + uiChanged +
-                    " snapshot={" + IDMModOptions.GetSourceOfTruthSummary() + "}",
+                    " snapshot={" + DurationModOptions.GetSourceOfTruthSummary() + "}",
                     verboseOnly: !valuesChanged && !uiChanged);
             }
 
@@ -133,12 +133,12 @@ namespace ImbueDurationManager.Core
         private bool SyncSourceOfTruthOptions()
         {
             bool changed = false;
-            changed |= SyncFloatOption(IDMModOptions.CategoryGlobal, IDMModOptions.OptionGlobalDrainMultiplier, IDMModOptions.GlobalDrainMultiplier);
-            changed |= SyncFloatOption(IDMModOptions.CategoryPlayerHeld, IDMModOptions.OptionPlayerHeldDrainMultiplier, IDMModOptions.PlayerHeldDrainMultiplier);
-            changed |= SyncFloatOption(IDMModOptions.CategoryPlayerThrown, IDMModOptions.OptionPlayerThrownDrainMultiplier, IDMModOptions.PlayerThrownDrainMultiplier);
-            changed |= SyncFloatOption(IDMModOptions.CategoryNpcHeld, IDMModOptions.OptionNpcHeldDrainMultiplier, IDMModOptions.NpcHeldDrainMultiplier);
-            changed |= SyncFloatOption(IDMModOptions.CategoryNpcThrown, IDMModOptions.OptionNpcThrownDrainMultiplier, IDMModOptions.NpcThrownDrainMultiplier);
-            changed |= SyncFloatOption(IDMModOptions.CategoryWorld, IDMModOptions.OptionWorldDrainMultiplier, IDMModOptions.WorldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryGlobal, DurationModOptions.OptionGlobalDrainMultiplier, DurationModOptions.GlobalDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryPlayerHeld, DurationModOptions.OptionPlayerHeldDrainMultiplier, DurationModOptions.PlayerHeldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryPlayerThrown, DurationModOptions.OptionPlayerThrownDrainMultiplier, DurationModOptions.PlayerThrownDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryNpcHeld, DurationModOptions.OptionNpcHeldDrainMultiplier, DurationModOptions.NpcHeldDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryNpcThrown, DurationModOptions.OptionNpcThrownDrainMultiplier, DurationModOptions.NpcThrownDrainMultiplier);
+            changed |= SyncFloatOption(DurationModOptions.CategoryWorld, DurationModOptions.OptionWorldDrainMultiplier, DurationModOptions.WorldDrainMultiplier);
             return changed;
         }
 
@@ -235,3 +235,4 @@ namespace ImbueDurationManager.Core
         }
     }
 }
+

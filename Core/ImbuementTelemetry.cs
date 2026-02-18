@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ImbuementOverhaul.Core
 {
-    internal static class EIPTelemetry
+    internal static class ImbuementTelemetry
     {
         private const float SummaryIntervalSeconds = 30f;
 
@@ -59,10 +59,10 @@ namespace ImbuementOverhaul.Core
             ResetInterval();
             ResetTotals();
 
-            EIPLog.Diag(
+            ImbuementLog.Diag(
                 "diag evt=session_start run=" + runId +
-                " assignmentHash=" + Configuration.EIPModOptions.GetAssignmentStateHash() +
-                " presetHash=" + Configuration.EIPModOptions.GetPresetSelectionHash());
+                " assignmentHash=" + Configuration.ImbuementModOptions.GetAssignmentStateHash() +
+                " presetHash=" + Configuration.ImbuementModOptions.GetPresetSelectionHash());
         }
 
         public static void Shutdown()
@@ -74,7 +74,7 @@ namespace ImbuementOverhaul.Core
 
             EmitSummary(force: true);
             EmitSessionTotals();
-            EIPLog.Diag(
+            ImbuementLog.Diag(
                 "diag evt=session_end run=" + runId +
                 " uptimeSec=" + Mathf.Max(0f, Time.unscaledTime - sessionStartTime).ToString("F1") +
                 " summaryCount=" + summaryCount);
@@ -102,7 +102,7 @@ namespace ImbuementOverhaul.Core
             configRefreshes++;
             totalConfigRefreshes++;
 
-            EIPLog.Diag(
+            ImbuementLog.Diag(
                 "diag evt=config_refresh run=" + runId +
                 " prevHash=" + previousHash +
                 " newHash=" + currentHash,
@@ -310,7 +310,7 @@ namespace ImbuementOverhaul.Core
                 ? (trackRollApplied * 100f) / trackEvaluations
                 : 0f;
 
-            EIPLog.Diag(
+            ImbuementLog.Diag(
                 "diag evt=summary run=" + runId +
                 " intervalSec=" + SummaryIntervalSeconds.ToString("F0") +
                 " trackEval=" + trackEvaluations +
@@ -345,7 +345,7 @@ namespace ImbuementOverhaul.Core
                 ? (totalTrackRollSkipped * 100f) / totalTrackEvaluations
                 : 0f;
 
-            EIPLog.Diag(
+            ImbuementLog.Diag(
                 "diag evt=session_totals run=" + runId +
                 " uptimeSec=" + uptime.ToString("F1") +
                 " summaryCount=" + summaryCount +
@@ -367,7 +367,7 @@ namespace ImbuementOverhaul.Core
                 " casterOverride=" + totalCasterSpellOverrides +
                 " topSkipReasons=" + FormatTop(skipReasonsTotal));
 
-            EIPLog.Diag(
+            ImbuementLog.Diag(
                 "diag evt=session_kpi run=" + runId +
                 " applyRate=" + applyRate.ToString("F1") + "%" +
                 " skipRate=" + skipRate.ToString("F1") + "%" +
@@ -459,4 +459,5 @@ namespace ImbuementOverhaul.Core
         }
     }
 }
+
 

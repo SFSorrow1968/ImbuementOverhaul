@@ -21,7 +21,7 @@
 ## Entry 4
 
 - **Issue**: Preset matrix docs drift if C# constants change without updating the XLSX generator dictionaries.
-- **Context**: `Configuration/EIPModOptions.cs` drives runtime behavior, while `_agent/generate-design-xlsx.py` drives readable design sheets.
+- **Context**: The primary configuration options class drives runtime behavior, while `_agent/generate-design-xlsx.py` drives readable design sheets.
 - **Solution/Workaround**: When changing any profile/imbue/chance/strength matrix in C#, mirror the exact values in Python and regenerate both `_docs/*.xlsx` files in the same change.
 
 ## Entry 5

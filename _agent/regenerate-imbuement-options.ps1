@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$outputPath = Join-Path $repoRoot "Configuration\EIPModOptions.cs"
+$outputPath = Join-Path $repoRoot "Configuration\ImbuementModOptions.cs"
 
 $factions = @(
     @{ Id = 1; Code = "F01"; Short = "Combat"; Category = "Combat Practice (Mixed Enemies)"; Display = "Mixed Enemies"; DefaultId = 3; Keywords = @("mixed", "combat") },
@@ -64,7 +64,7 @@ L "using UnityEngine;"
 L ""
 L "namespace ImbuementOverhaul.Configuration"
 L "{"
-L "    public static class EIPModOptions"
+L "    public static class ImbuementModOptions"
 L "    {"
 L "        public const string VERSION = ""0.3.0"";"
 L "        public const int FactionCount = 8;"
@@ -304,7 +304,7 @@ L "        public static bool ForceReapply = false;"
 L ""
 
 # Emit methods from template file for maintainability
-$templatePath = Join-Path $PSScriptRoot "EIPModOptions.template.txt"
+$templatePath = Join-Path $PSScriptRoot "ImbuementModOptions.template.txt"
 if (-not (Test-Path $templatePath)) {
     throw "Template not found: $templatePath"
 }
@@ -315,4 +315,5 @@ L "}"
 
 Set-Content -Path $outputPath -Value $sb.ToString() -Encoding UTF8
 Write-Output "Generated $outputPath"
+
 

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using ImbueDurationManager.Configuration;
+using ImbuementOverhaul.Configuration;
 using UnityEngine;
 
-namespace ImbueDurationManager.Core
+namespace ImbuementOverhaul.Core
 {
-    internal static class IDMTelemetry
+    internal static class DurationTelemetry
     {
         private const float CorrectionLogIntervalSeconds = 0.8f;
         private const float SummaryIntervalSeconds = 30f;
@@ -47,10 +47,10 @@ namespace ImbueDurationManager.Core
             ResetIntervalCounters();
             ResetTotals();
 
-            IDMLog.Diag(
+            DurationLog.Diag(
                 "diag evt=session_start run=" + runId +
-                " presetHash=" + IDMModOptions.GetPresetSelectionHash() +
-                " sourceHash=" + IDMModOptions.GetSourceOfTruthHash());
+                " presetHash=" + DurationModOptions.GetPresetSelectionHash() +
+                " sourceHash=" + DurationModOptions.GetSourceOfTruthHash());
         }
 
         public static void Shutdown()
@@ -63,7 +63,7 @@ namespace ImbueDurationManager.Core
 
             EmitSummary(force: true);
             EmitSessionTotals();
-            IDMLog.Diag(
+            DurationLog.Diag(
                 "diag evt=session_end run=" + runId +
                 " uptimeSec=" + Mathf.Max(0f, Time.unscaledTime - sessionStartTime).ToString("F1") +
                 " summaryCount=" + summaryCount);
@@ -119,9 +119,9 @@ namespace ImbueDurationManager.Core
                 totalPeakTracked = trackedCount;
             }
 
-            if (IDMLog.VerboseEnabled)
+            if (DurationLog.VerboseEnabled)
             {
-                IDMLog.Info(
+                DurationLog.Info(
                     "cycle scannedItems=" + cycleItems +
                     " scannedImbues=" + cycleImbues +
                     " adjustedUp=" + cycleAdjustedUp +
@@ -176,7 +176,7 @@ namespace ImbueDurationManager.Core
                 ? (unchanged * 100f) / imbuesScanned
                 : 0f;
 
-            IDMLog.Diag(
+            DurationLog.Diag(
                 "diag evt=summary run=" + runId +
                 " intervalSec=" + SummaryIntervalSeconds.ToString("F0") +
                 " cycles=" + cycles +
@@ -210,7 +210,7 @@ namespace ImbueDurationManager.Core
                 ? totalImbuesScanned / (float)totalCycles
                 : 0f;
 
-            IDMLog.Diag(
+            DurationLog.Diag(
                 "diag evt=session_totals run=" + runId +
                 " uptimeSec=" + uptime.ToString("F1") +
                 " summaryCount=" + summaryCount +
@@ -225,7 +225,7 @@ namespace ImbueDurationManager.Core
                 " nativeInfiniteCycles=" + totalNativeInfiniteCycles +
                 " peakTracked=" + totalPeakTracked);
 
-            IDMLog.Diag(
+            DurationLog.Diag(
                 "diag evt=session_kpi run=" + runId +
                 " adjustmentRate=" + adjustmentRate.ToString("F1") + "%" +
                 " upShare=" + upShare.ToString("F1") + "%" +
@@ -260,3 +260,4 @@ namespace ImbueDurationManager.Core
 
     }
 }
+

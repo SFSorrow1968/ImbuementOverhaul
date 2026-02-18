@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace ImbuementOverhaul.Core
 {
-    public sealed class EnemyImbueManager
+    public sealed class FactionImbuementManager
     {
         private sealed class TrackedCreatureState
         {
             public Creature Creature;
             public int FactionId;
             public int ProfileHash;
-            public EIPModOptions.EnemyTypeArchetype EnemyArchetype;
+            public ImbuementModOptions.EnemyTypeArchetype EnemyArchetype;
             public bool RollPassed;
             public float RollPercent;
             public int SelectedSlot;
@@ -52,7 +52,7 @@ namespace ImbuementOverhaul.Core
 
         private readonly Dictionary<int, TrackedCreatureState> tracked = new Dictionary<int, TrackedCreatureState>();
         private readonly Dictionary<string, SpellCastCharge> spellCache = new Dictionary<string, SpellCastCharge>(StringComparer.OrdinalIgnoreCase);
-        private readonly Dictionary<string, EIPModOptions.WeaponFilterBucket> itemBucketCache = new Dictionary<string, EIPModOptions.WeaponFilterBucket>(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, ImbuementModOptions.WeaponFilterBucket> itemBucketCache = new Dictionary<string, ImbuementModOptions.WeaponFilterBucket>(StringComparer.OrdinalIgnoreCase);
         private readonly HashSet<string> missingSpellIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private readonly HashSet<string> transferFailureKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, float> applyLogTimes = new Dictionary<string, float>(StringComparer.OrdinalIgnoreCase);
@@ -85,7 +85,7 @@ namespace ImbuementOverhaul.Core
 
         private struct CachedEnemyTypeArchetype
         {
-            public EIPModOptions.EnemyTypeArchetype Archetype;
+            public ImbuementModOptions.EnemyTypeArchetype Archetype;
             public float StabilizeUntil;
         }
 
@@ -113,9 +113,9 @@ namespace ImbuementOverhaul.Core
             public bool HasMeleeEvidence => MeleeBySpawner || MeleeByHeldItems || MeleeByKeywords;
         }
 
-        public static EnemyImbueManager Instance { get; } = new EnemyImbueManager();
+        public static FactionImbuementManager Instance { get; } = new FactionImbuementManager();
 
-        private EnemyImbueManager()
+        private FactionImbuementManager()
         {
         }
 
@@ -135,10 +135,10 @@ namespace ImbuementOverhaul.Core
             nextUpdateTime = 0f;
             nextRescanTime = 0f;
             nextApplyLogCleanupTime = 0f;
-            lastAssignmentHash = EIPModOptions.GetAssignmentStateHash();
+            lastAssignmentHash = ImbuementModOptions.GetAssignmentStateHash();
 
             TrackCurrentCreatures(forceRefresh: true, Time.unscaledTime);
-            EIPLog.Info("Enemy imbue manager initialized.");
+            ImbuementLog.Info("Enemy imbue manager initialized.");
         }
 
         public void Shutdown()
@@ -155,20 +155,20 @@ namespace ImbuementOverhaul.Core
             casterSpellCache.Clear();
             enemyArchetypeCache.Clear();
             lastAssignmentHash = int.MinValue;
-            EIPLog.Info("Enemy imbue manager shut down.");
+            ImbuementLog.Info("Enemy imbue manager shut down.");
         }
 
         public void Update()
         {
             HandleDiagnostics();
 
-            if (!EIPModOptions.EnableMod)
+            if (!ImbuementModOptions.EnableMod)
             {
                 return;
             }
 
             float now = Time.unscaledTime;
-            float updateInterval = Mathf.Max(0.05f, EIPModOptions.UpdateInterval);
+            float updateInterval = Mathf.Max(0.05f, ImbuementModOptions.UpdateInterval);
             if (now < nextUpdateTime)
             {
                 return;
@@ -176,21 +176,21 @@ namespace ImbuementOverhaul.Core
             nextUpdateTime = now + updateInterval;
             CleanupApplyLogTimes(now);
 
-            int assignmentHash = EIPModOptions.GetAssignmentStateHash();
+            int assignmentHash = ImbuementModOptions.GetAssignmentStateHash();
             if (assignmentHash != lastAssignmentHash)
             {
                 int previousHash = lastAssignmentHash;
                 lastAssignmentHash = assignmentHash;
                 enemyArchetypeCache.Clear();
                 TrackCurrentCreatures(forceRefresh: true, now);
-                EIPTelemetry.RecordConfigRefresh(previousHash, assignmentHash);
-                EIPLog.Info("Configuration changed, refreshed tracked assignments.", true);
+                ImbuementTelemetry.RecordConfigRefresh(previousHash, assignmentHash);
+                ImbuementLog.Info("Configuration changed, refreshed tracked assignments.", true);
             }
 
             if (now >= nextRescanTime)
             {
                 TrackCurrentCreatures(forceRefresh: false, now);
-                nextRescanTime = now + Mathf.Max(0.5f, EIPModOptions.RescanInterval);
+                nextRescanTime = now + Mathf.Max(0.5f, ImbuementModOptions.RescanInterval);
             }
 
             ProcessTrackedCreatures(now);
@@ -209,9 +209,9 @@ namespace ImbuementOverhaul.Core
             }
 
             int key = creature.GetInstanceID();
-            if (tracked.Remove(key) && EIPLog.VerboseEnabled)
+            if (tracked.Remove(key) && ImbuementLog.VerboseEnabled)
             {
-                EIPLog.Info("Creature despawned, removed tracking: " + BuildCreatureLabel(creature), true);
+                ImbuementLog.Info("Creature despawned, removed tracking: " + BuildCreatureLabel(creature), true);
             }
             casterPositiveCache.Remove(key);
             casterNegativeRetryUntil.Remove(key);
@@ -238,7 +238,7 @@ namespace ImbuementOverhaul.Core
             casterSpellCache.Clear();
             enemyArchetypeCache.Clear();
             lastAssignmentHash = int.MinValue;
-            EIPLog.Info("Level unload detected, cleared tracked states.");
+            ImbuementLog.Info("Level unload detected, cleared tracked states.");
         }
 
         private void TrackCurrentCreatures(bool forceRefresh, float now)
@@ -265,45 +265,45 @@ namespace ImbuementOverhaul.Core
         {
             if (creature == null)
             {
-                EIPTelemetry.RecordTrackSkip("null_creature", fromSpawnEvent);
+                ImbuementTelemetry.RecordTrackSkip("null_creature", fromSpawnEvent);
                 return;
             }
 
             if (!IsEligibleCreature(creature))
             {
-                EIPTelemetry.RecordTrackSkip(GetIneligibleReason(creature), fromSpawnEvent);
+                ImbuementTelemetry.RecordTrackSkip(GetIneligibleReason(creature), fromSpawnEvent);
                 return;
             }
 
-            if (!EIPModOptions.TryResolveFactionProfile(creature.factionId, out EIPModOptions.FactionProfile profile))
+            if (!ImbuementModOptions.TryResolveFactionProfile(creature.factionId, out ImbuementModOptions.FactionProfile profile))
             {
                 tracked.Remove(creature.GetInstanceID());
-                EIPTelemetry.RecordTrackSkip("no_faction_profile", fromSpawnEvent);
+                ImbuementTelemetry.RecordTrackSkip("no_faction_profile", fromSpawnEvent);
                 return;
             }
 
             int key = creature.GetInstanceID();
-            if (!TryResolveEnemyTypeArchetype(creature, now, out EIPModOptions.EnemyTypeArchetype enemyArchetype, out bool uncertainSkipped, out bool stabilizedFromCache))
+            if (!TryResolveEnemyTypeArchetype(creature, now, out ImbuementModOptions.EnemyTypeArchetype enemyArchetype, out bool uncertainSkipped, out bool stabilizedFromCache))
             {
                 tracked.Remove(key);
                 string reason = uncertainSkipped
                     ? "enemytype_uncertain_skipped"
                     : "enemytype_detection_failed";
-                EIPTelemetry.RecordTrackSkip(reason, fromSpawnEvent);
+                ImbuementTelemetry.RecordTrackSkip(reason, fromSpawnEvent);
                 return;
             }
 
-            if (!EIPModOptions.IsEnemyTypeEligible(enemyArchetype))
+            if (!ImbuementModOptions.IsEnemyTypeEligible(enemyArchetype))
             {
                 tracked.Remove(key);
-                EIPTelemetry.RecordTrackSkip("enemytype_ineligible_" + EIPModOptions.GetEnemyTypeToken(enemyArchetype), fromSpawnEvent);
+                ImbuementTelemetry.RecordTrackSkip("enemytype_ineligible_" + ImbuementModOptions.GetEnemyTypeToken(enemyArchetype), fromSpawnEvent);
                 return;
             }
 
             if (!profile.Enabled)
             {
                 tracked.Remove(key);
-                EIPTelemetry.RecordTrackSkip("faction_disabled", fromSpawnEvent);
+                ImbuementTelemetry.RecordTrackSkip("faction_disabled", fromSpawnEvent);
                 return;
             }
 
@@ -315,7 +315,7 @@ namespace ImbuementOverhaul.Core
                                existing.EnemyArchetype != enemyArchetype;
             if (!shouldReroll)
             {
-                EIPTelemetry.RecordTrackReuse(fromSpawnEvent);
+                ImbuementTelemetry.RecordTrackReuse(fromSpawnEvent);
                 return;
             }
 
@@ -337,16 +337,16 @@ namespace ImbuementOverhaul.Core
             };
 
             tracked[key] = state;
-            EIPTelemetry.RecordTrackRollResult(fromSpawnEvent, rollPassed);
+            ImbuementTelemetry.RecordTrackRollResult(fromSpawnEvent, rollPassed);
 
-            if (EIPLog.VerboseEnabled)
+            if (ImbuementLog.VerboseEnabled)
             {
                 string correlationId = BuildCorrelationId(creature, now);
-                EIPLog.Info(
+                ImbuementLog.Info(
                     "Track " + BuildCreatureLabel(creature) +
                     " cid=" + correlationId +
-                    " factionProfile=" + EIPModOptions.GetFactionShortName(profile.FactionIndex) +
-                    " enemyType=" + EIPModOptions.GetEnemyTypeDisplayName(enemyArchetype) +
+                    " factionProfile=" + ImbuementModOptions.GetFactionShortName(profile.FactionIndex) +
+                    " enemyType=" + ImbuementModOptions.GetEnemyTypeDisplayName(enemyArchetype) +
                     (stabilizedFromCache ? " stabilized=true" : string.Empty) +
                     " slot=" + (rollPassed ? slotIndex.ToString() : "none") +
                     " roll=" + rollPercent.ToString("F1") +
@@ -359,12 +359,12 @@ namespace ImbuementOverhaul.Core
             else if (fromSpawnEvent)
             {
                 string correlationId = BuildCorrelationId(creature, now);
-                EIPLog.Info(
+                ImbuementLog.Info(
                     "Spawn " + BuildCreatureLabel(creature) +
                     " cid=" + correlationId +
                     " result=" + (rollPassed ? "APPLY" : "SKIP") +
                     (rollPassed ? " slot=" + slotIndex + " spell=" + state.BaseSpellId : string.Empty) +
-                    " enemyType=" + EIPModOptions.GetEnemyTypeDisplayName(enemyArchetype));
+                    " enemyType=" + ImbuementModOptions.GetEnemyTypeDisplayName(enemyArchetype));
             }
 
             if (rollPassed)
@@ -373,7 +373,7 @@ namespace ImbuementOverhaul.Core
             }
         }
         private static void RollProfile(
-            EIPModOptions.FactionProfile profile,
+            ImbuementModOptions.FactionProfile profile,
             out bool rollPassed,
             out int slotIndex,
             out float slotChancePercent,
@@ -411,7 +411,7 @@ namespace ImbuementOverhaul.Core
         }
 
         private static bool TryResolveSlotRoll(
-            EIPModOptions.ImbueSlotConfig slot,
+            ImbuementModOptions.ImbueSlotConfig slot,
             float rollPercent,
             ref float cumulative,
             out int slotIndex,
@@ -445,11 +445,11 @@ namespace ImbuementOverhaul.Core
         private bool TryResolveEnemyTypeArchetype(
             Creature creature,
             float now,
-            out EIPModOptions.EnemyTypeArchetype archetype,
+            out ImbuementModOptions.EnemyTypeArchetype archetype,
             out bool uncertainSkipped,
             out bool stabilizedFromCache)
         {
-            archetype = EIPModOptions.EnemyTypeArchetype.Melee;
+            archetype = ImbuementModOptions.EnemyTypeArchetype.Melee;
             uncertainSkipped = false;
             stabilizedFromCache = false;
 
@@ -459,7 +459,7 @@ namespace ImbuementOverhaul.Core
             }
 
             EnemyTypeEvidence evidence = GatherEnemyTypeEvidence(creature, now);
-            EIPModOptions.EnemyTypeArchetype candidate = ResolveArchetypeFromEvidence(evidence, out bool uncertain);
+            ImbuementModOptions.EnemyTypeArchetype candidate = ResolveArchetypeFromEvidence(evidence, out bool uncertain);
             int key = creature.GetInstanceID();
 
             if (enemyArchetypeCache.TryGetValue(key, out CachedEnemyTypeArchetype cached) &&
@@ -479,7 +479,7 @@ namespace ImbuementOverhaul.Core
                 StabilizeUntil = now + EnemyTypeStabilizeSeconds
             };
 
-            if (uncertain && EIPModOptions.ShouldSkipUncertainEnemyTypes())
+            if (uncertain && ImbuementModOptions.ShouldSkipUncertainEnemyTypes())
             {
                 uncertainSkipped = true;
                 return false;
@@ -503,7 +503,7 @@ namespace ImbuementOverhaul.Core
             return evidence;
         }
 
-        private static EIPModOptions.EnemyTypeArchetype ResolveArchetypeFromEvidence(EnemyTypeEvidence evidence, out bool uncertain)
+        private static ImbuementModOptions.EnemyTypeArchetype ResolveArchetypeFromEvidence(EnemyTypeEvidence evidence, out bool uncertain)
         {
             bool isCaster = evidence.HasCasterEvidence;
             bool isArcher = evidence.HasArcherEvidence;
@@ -512,23 +512,23 @@ namespace ImbuementOverhaul.Core
 
             if (isCaster)
             {
-                return EIPModOptions.EnemyTypeArchetype.Mage;
+                return ImbuementModOptions.EnemyTypeArchetype.Mage;
             }
 
             return isArcher
-                ? EIPModOptions.EnemyTypeArchetype.Bow
-                : EIPModOptions.EnemyTypeArchetype.Melee;
+                ? ImbuementModOptions.EnemyTypeArchetype.Bow
+                : ImbuementModOptions.EnemyTypeArchetype.Melee;
         }
 
-        private static bool HasStrongArchetypeChangeEvidence(EIPModOptions.EnemyTypeArchetype candidate, EnemyTypeEvidence evidence)
+        private static bool HasStrongArchetypeChangeEvidence(ImbuementModOptions.EnemyTypeArchetype candidate, EnemyTypeEvidence evidence)
         {
             switch (candidate)
             {
-                case EIPModOptions.EnemyTypeArchetype.Mage:
+                case ImbuementModOptions.EnemyTypeArchetype.Mage:
                     return evidence.HasCasterEvidence;
-                case EIPModOptions.EnemyTypeArchetype.Bow:
+                case ImbuementModOptions.EnemyTypeArchetype.Bow:
                     return evidence.HasArcherEvidence;
-                case EIPModOptions.EnemyTypeArchetype.Melee:
+                case ImbuementModOptions.EnemyTypeArchetype.Melee:
                     return evidence.HasMeleeEvidence;
                 default:
                     return false;
@@ -596,8 +596,8 @@ namespace ImbuementOverhaul.Core
                 return false;
             }
 
-            EIPModOptions.WeaponFilterBucket bucket = ResolveWeaponBucket(item);
-            return bucket == EIPModOptions.WeaponFilterBucket.Bow || bucket == EIPModOptions.WeaponFilterBucket.Arrow;
+            ImbuementModOptions.WeaponFilterBucket bucket = ResolveWeaponBucket(item);
+            return bucket == ImbuementModOptions.WeaponFilterBucket.Bow || bucket == ImbuementModOptions.WeaponFilterBucket.Arrow;
         }
 
         private bool IsMeleeWeaponItem(Item item)
@@ -607,16 +607,16 @@ namespace ImbuementOverhaul.Core
                 return false;
             }
 
-            EIPModOptions.WeaponFilterBucket bucket = ResolveWeaponBucket(item);
+            ImbuementModOptions.WeaponFilterBucket bucket = ResolveWeaponBucket(item);
             switch (bucket)
             {
-                case EIPModOptions.WeaponFilterBucket.Dagger:
-                case EIPModOptions.WeaponFilterBucket.Sword:
-                case EIPModOptions.WeaponFilterBucket.Axe:
-                case EIPModOptions.WeaponFilterBucket.Mace:
-                case EIPModOptions.WeaponFilterBucket.Spear:
-                case EIPModOptions.WeaponFilterBucket.Shield:
-                case EIPModOptions.WeaponFilterBucket.Throwing:
+                case ImbuementModOptions.WeaponFilterBucket.Dagger:
+                case ImbuementModOptions.WeaponFilterBucket.Sword:
+                case ImbuementModOptions.WeaponFilterBucket.Axe:
+                case ImbuementModOptions.WeaponFilterBucket.Mace:
+                case ImbuementModOptions.WeaponFilterBucket.Spear:
+                case ImbuementModOptions.WeaponFilterBucket.Shield:
+                case ImbuementModOptions.WeaponFilterBucket.Throwing:
                     return true;
                 default:
                     return false;
@@ -1000,7 +1000,7 @@ namespace ImbuementOverhaul.Core
             Item right = state.Creature.handRight?.grabbedHandle?.item;
             if (left == null && right == null)
             {
-                EIPTelemetry.RecordApplyNoHeldItems();
+                ImbuementTelemetry.RecordApplyNoHeldItems();
                 return;
             }
 
@@ -1025,16 +1025,16 @@ namespace ImbuementOverhaul.Core
                 return false;
             }
 
-            EIPTelemetry.RecordApplyAttempt();
-            EIPModOptions.WeaponFilterBucket bucket = ResolveWeaponBucket(item);
+            ImbuementTelemetry.RecordApplyAttempt();
+            ImbuementModOptions.WeaponFilterBucket bucket = ResolveWeaponBucket(item);
             string spellId = DetermineSpellIdForItem(state, creature, now, out string baseSpellId, out bool casterOverrideUsed);
             if (casterOverrideUsed)
             {
-                EIPTelemetry.RecordCasterSpellOverride();
-                if (EIPLog.VerboseEnabled)
+                ImbuementTelemetry.RecordCasterSpellOverride();
+                if (ImbuementLog.VerboseEnabled)
                 {
                     string itemId = item.data?.id ?? item.itemId ?? item.name;
-                    EIPLog.Info(
+                    ImbuementLog.Info(
                         "Caster spell override for " + itemId +
                         " cid=" + BuildCorrelationId(creature, now) +
                         " baseSpell=" + (string.IsNullOrWhiteSpace(baseSpellId) ? "None" : baseSpellId) +
@@ -1048,32 +1048,32 @@ namespace ImbuementOverhaul.Core
                 bool cleared = ClearItemImbues(item);
                 if (cleared)
                 {
-                    EIPTelemetry.RecordItemClear();
+                    ImbuementTelemetry.RecordItemClear();
                 }
-                EIPTelemetry.RecordApplyOutcome(cleared);
+                ImbuementTelemetry.RecordApplyOutcome(cleared);
                 return cleared;
             }
 
             SpellCastCharge spellData = GetSpellData(spellId);
             if (spellData == null)
             {
-                EIPTelemetry.RecordApplySkipReason("spell_lookup_failed");
-                EIPTelemetry.RecordApplyOutcome(changed: false);
+                ImbuementTelemetry.RecordApplySkipReason("spell_lookup_failed");
+                ImbuementTelemetry.RecordApplyOutcome(changed: false);
                 return false;
             }
 
             bool applied = ApplySpellToItem(item, creature, spellData, state.StrengthRatio, bucket, force, now);
             if (applied)
             {
-                EIPTelemetry.RecordItemWrite();
+                ImbuementTelemetry.RecordItemWrite();
             }
-            EIPTelemetry.RecordApplyOutcome(applied);
+            ImbuementTelemetry.RecordApplyOutcome(applied);
             return applied;
         }
 
         private string DetermineSpellIdForItem(TrackedCreatureState state, Creature creature, float now, out string baseSpellId, out bool casterOverrideUsed)
         {
-            string fallbackSpellId = EIPModOptions.CanonicalSpellId(state?.BaseSpellId);
+            string fallbackSpellId = ImbuementModOptions.CanonicalSpellId(state?.BaseSpellId);
             baseSpellId = fallbackSpellId;
             casterOverrideUsed = false;
             if (state == null || creature == null)
@@ -1081,8 +1081,8 @@ namespace ImbuementOverhaul.Core
                 return fallbackSpellId;
             }
 
-            bool loreFriendly = EIPModOptions.IsLoreFriendlyProfileSelected();
-            if (!loreFriendly || !EIPModOptions.IsCasterArchetype(state.EnemyArchetype))
+            bool loreFriendly = ImbuementModOptions.IsLoreFriendlyProfileSelected();
+            if (!loreFriendly || !ImbuementModOptions.IsCasterArchetype(state.EnemyArchetype))
             {
                 return fallbackSpellId;
             }
@@ -1119,7 +1119,7 @@ namespace ImbuementOverhaul.Core
             }
 
             string detected = DetectCasterActiveSpellId(creature);
-            string canonical = EIPModOptions.CanonicalSpellId(detected);
+            string canonical = ImbuementModOptions.CanonicalSpellId(detected);
             casterSpellCache[key] = new CachedCasterSpell
             {
                 SpellId = canonical ?? string.Empty,
@@ -1320,11 +1320,11 @@ namespace ImbuementOverhaul.Core
             return changed;
         }
 
-        private bool ApplySpellToItem(Item item, Creature creature, SpellCastCharge spellData, float strengthRatio, EIPModOptions.WeaponFilterBucket bucket, bool force, float now)
+        private bool ApplySpellToItem(Item item, Creature creature, SpellCastCharge spellData, float strengthRatio, ImbuementModOptions.WeaponFilterBucket bucket, bool force, float now)
         {
             if (item == null || item.imbues == null || item.imbues.Count == 0)
             {
-                EIPTelemetry.RecordApplySkipReason("item_has_no_imbue_slots");
+                ImbuementTelemetry.RecordApplySkipReason("item_has_no_imbue_slots");
                 return false;
             }
 
@@ -1334,7 +1334,7 @@ namespace ImbuementOverhaul.Core
                 IsDuplicateApplyWindowActive(itemInstanceId, spellData.id, clampedStrengthRatio, now) &&
                 ItemAlreadyMatchesDesiredState(item, spellData.id, clampedStrengthRatio))
             {
-                EIPTelemetry.RecordApplySkipReason("duplicate_apply_window");
+                ImbuementTelemetry.RecordApplySkipReason("duplicate_apply_window");
                 return false;
             }
 
@@ -1364,10 +1364,10 @@ namespace ImbuementOverhaul.Core
                         string key = itemId + "|" + spellData.id;
                         if (transferFailureKeys.Add(key))
                         {
-                            EIPTelemetry.RecordTransferFailure();
-                            EIPTelemetry.RecordApplySkipReason("imbue_transfer_blocked");
+                            ImbuementTelemetry.RecordTransferFailure();
+                            ImbuementTelemetry.RecordApplySkipReason("imbue_transfer_blocked");
                             string requiredSpell = imbue.colliderGroup?.imbueCustomSpellID;
-                            EIPLog.Warn(
+                            ImbuementLog.Warn(
                                 "Imbue transfer blocked for item " + itemId +
                                 " spell=" + spellData.id +
                                 " bucket=" + bucket +
@@ -1402,14 +1402,14 @@ namespace ImbuementOverhaul.Core
                 }
             }
 
-            if (changed && EIPLog.VerboseEnabled)
+            if (changed && ImbuementLog.VerboseEnabled)
             {
                 string itemId = item.data?.id ?? item.itemId ?? item.name;
                 string logKey = itemId + "|" + spellData.id + "|" + bucket;
                 if (!applyLogTimes.TryGetValue(logKey, out float lastLogTime) || now - lastLogTime >= 1.5f)
                 {
                     applyLogTimes[logKey] = now;
-                    EIPLog.Info(
+                    ImbuementLog.Info(
                         "Imbued item " + itemId +
                         " with " + spellData.id +
                         " at " + (clampedStrengthRatio * 100f).ToString("F0") + "% (bucket=" + bucket + ").",
@@ -1448,7 +1448,7 @@ namespace ImbuementOverhaul.Core
             {
                 if (missingSpellIds.Add(requestedId))
                 {
-                    EIPLog.Warn("Spell not found: " + requestedId + ". Use Fire, Lightning, Gravity, or another valid SpellCastCharge id.");
+                    ImbuementLog.Warn("Spell not found: " + requestedId + ". Use Fire, Lightning, Gravity, or another valid SpellCastCharge id.");
                 }
                 return null;
             }
@@ -1456,7 +1456,7 @@ namespace ImbuementOverhaul.Core
             spellCache[requestedId] = data;
             return data;
         }
-        private EIPModOptions.WeaponFilterBucket ResolveWeaponBucket(Item item)
+        private ImbuementModOptions.WeaponFilterBucket ResolveWeaponBucket(Item item)
         {
             string key = GetItemKey(item);
             if (string.IsNullOrWhiteSpace(key))
@@ -1464,12 +1464,12 @@ namespace ImbuementOverhaul.Core
                 return ClassifyWeaponBucket(item);
             }
 
-            if (itemBucketCache.TryGetValue(key, out EIPModOptions.WeaponFilterBucket cached))
+            if (itemBucketCache.TryGetValue(key, out ImbuementModOptions.WeaponFilterBucket cached))
             {
                 return cached;
             }
 
-            EIPModOptions.WeaponFilterBucket resolved = ClassifyWeaponBucket(item);
+            ImbuementModOptions.WeaponFilterBucket resolved = ClassifyWeaponBucket(item);
             itemBucketCache[key] = resolved;
             return resolved;
         }
@@ -1548,7 +1548,7 @@ namespace ImbuementOverhaul.Core
             return inspectedAnyImbue;
         }
 
-        private static EIPModOptions.WeaponFilterBucket ClassifyWeaponBucket(Item item)
+        private static ImbuementModOptions.WeaponFilterBucket ClassifyWeaponBucket(Item item)
         {
             ItemData data = item?.data;
             ItemModuleAI ai = data?.moduleAI;
@@ -1556,56 +1556,56 @@ namespace ImbuementOverhaul.Core
             string descriptor = BuildItemDescriptor(item);
             if (HasClass(ai, ItemModuleAI.WeaponClass.Arrow) || HasClass(ai, ItemModuleAI.WeaponClass.Bolt) || ContainsAny(descriptor, ArrowKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Arrow;
+                return ImbuementModOptions.WeaponFilterBucket.Arrow;
             }
             if (HasClass(ai, ItemModuleAI.WeaponClass.Bow) || HasClass(ai, ItemModuleAI.WeaponClass.Crossbow) || ContainsAny(descriptor, BowKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Bow;
+                return ImbuementModOptions.WeaponFilterBucket.Bow;
             }
             if (HasClass(ai, ItemModuleAI.WeaponClass.Shield) || data?.type == ItemData.Type.Shield || ContainsAny(descriptor, ShieldKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Shield;
+                return ImbuementModOptions.WeaponFilterBucket.Shield;
             }
             if (HasClass(ai, ItemModuleAI.WeaponClass.Throwable) || ContainsAny(descriptor, ThrowingKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Throwing;
+                return ImbuementModOptions.WeaponFilterBucket.Throwing;
             }
 
             if (ContainsAny(descriptor, DaggerKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Dagger;
+                return ImbuementModOptions.WeaponFilterBucket.Dagger;
             }
             if (ContainsAny(descriptor, SpearKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Spear;
+                return ImbuementModOptions.WeaponFilterBucket.Spear;
             }
             if (ContainsAny(descriptor, StaffKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Staff;
+                return ImbuementModOptions.WeaponFilterBucket.Staff;
             }
             if (ContainsAny(descriptor, AxeKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Axe;
+                return ImbuementModOptions.WeaponFilterBucket.Axe;
             }
             if (ContainsAny(descriptor, MaceKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Mace;
+                return ImbuementModOptions.WeaponFilterBucket.Mace;
             }
             if (ContainsAny(descriptor, SwordKeywords))
             {
-                return EIPModOptions.WeaponFilterBucket.Sword;
+                return ImbuementModOptions.WeaponFilterBucket.Sword;
             }
 
             if (data?.type == ItemData.Type.Quiver)
             {
-                return EIPModOptions.WeaponFilterBucket.Arrow;
+                return ImbuementModOptions.WeaponFilterBucket.Arrow;
             }
             if (data?.type == ItemData.Type.Weapon || HasClass(ai, ItemModuleAI.WeaponClass.Melee))
             {
-                return EIPModOptions.WeaponFilterBucket.Sword;
+                return ImbuementModOptions.WeaponFilterBucket.Sword;
             }
 
-            return EIPModOptions.WeaponFilterBucket.Other;
+            return ImbuementModOptions.WeaponFilterBucket.Other;
         }
 
         private static bool HasClass(ItemModuleAI ai, ItemModuleAI.WeaponClass weaponClass)
@@ -1840,9 +1840,9 @@ namespace ImbuementOverhaul.Core
 
         private void HandleDiagnostics()
         {
-            if (EIPModOptions.ForceReapply)
+            if (ImbuementModOptions.ForceReapply)
             {
-                EIPModOptions.ForceReapply = false;
+                ImbuementModOptions.ForceReapply = false;
                 ForceReapply();
             }
         }
@@ -1867,7 +1867,7 @@ namespace ImbuementOverhaul.Core
                 applied++;
             }
 
-            EIPLog.Info("Force reapply finished. creatures=" + applied);
+            ImbuementLog.Info("Force reapply finished. creatures=" + applied);
         }
 
         private static string BuildCreatureLabel(Creature creature)
@@ -1883,7 +1883,7 @@ namespace ImbuementOverhaul.Core
                 name = creature.name;
             }
 
-            return name + " [faction=" + creature.factionId + " " + EIPModOptions.GetFactionName(creature.factionId) + "]";
+            return name + " [faction=" + creature.factionId + " " + ImbuementModOptions.GetFactionName(creature.factionId) + "]";
         }
 
         private static string BuildCorrelationId(Creature creature, float now)
@@ -1905,4 +1905,5 @@ namespace ImbuementOverhaul.Core
         }
     }
 }
+
 

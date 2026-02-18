@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using ThunderRoad;
 using UnityEngine;
 
-namespace ImbueDurationManager.Configuration
+namespace ImbuementOverhaul.Configuration
 {
-    public static class IDMModOptions
+    public static class DurationModOptions
     {
         public const string VERSION = "0.1.0";
 
@@ -460,3 +460,4 @@ namespace ImbueDurationManager.Configuration
         }
     }
 }
+

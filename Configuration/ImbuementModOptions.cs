@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ImbuementOverhaul.Configuration
 {
-    public static class EIPModOptions
+    public static class ImbuementModOptions
     {
         public const string VERSION = "0.4.0";
         public const int FactionCount = 8;
@@ -743,7 +743,7 @@ namespace ImbuementOverhaul.Configuration
             new[] { 58f, 34f, 18f }
         };
 
-        static EIPModOptions()
+        static ImbuementModOptions()
         {
             for (int i = 0; i < FactionCount; i++)
             {
@@ -2321,12 +2321,12 @@ namespace ImbuementOverhaul.Configuration
 
         private static FieldInfo FindField(string fieldName)
         {
-            return typeof(EIPModOptions).GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+            return typeof(ImbuementModOptions).GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
         }
 
         private static string ReadConstString(string fieldName, string fallback)
         {
-            FieldInfo field = typeof(EIPModOptions).GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+            FieldInfo field = typeof(ImbuementModOptions).GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
             if (field == null)
             {
                 return fallback;
@@ -2484,5 +2484,6 @@ namespace ImbuementOverhaul.Configuration
         }
     }
 }
+
 
 

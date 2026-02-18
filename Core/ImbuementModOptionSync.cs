@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ImbuementOverhaul.Core
 {
-    public sealed class EIPModOptionSync
+    public sealed class ImbuementModOptionSync
     {
         private const string OptionKeySeparator = "||";
         private const float UpdateIntervalSeconds = 0.15f;
@@ -22,9 +22,9 @@ namespace ImbuementOverhaul.Core
 
         private readonly Dictionary<string, ModOption> modOptionsByKey = new Dictionary<string, ModOption>(StringComparer.Ordinal);
 
-        public static EIPModOptionSync Instance { get; } = new EIPModOptionSync();
+        public static ImbuementModOptionSync Instance { get; } = new ImbuementModOptionSync();
 
-        private EIPModOptionSync()
+        private ImbuementModOptionSync()
         {
         }
 
@@ -118,29 +118,29 @@ namespace ImbuementOverhaul.Core
 
         private void SeedTrackingState()
         {
-            lastPresetHash = EIPModOptions.GetPresetSelectionHash();
-            lastChanceHash = EIPModOptions.GetChanceStateHash();
+            lastPresetHash = ImbuementModOptions.GetPresetSelectionHash();
+            lastChanceHash = ImbuementModOptions.GetChanceStateHash();
         }
 
         private bool ApplyPresetsIfChanged(bool force)
         {
-            int presetHash = EIPModOptions.GetPresetSelectionHash();
+            int presetHash = ImbuementModOptions.GetPresetSelectionHash();
             if (!force && presetHash == lastPresetHash)
             {
                 return false;
             }
 
-            string factionProfilePreset = EIPModOptions.NormalizeFactionProfilePreset(EIPModOptions.PresetFactionProfile);
-            string enemyTypeProfilePreset = EIPModOptions.NormalizeEnemyTypeProfilePreset(EIPModOptions.PresetEnemyTypeProfile);
-            string imbuePreset = EIPModOptions.NormalizeImbuePreset(EIPModOptions.PresetImbue);
-            string chancePreset = EIPModOptions.NormalizeChancePreset(EIPModOptions.PresetChance);
-            string strengthPreset = EIPModOptions.NormalizeStrengthPreset(EIPModOptions.PresetStrength);
+            string factionProfilePreset = ImbuementModOptions.NormalizeFactionProfilePreset(ImbuementModOptions.PresetFactionProfile);
+            string enemyTypeProfilePreset = ImbuementModOptions.NormalizeEnemyTypeProfilePreset(ImbuementModOptions.PresetEnemyTypeProfile);
+            string imbuePreset = ImbuementModOptions.NormalizeImbuePreset(ImbuementModOptions.PresetImbue);
+            string chancePreset = ImbuementModOptions.NormalizeChancePreset(ImbuementModOptions.PresetChance);
+            string strengthPreset = ImbuementModOptions.NormalizeStrengthPreset(ImbuementModOptions.PresetStrength);
 
-            bool valuesChanged = EIPModOptions.ApplySelectedPresets();
+            bool valuesChanged = ImbuementModOptions.ApplySelectedPresets();
             bool uiChanged = SyncAllFactionOptions();
 
-            lastPresetHash = EIPModOptions.GetPresetSelectionHash();
-            lastChanceHash = EIPModOptions.GetChanceStateHash();
+            lastPresetHash = ImbuementModOptions.GetPresetSelectionHash();
+            lastChanceHash = ImbuementModOptions.GetChanceStateHash();
 
             if (force || valuesChanged || uiChanged)
             {
@@ -151,14 +151,14 @@ namespace ImbuementOverhaul.Core
 
         private bool NormalizeChanceFields(bool force)
         {
-            int chanceHashBefore = EIPModOptions.GetChanceStateHash();
+            int chanceHashBefore = ImbuementModOptions.GetChanceStateHash();
             if (!force && chanceHashBefore == lastChanceHash)
             {
                 return false;
             }
 
-            bool valuesChanged = EIPModOptions.NormalizeAllFactionChanceValues();
-            int chanceHashAfter = EIPModOptions.GetChanceStateHash();
+            bool valuesChanged = ImbuementModOptions.NormalizeAllFactionChanceValues();
+            int chanceHashAfter = ImbuementModOptions.GetChanceStateHash();
             lastChanceHash = chanceHashAfter;
 
             if (!valuesChanged)
@@ -174,40 +174,40 @@ namespace ImbuementOverhaul.Core
         {
             bool changed = false;
 
-            for (int faction = 1; faction <= EIPModOptions.FactionCount; faction++)
+            for (int faction = 1; faction <= ImbuementModOptions.FactionCount; faction++)
             {
-                string category = EIPModOptions.GetFactionCategory(faction);
+                string category = ImbuementModOptions.GetFactionCategory(faction);
                 if (string.IsNullOrWhiteSpace(category))
                 {
                     continue;
                 }
 
-                changed |= SyncBoolOption(category, EIPModOptions.GetFactionEnabledOptionName(faction), EIPModOptions.GetFactionEnabled(faction));
+                changed |= SyncBoolOption(category, ImbuementModOptions.GetFactionEnabledOptionName(faction), ImbuementModOptions.GetFactionEnabled(faction));
 
-                for (int slot = 1; slot <= EIPModOptions.ImbueSlotsPerFaction; slot++)
+                for (int slot = 1; slot <= ImbuementModOptions.ImbueSlotsPerFaction; slot++)
                 {
-                    changed |= SyncStringOption(category, EIPModOptions.GetFactionSlotSpellOptionName(faction, slot), EIPModOptions.GetFactionSlotSpell(faction, slot));
-                    changed |= SyncFloatOption(category, EIPModOptions.GetFactionSlotChanceOptionName(faction, slot), EIPModOptions.GetFactionSlotChance(faction, slot));
-                    changed |= SyncFloatOption(category, EIPModOptions.GetFactionSlotStrengthOptionName(faction, slot), EIPModOptions.GetFactionSlotStrength(faction, slot));
+                    changed |= SyncStringOption(category, ImbuementModOptions.GetFactionSlotSpellOptionName(faction, slot), ImbuementModOptions.GetFactionSlotSpell(faction, slot));
+                    changed |= SyncFloatOption(category, ImbuementModOptions.GetFactionSlotChanceOptionName(faction, slot), ImbuementModOptions.GetFactionSlotChance(faction, slot));
+                    changed |= SyncFloatOption(category, ImbuementModOptions.GetFactionSlotStrengthOptionName(faction, slot), ImbuementModOptions.GetFactionSlotStrength(faction, slot));
                 }
             }
 
-            string enemyTypeCategory = EIPModOptions.GetEnemyTypeCategory();
+            string enemyTypeCategory = ImbuementModOptions.GetEnemyTypeCategory();
             if (!string.IsNullOrWhiteSpace(enemyTypeCategory))
             {
-                for (int i = 0; i < EIPModOptions.EnemyTypeArchetypeCount(); i++)
+                for (int i = 0; i < ImbuementModOptions.EnemyTypeArchetypeCount(); i++)
                 {
-                    EIPModOptions.EnemyTypeArchetype archetype = (EIPModOptions.EnemyTypeArchetype)i;
+                    ImbuementModOptions.EnemyTypeArchetype archetype = (ImbuementModOptions.EnemyTypeArchetype)i;
                     changed |= SyncBoolOption(
                         enemyTypeCategory,
-                        EIPModOptions.GetEnemyTypeOptionName(archetype),
-                        EIPModOptions.GetEnemyTypeEligibility(archetype));
+                        ImbuementModOptions.GetEnemyTypeOptionName(archetype),
+                        ImbuementModOptions.GetEnemyTypeEligibility(archetype));
                 }
 
                 changed |= SyncStringOption(
                     enemyTypeCategory,
-                    EIPModOptions.GetEnemyTypeFallbackOptionName(),
-                    EIPModOptions.GetEnemyTypeFallbackMode());
+                    ImbuementModOptions.GetEnemyTypeFallbackOptionName(),
+                    ImbuementModOptions.GetEnemyTypeFallbackMode());
             }
 
             return changed;
@@ -217,17 +217,17 @@ namespace ImbuementOverhaul.Core
         {
             bool changed = false;
 
-            for (int faction = 1; faction <= EIPModOptions.FactionCount; faction++)
+            for (int faction = 1; faction <= ImbuementModOptions.FactionCount; faction++)
             {
-                string category = EIPModOptions.GetFactionCategory(faction);
+                string category = ImbuementModOptions.GetFactionCategory(faction);
                 if (string.IsNullOrWhiteSpace(category))
                 {
                     continue;
                 }
 
-                for (int slot = 1; slot <= EIPModOptions.ImbueSlotsPerFaction; slot++)
+                for (int slot = 1; slot <= ImbuementModOptions.ImbueSlotsPerFaction; slot++)
                 {
-                    changed |= SyncFloatOption(category, EIPModOptions.GetFactionSlotChanceOptionName(faction, slot), EIPModOptions.GetFactionSlotChance(faction, slot));
+                    changed |= SyncFloatOption(category, ImbuementModOptions.GetFactionSlotChanceOptionName(faction, slot), ImbuementModOptions.GetFactionSlotChance(faction, slot));
                 }
             }
 
@@ -254,9 +254,9 @@ namespace ImbuementOverhaul.Core
                 return;
             }
 
-            if (EIPLog.DiagnosticsEnabled)
+            if (ImbuementLog.DiagnosticsEnabled)
             {
-                EIPLog.Info(
+                ImbuementLog.Info(
                     "Preset batch wrote faction collapsible values: " +
                     "factionProfile=" + factionProfilePreset +
                     ", enemyTypeProfile=" + enemyTypeProfilePreset +
@@ -264,42 +264,42 @@ namespace ImbuementOverhaul.Core
                     "imbue=" + imbuePreset +
                     ", chance=" + chancePreset +
                     ", strength=" + strengthPreset +
-                    ", enemyTypes={" + EIPModOptions.GetEnemyTypeEligibilitySummary() + "}" +
+                    ", enemyTypes={" + ImbuementModOptions.GetEnemyTypeEligibilitySummary() + "}" +
                     ", eligibilityMode=" + GetEligibilityModeLabel() +
                     ", valuesChanged=" + valuesChanged +
                     ", uiSynced=" + uiChanged +
                     ", force=" + force);
             }
 
-            EIPLog.Info(
+            ImbuementLog.Info(
                 "Preset explain: factionProfile=" + FriendlyFactionProfileLabel(factionProfilePreset) +
                 ", enemyTypeProfile=" + FriendlyEnemyTypeProfileLabel(enemyTypeProfilePreset) +
                 ", imbue=" + FriendlyImbueLabel(imbuePreset) +
                 ", chance=" + FriendlyChanceLabel(chancePreset) +
                 ", strength=" + FriendlyStrengthLabel(strengthPreset) +
-                ", enemyTypes={" + EIPModOptions.GetEnemyTypeEligibilitySummary() + "}",
+                ", enemyTypes={" + ImbuementModOptions.GetEnemyTypeEligibilitySummary() + "}",
                 verboseOnly: true);
 
             LogEnemyTypeEligibilityHint(enemyTypeProfilePreset);
 
-            for (int faction = 1; faction <= EIPModOptions.FactionCount; faction++)
+            for (int faction = 1; faction <= ImbuementModOptions.FactionCount; faction++)
             {
-                bool enabled = EIPModOptions.GetFactionEnabled(faction);
-                string shortName = EIPModOptions.GetFactionShortName(faction);
+                bool enabled = ImbuementModOptions.GetFactionEnabled(faction);
+                string shortName = ImbuementModOptions.GetFactionShortName(faction);
 
-                string s1Spell = EIPModOptions.GetFactionSlotSpell(faction, 1);
-                float s1Chance = EIPModOptions.GetFactionSlotChance(faction, 1);
-                float s1Strength = EIPModOptions.GetFactionSlotStrength(faction, 1);
+                string s1Spell = ImbuementModOptions.GetFactionSlotSpell(faction, 1);
+                float s1Chance = ImbuementModOptions.GetFactionSlotChance(faction, 1);
+                float s1Strength = ImbuementModOptions.GetFactionSlotStrength(faction, 1);
 
-                string s2Spell = EIPModOptions.GetFactionSlotSpell(faction, 2);
-                float s2Chance = EIPModOptions.GetFactionSlotChance(faction, 2);
-                float s2Strength = EIPModOptions.GetFactionSlotStrength(faction, 2);
+                string s2Spell = ImbuementModOptions.GetFactionSlotSpell(faction, 2);
+                float s2Chance = ImbuementModOptions.GetFactionSlotChance(faction, 2);
+                float s2Strength = ImbuementModOptions.GetFactionSlotStrength(faction, 2);
 
-                string s3Spell = EIPModOptions.GetFactionSlotSpell(faction, 3);
-                float s3Chance = EIPModOptions.GetFactionSlotChance(faction, 3);
-                float s3Strength = EIPModOptions.GetFactionSlotStrength(faction, 3);
+                string s3Spell = ImbuementModOptions.GetFactionSlotSpell(faction, 3);
+                float s3Chance = ImbuementModOptions.GetFactionSlotChance(faction, 3);
+                float s3Strength = ImbuementModOptions.GetFactionSlotStrength(faction, 3);
 
-                EIPLog.Info(
+                ImbuementLog.Info(
                     "Preset write " + shortName +
                     " enabled=" + enabled +
                     " | S1 " + s1Spell + " " + s1Chance.ToString("F1") + "%/" + s1Strength.ToString("F1") + "%" +
@@ -311,7 +311,7 @@ namespace ImbuementOverhaul.Core
 
         private static string GetEligibilityModeLabel()
         {
-            return EIPModOptions.GetEnemyTypeEligibilityModeLabel();
+            return ImbuementModOptions.GetEnemyTypeEligibilityModeLabel();
         }
 
         private static void LogEnemyTypeEligibilityHint(string enemyTypeProfilePreset)
@@ -330,9 +330,9 @@ namespace ImbuementOverhaul.Core
 
             lastEligibilityHintSignature = signature;
 
-            if (EIPLog.DiagnosticsEnabled)
+            if (ImbuementLog.DiagnosticsEnabled)
             {
-                EIPLog.Info(
+                ImbuementLog.Info(
                     "diag evt=eligibility_hint enemyTypeProfile=" + enemyTypeProfilePreset +
                     " mode=" + mode +
                     " note=non_caster_enemy_types_will_be_skipped");
@@ -341,58 +341,58 @@ namespace ImbuementOverhaul.Core
 
         private static string FriendlyFactionProfileLabel(string preset)
         {
-            switch (EIPModOptions.NormalizeFactionProfilePreset(preset))
+            switch (ImbuementModOptions.NormalizeFactionProfilePreset(preset))
             {
-                case EIPModOptions.PresetProfileFrontier: return "Core Factions";
-                case EIPModOptions.PresetProfileWarfront: return "Most Factions";
-                case EIPModOptions.PresetProfileHighMagic: return "All Factions";
-                case EIPModOptions.PresetProfileRandom: return "Random";
+                case ImbuementModOptions.PresetProfileFrontier: return "Core Factions";
+                case ImbuementModOptions.PresetProfileWarfront: return "Most Factions";
+                case ImbuementModOptions.PresetProfileHighMagic: return "All Factions";
+                case ImbuementModOptions.PresetProfileRandom: return "Random";
                 default: return "Default";
             }
         }
 
         private static string FriendlyEnemyTypeProfileLabel(string preset)
         {
-            switch (EIPModOptions.NormalizeEnemyTypeProfilePreset(preset))
+            switch (ImbuementModOptions.NormalizeEnemyTypeProfilePreset(preset))
             {
-                case EIPModOptions.PresetEnemyTypeRanged: return "Ranged";
-                case EIPModOptions.PresetEnemyTypeAll: return "All";
+                case ImbuementModOptions.PresetEnemyTypeRanged: return "Ranged";
+                case ImbuementModOptions.PresetEnemyTypeAll: return "All";
                 default: return "Casters";
             }
         }
 
         private static string FriendlyImbueLabel(string preset)
         {
-            switch (EIPModOptions.NormalizeImbuePreset(preset))
+            switch (ImbuementModOptions.NormalizeImbuePreset(preset))
             {
-                case EIPModOptions.PresetImbueFactionIdentity: return "Two-Slot";
-                case EIPModOptions.PresetImbueArcaneSurge: return "Tri-Slot";
-                case EIPModOptions.PresetImbueElementalChaos: return "Tri-Slot+";
-                case EIPModOptions.PresetImbueRandomized: return "Random";
+                case ImbuementModOptions.PresetImbueFactionIdentity: return "Two-Slot";
+                case ImbuementModOptions.PresetImbueArcaneSurge: return "Tri-Slot";
+                case ImbuementModOptions.PresetImbueElementalChaos: return "Tri-Slot+";
+                case ImbuementModOptions.PresetImbueRandomized: return "Random";
                 default: return "Default";
             }
         }
 
         private static string FriendlyChanceLabel(string preset)
         {
-            switch (EIPModOptions.NormalizeChancePreset(preset))
+            switch (ImbuementModOptions.NormalizeChancePreset(preset))
             {
-                case EIPModOptions.PresetChanceBalanced: return "Increased";
-                case EIPModOptions.PresetChanceAggressive: return "High";
-                case EIPModOptions.PresetChanceRelentless: return "Very High";
-                case EIPModOptions.PresetChanceOverflow: return "Maximum";
+                case ImbuementModOptions.PresetChanceBalanced: return "Increased";
+                case ImbuementModOptions.PresetChanceAggressive: return "High";
+                case ImbuementModOptions.PresetChanceRelentless: return "Very High";
+                case ImbuementModOptions.PresetChanceOverflow: return "Maximum";
                 default: return "Default";
             }
         }
 
         private static string FriendlyStrengthLabel(string preset)
         {
-            switch (EIPModOptions.NormalizeStrengthPreset(preset))
+            switch (ImbuementModOptions.NormalizeStrengthPreset(preset))
             {
-                case EIPModOptions.PresetStrengthStandard: return "Increased";
-                case EIPModOptions.PresetStrengthEmpowered: return "High";
-                case EIPModOptions.PresetStrengthOvercharged: return "Very High";
-                case EIPModOptions.PresetStrengthCataclysmic: return "Maximum";
+                case ImbuementModOptions.PresetStrengthStandard: return "Increased";
+                case ImbuementModOptions.PresetStrengthEmpowered: return "High";
+                case ImbuementModOptions.PresetStrengthOvercharged: return "Very High";
+                case ImbuementModOptions.PresetStrengthCataclysmic: return "Maximum";
                 default: return "Default";
             }
         }
@@ -644,4 +644,5 @@ namespace ImbuementOverhaul.Core
         }
     }
 }
+
 

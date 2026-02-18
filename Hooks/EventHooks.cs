@@ -46,11 +46,11 @@ namespace ImbuementOverhaul.Hooks
                 EventManager.onLevelUnload += onLevelUnloadHandler;
 
                 subscribed = true;
-                EIPLog.Info("Event hooks subscribed.");
+                ImbuementLog.Info("Event hooks subscribed.");
             }
             catch (Exception ex)
             {
-                EIPLog.Error("Failed to subscribe hooks: " + ex.Message);
+                ImbuementLog.Error("Failed to subscribe hooks: " + ex.Message);
             }
         }
 
@@ -78,7 +78,7 @@ namespace ImbuementOverhaul.Hooks
             }
             catch (Exception ex)
             {
-                EIPLog.Warn("Failed to fully unsubscribe hooks: " + ex.Message);
+                ImbuementLog.Warn("Failed to fully unsubscribe hooks: " + ex.Message);
             }
 
             onCreatureSpawnHandler = null;
@@ -89,18 +89,19 @@ namespace ImbuementOverhaul.Hooks
 
         private void OnCreatureSpawn(Creature creature)
         {
-            EnemyImbueManager.Instance.OnCreatureSpawn(creature);
+            FactionImbuementManager.Instance.OnCreatureSpawn(creature);
         }
 
         private void OnCreatureDespawn(Creature creature, EventTime eventTime)
         {
-            EnemyImbueManager.Instance.OnCreatureDespawn(creature, eventTime);
+            FactionImbuementManager.Instance.OnCreatureDespawn(creature, eventTime);
         }
 
         private void OnLevelUnload(LevelData levelData, LevelData.Mode mode, EventTime eventTime)
         {
-            EnemyImbueManager.Instance.OnLevelUnload(levelData, mode, eventTime);
+            FactionImbuementManager.Instance.OnLevelUnload(levelData, mode, eventTime);
         }
     }
 }
+
 
